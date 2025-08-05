@@ -1,0 +1,361 @@
+supDomain: DeviceForProductStrategy
+
+	supDomain: EnforcedAudible
+
+		domain: UnreachableDevices
+			conf: Calibration
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					# no enforced_audible on remote submix (e.g. WFD)
+					hdmi_arc = 0
+					spdif = 0
+					aux_line = 0
+					speaker_safe = 0
+					ip = 0
+					bus = 0
+					fm = 0
+					proxy = 0
+					usb_headset = 0
+					stub = 0
+
+		domain: Speaker
+			conf: Selected
+				#
+				# strategy STRATEGY_ENFORCED_AUDIBLE uses same routing policy as STRATEGY_SONIFICATION
+				# except:
+				#    - when in call where it doesn't default to STRATEGY_PHONE behavior
+				#    - in countries where not enforced in which case it follows STRATEGY_MEDIA
+				#
+				AvailableOutputDevices Includes SPEAKER
+				ANY
+					ForceUseForSystem Is SYSTEM_ENFORCED
+					ALL
+						ForceUseForMedia Is SPEAKER
+						AvailableOutputDevices Excludes REMOTE_SUBMIX
+						ANY
+							ForceUseForMedia IsNot NO_BT_A2DP
+							AvailableOutputDevices Excludes BLUETOOTH_A2DP
+							AvailableOutputDevices Excludes BLUETOOTH_A2DP_HEADPHONES
+							AvailableOutputDevices Excludes BLUETOOTH_A2DP_SPEAKER
+					#
+					# Speaker is also the fallback device if any of the device from Device2 domain
+					# is selected.
+					#
+					ALL
+						AvailableOutputDevices Excludes REMOTE_SUBMIX
+						AvailableOutputDevices Excludes WIRED_HEADPHONE
+						AvailableOutputDevices Excludes LINE
+						AvailableOutputDevices Excludes WIRED_HEADSET
+						AvailableOutputDevices Excludes USB_ACCESSORY
+						AvailableOutputDevices Excludes USB_DEVICE
+						AvailableOutputDevices Excludes DGTL_DOCK_HEADSET
+						AvailableOutputDevices Excludes HDMI
+						ANY
+							AvailableOutputDevices Excludes ANLG_DOCK_HEADSET
+							ForceUseForDock IsNot ANALOG_DOCK
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					speaker = 1
+
+			conf: NotSelected
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					speaker = 0
+
+		domain: Device2
+			conf: RemoteSubmix
+				AvailableOutputDevices Includes REMOTE_SUBMIX
+				AvailableOutputDevicesAddresses Includes 0
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 1
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: BluetoothA2dp
+				AvailableOutputDevices Includes BLUETOOTH_A2DP
+				ForceUseForMedia IsNot NO_BT_A2DP
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 1
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: BluetoothA2dpHeadphones
+				AvailableOutputDevices Includes BLUETOOTH_A2DP_HEADPHONES
+				ForceUseForMedia IsNot NO_BT_A2DP
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 1
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: BluetoothA2dpSpeaker
+				AvailableOutputDevices Includes BLUETOOTH_A2DP_SPEAKER
+				ForceUseForMedia IsNot NO_BT_A2DP
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 1
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: WiredHeadphone
+				ForceUseForMedia IsNot SPEAKER
+				AvailableOutputDevices Includes WIRED_HEADPHONE
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 1
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: Line
+				ForceUseForMedia IsNot SPEAKER
+				AvailableOutputDevices Includes LINE
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 1
+
+			conf: WiredHeadset
+				ForceUseForMedia IsNot SPEAKER
+				AvailableOutputDevices Includes WIRED_HEADSET
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 1
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: UsbAccessory
+				ForceUseForMedia IsNot SPEAKER
+				AvailableOutputDevices Includes USB_ACCESSORY
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 1
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: UsbDevice
+				ForceUseForMedia IsNot SPEAKER
+				AvailableOutputDevices Includes USB_DEVICE
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 1
+					telephony_tx = 0
+					line = 0
+
+			conf: DgtlDockHeadset
+				ForceUseForMedia IsNot SPEAKER
+				AvailableOutputDevices Includes DGTL_DOCK_HEADSET
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 1
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: Hdmi
+				ForceUseForMedia IsNot SPEAKER
+				AvailableOutputDevices Includes HDMI
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 1
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: AnlgDockHeadset
+				ForceUseForMedia IsNot SPEAKER
+				ForceUseForDock Is ANALOG_DOCK
+				AvailableOutputDevices Includes ANLG_DOCK_HEADSET
+
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 1
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: NoDevice
+				component: /Policy/policy/product_strategies/STRATEGY_ENFORCED_AUDIBLE/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+
