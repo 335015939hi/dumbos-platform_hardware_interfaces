@@ -26,7 +26,7 @@ rust_library {
     rustlibs: [
         "libciborium",
         "libcoset",
-        "libdiced_open_dice",
+        "libdiced_open_dice_multialg",
         "libexplicitkeydice",
         "libhex",
         "liblog_rust",
