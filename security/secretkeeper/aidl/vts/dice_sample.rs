@@ -31,8 +31,9 @@ use coset::{
 pub use diced_open_dice::CDI_SIZE;
 use diced_open_dice::{
     derive_cdi_private_key_seed, keypair_from_seed, retry_bcc_format_config_descriptor,
-    retry_bcc_main_flow, retry_dice_main_flow, Config, DiceArtifacts, DiceConfigValues, DiceError,
-    DiceMode, InputValues, OwnedDiceArtifacts, HASH_SIZE, HIDDEN_SIZE,
+    retry_bcc_main_flow, retry_dice_main_flow, Config, DiceArtifacts, DiceConfigValues,
+    DiceContext, DiceError, DiceMode, InputValues, KeyAlgorithm::Ed25519, OwnedDiceArtifacts,
+    HASH_SIZE, HIDDEN_SIZE,
 };
 use explicitkeydice::OwnedDiceArtifactsWithExplicitKey;
 use log::error;
@@ -202,9 +203,14 @@ fn make_sample_bcc_and_cdis(
         DiceMode::kDiceModeNormal,
         HIDDEN_AVB,
     );
-    let dice_artifacts =
-        retry_bcc_main_flow(&cdi_values.cdi_attest, &cdi_values.cdi_seal, &bcc, &input_values)
-            .unwrap();
+    let dice_artifacts = retry_bcc_main_flow(
+        DiceContext { authority_algorithm: Ed25519, subject_algorithm: Ed25519 },
+        &cdi_values.cdi_attest,
+        &cdi_values.cdi_seal,
+        &bcc,
+        &input_values,
+    )
+    .unwrap();
 
     // Appends Android certificate to DICE chain.
     let config_values = DiceConfigValues {
@@ -223,6 +229,7 @@ fn make_sample_bcc_and_cdis(
         [0u8; HIDDEN_SIZE], // hidden
     );
     retry_bcc_main_flow(
+        DiceContext { authority_algorithm: Ed25519, subject_algorithm: Ed25519 },
         dice_artifacts.cdi_attest(),
         dice_artifacts.cdi_seal(),
         dice_artifacts
