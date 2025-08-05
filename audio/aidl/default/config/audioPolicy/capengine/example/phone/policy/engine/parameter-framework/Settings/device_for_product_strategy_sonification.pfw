@@ -1,0 +1,490 @@
+supDomain: DeviceForProductStrategy
+	supDomain: Sonification
+		domain: UnreachableDevices
+			conf: calibration
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					remote_submix = 0
+					hdmi_arc = 0
+					spdif = 0
+					fm = 0
+					speaker_safe = 0
+					aux_line = 0
+					#
+					# Sonification follows phone strategy if in call but HDMI is not reachable
+					#
+					hdmi = 0
+					bus = 0
+					ip = 0
+					proxy = 0
+					usb_headset = 0
+					stub = 0
+				/Policy/policy/product_strategies/STRATEGY_SONIFICATION/device_address =
+
+		domain: Speaker
+
+			conf: Selected
+				AvailableOutputDevices Includes SPEAKER
+				ANY
+					#
+					# Sonification falls through ENFORCED_AUDIBLE if not in call (widely speaking)
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+					ALL
+						#
+						# Sonification follows phone strategy if in call (widely speaking)
+						#
+						ForceUseForCommunication Is SPEAKER
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						AvailableOutputDevices Excludes LINE
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					speaker = 1
+
+			conf: NotSelected
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					speaker = 0
+
+		domain: Device2
+
+			conf: BluetoothA2dp
+				#
+				# Sonification falls through media strategy if not in call (widely speaking)
+				#
+				AvailableOutputDevices Includes BLUETOOTH_A2DP
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot NO_BT_A2DP
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 1
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: BluetoothA2dpHeadphones
+				#
+				# Sonification falls through media strategy if not in call (widely speaking)
+				#
+				AvailableOutputDevices Includes BLUETOOTH_A2DP_HEADPHONES
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot NO_BT_A2DP
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 1
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: BluetoothA2dpSpeaker
+				#
+				# Sonification falls through media strategy if not in call (widely speaking)
+				#
+				AvailableOutputDevices Includes BLUETOOTH_A2DP_SPEAKER
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot NO_BT_A2DP
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 1
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: ScoCarkit
+				#
+				# Sonification follows phone strategy if in call (widely speaking)
+				#
+				ANY
+					TelephonyMode Is IN_CALL
+					TelephonyMode Is IN_COMMUNICATION
+				ForceUseForCommunication Is BT_SCO
+				AvailableOutputDevices Includes BLUETOOTH_SCO_CARKIT
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 1
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: ScoHeadset
+				#
+				# Sonification follows phone strategy if in call (widely speaking)
+				#
+				ANY
+					TelephonyMode Is IN_CALL
+					TelephonyMode Is IN_COMMUNICATION
+				ForceUseForCommunication Is BT_SCO
+				AvailableOutputDevices Includes BLUETOOTH_SCO_HEADSET
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 1
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: Sco
+				#
+				# Sonification follows phone strategy if in call (widely speaking)
+				#
+				ANY
+					TelephonyMode Is IN_CALL
+					TelephonyMode Is IN_COMMUNICATION
+				ForceUseForCommunication Is BT_SCO
+				AvailableOutputDevices Includes BLUETOOTH_SCO
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 1
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: WiredHeadphone
+				AvailableOutputDevices Includes WIRED_HEADPHONE
+				ANY
+					#
+					# Sonification falls through media strategy if not in call (widely speaking)
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+						ForceUseForMedia IsNot SPEAKER
+					#
+					# Sonification follows Phone strategy if in call (widely speaking)
+					#
+					ALL
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication IsNot SPEAKER
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 1
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: Line
+				AvailableOutputDevices Includes LINE
+				ANY
+					#
+					# Sonification follows Phone strategy if in call (widely speaking)
+					# but Line has a lower priority than WiredHeadset in this case.
+					#
+					ALL
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication IsNot SPEAKER
+						AvailableOutputDevices Excludes WIRED_HEADSET
+					#
+					# Sonification falls through media strategy if not in call (widely speaking)
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+						ForceUseForMedia IsNot SPEAKER
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 1
+
+			conf: WiredHeadset
+				AvailableOutputDevices Includes WIRED_HEADSET
+				ANY
+					#
+					# Sonification falls through media strategy if not in call (widely speaking)
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+						ForceUseForMedia IsNot SPEAKER
+					ALL
+						#
+						# Sonification Follows Phone Strategy if in call (widely speaking)
+						#
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication IsNot SPEAKER
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 1
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: UsbDevice
+				AvailableOutputDevices Includes USB_DEVICE
+				ANY
+					#
+					# Sonification falls through media strategy if not in call (widely speaking)
+					#
+					ALL
+						AvailableOutputDevices Excludes USB_ACCESSORY
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+						ForceUseForMedia IsNot SPEAKER
+					ALL
+						#
+						# Sonification Follows Phone Strategy if in call (widely speaking)
+						#
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication IsNot SPEAKER
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 1
+					telephony_tx = 0
+					line = 0
+
+			conf: UsbAccessory
+				AvailableOutputDevices Includes USB_ACCESSORY
+				#
+				# Sonification falls through media strategy if not in call (widely speaking)
+				#
+				# Sonification Follows Phone Strategy if in call (widely speaking)
+				# but USB Accessory not reachable in call.
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot SPEAKER
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 1
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: DgtlDockHeadset
+				AvailableOutputDevices Includes DGTL_DOCK_HEADSET
+				#
+				# Sonification falls through media strategy if not in call
+				#
+				# Sonification Follows Phone Strategy if in call (widely speaking)
+				# but DgtlDockHeadset not reachable in call.
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot SPEAKER
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 1
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: AnlgDockHeadset
+				AvailableOutputDevices Includes ANLG_DOCK_HEADSET
+				#
+				# Sonification falls through media strategy if not in call
+				#
+				# Sonification Follows Phone Strategy if in call (widely speaking)
+				# but AnlgDockHeadset not reachable in call.
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot SPEAKER
+				ForceUseForDock Is ANALOG_DOCK
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 1
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: Earpiece
+				#
+				# Sonification Follows Phone Strategy if in call
+				#
+				ANY
+					TelephonyMode Is IN_CALL
+					TelephonyMode Is IN_COMMUNICATION
+				ForceUseForCommunication IsNot SPEAKER
+				AvailableOutputDevices Includes EARPIECE
+
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 1
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+
+			conf: None
+				component: /Policy/policy/product_strategies/STRATEGY_SONIFICATION/selected_output_devices/mask
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
