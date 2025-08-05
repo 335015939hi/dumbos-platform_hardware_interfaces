@@ -1,0 +1,340 @@
+supDomain: DeviceForProductStrategy
+	supDomain: Media
+		domain: UnreachableDevices
+			conf: calibration
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					fm = 0
+					speaker_safe = 0
+					earpiece = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_sco_carkit = 0
+					telephony_tx = 0
+					ip = 0
+					proxy = 0
+					usb_headset = 0
+					bus = 0
+					stub = 0
+				/Policy/policy/product_strategies/media/device_address =
+
+		domain: Device2
+			conf: RemoteSubmix
+				AvailableOutputDevices Includes REMOTE_SUBMIX
+				AvailableOutputDevicesAddresses Includes 0
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 1
+					line = 0
+
+			conf: BluetoothA2dp
+				ForceUseForMedia IsNot NO_BT_A2DP
+				ForceUseForCommunication IsNot BT_SCO
+				AvailableOutputDevices Includes BLUETOOTH_A2DP
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 1
+					remote_submix = 0
+					line = 0
+
+			conf: BluetoothA2dpHeadphone
+				ForceUseForMedia IsNot NO_BT_A2DP
+				ForceUseForCommunication IsNot BT_SCO
+				AvailableOutputDevices Includes BLUETOOTH_A2DP_HEADPHONES
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 1
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: BluetoothA2dpSpeaker
+				ForceUseForMedia IsNot NO_BT_A2DP
+				ForceUseForCommunication IsNot BT_SCO
+				AvailableOutputDevices Includes BLUETOOTH_A2DP_SPEAKER
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 1
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: ForceSpeaker
+				ForceUseForMedia Is SPEAKER
+				AvailableOutputDevices Includes SPEAKER
+				#
+				# If hdmi system audio mode is on, remove speaker out of output list.
+				#
+				ForceUseForHdmiSystemAudio IsNot HDMI_SYSTEM_AUDIO_ENFORCED
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 1
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: WiredHeadphone
+				AvailableOutputDevices Includes WIRED_HEADPHONE
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 1
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: Line
+				AvailableOutputDevices Includes LINE
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 1
+
+			conf: WiredHeadset
+				AvailableOutputDevices Includes WIRED_HEADSET
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 1
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: UsbAccessory
+				AvailableOutputDevices Includes USB_ACCESSORY
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 1
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: UsbDevice
+				AvailableOutputDevices Includes USB_DEVICE
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 1
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: DgtlDockHeadset
+				AvailableOutputDevices Includes DGTL_DOCK_HEADSET
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 1
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: AuxDigital
+				AvailableOutputDevices Includes HDMI
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 1
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: AnlgDockHeadset
+				AvailableOutputDevices Includes ANLG_DOCK_HEADSET
+				ForceUseForDock Is ANALOG_DOCK
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 1
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: Speaker
+				AvailableOutputDevices Includes SPEAKER
+				#
+				# If hdmi system audio mode is on, remove speaker out of output list.
+				#
+				ForceUseForHdmiSystemAudio IsNot HDMI_SYSTEM_AUDIO_ENFORCED
+				ForceUseForCommunication IsNot BT_SCO
+
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 1
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+			conf: Default
+				component: /Policy/policy/product_strategies/media/selected_output_devices/mask
+					speaker = 0
+					hdmi = 0
+					dgtl_dock_headset = 0
+					anlg_dock_headset = 0
+					usb_device = 0
+					usb_accessory = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_a2dp_speaker = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp = 0
+					remote_submix = 0
+					line = 0
+
+		domain: Arc
+			#
+			# these following domains consists in device(s) that can co-exist with others
+			# e.g. ARC, SPDIF, AUX_LINE
+			#
+			conf: Selected
+				AvailableOutputDevices Includes HDMI_ARC
+
+				/Policy/policy/product_strategies/media/selected_output_devices/mask/hdmi_arc = 1
+
+			conf: NotSelected
+				/Policy/policy/product_strategies/media/selected_output_devices/mask/hdmi_arc = 0
+
+		domain: Spdif
+			#
+			# these following domains consists in device(s) that can co-exist with others
+			# e.g. ARC, SPDIF, AUX_LINE
+			#
+			conf: Selected
+				AvailableOutputDevices Includes SPDIF
+
+				/Policy/policy/product_strategies/media/selected_output_devices/mask/spdif = 1
+
+			conf: NotSelected
+				/Policy/policy/product_strategies/media/selected_output_devices/mask/spdif = 0
+
+		domain: AuxLine
+			conf: Selected
+				AvailableOutputDevices Includes AUX_LINE
+
+				/Policy/policy/product_strategies/media/selected_output_devices/mask/aux_line = 1
+
+			conf: NotSelected
+				/Policy/policy/product_strategies/media/selected_output_devices/mask/aux_line = 0

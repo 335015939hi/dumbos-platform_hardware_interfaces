@@ -1,0 +1,625 @@
+supDomain: DeviceForProductStrategies
+	supDomain: Dtmf
+		domain: UnreachableDevices
+			conf: calibration
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					fm = 0
+					speaker_safe = 0
+					bluetooth_sco_carkit = 0
+					ip = 0
+					bus = 0
+					proxy = 0
+					usb_headset = 0
+					stub = 0
+				/Policy/policy/product_strategies/dtmf/device_address =
+
+		domain: Device2
+			conf: RemoteSubmix
+				#
+				# DTMF follows Media strategy if not in call
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes REMOTE_SUBMIX
+				AvailableOutputDevicesAddresses Includes 0
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 1
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: BluetoothA2dp
+				#
+				# DTMF follows Media strategy if not in call
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot NO_BT_A2DP
+				AvailableOutputDevices Includes BLUETOOTH_A2DP
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 1
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: BluetoothA2dpHeadphones
+				#
+				# DTMF follows Media strategy if not in call
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot NO_BT_A2DP
+				AvailableOutputDevices Includes BLUETOOTH_A2DP_HEADPHONES
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 1
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: BluetoothA2dpSpeaker
+				#
+				# DTMF follows Media strategy if not in call
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia IsNot NO_BT_A2DP
+				AvailableOutputDevices Includes BLUETOOTH_A2DP_SPEAKER
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 1
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: ForceSpeakerWhenNotInCall
+				#
+				# DTMF follows Media strategy if not in call
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForMedia Is SPEAKER
+				ForceUseForHdmiSystemAudio IsNot HDMI_SYSTEM_AUDIO_ENFORCED
+				AvailableOutputDevices Includes SPEAKER
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 1
+
+			conf: BluetoothScoHeadset
+				#
+				# DTMF falls through Phone strategy if in call
+				#
+				ANY
+					TelephonyMode Is IN_CALL
+					TelephonyMode Is IN_COMMUNICATION
+				AvailableOutputDevices Includes BLUETOOTH_SCO_HEADSET
+				ForceUseForCommunication Is BT_SCO
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 1
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: BluetoothSco
+				#
+				# DTMF falls through Phone strategy if in call
+				#
+				ANY
+					TelephonyMode Is IN_CALL
+					TelephonyMode Is IN_COMMUNICATION
+				AvailableOutputDevices Includes BLUETOOTH_SCO
+				ForceUseForCommunication Is BT_SCO
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 1
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: WiredHeadphone
+				ANY
+					#
+					# DTMF falls through Phone strategy if in call
+					#
+					ALL
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication IsNot SPEAKER
+					#
+					# DTMF follows Media strategy if not in call
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes WIRED_HEADPHONE
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 1
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: Line
+				ANY
+					#
+					# DTMF falls through Phone strategy if in call
+					# but Line has a lower priority than WiredHeadset in this case.
+					#
+					ALL
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication IsNot SPEAKER
+						AvailableOutputDevices Excludes WIRED_HEADSET
+					#
+					# DTMF follows Media strategy if not in call
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes LINE
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 1
+					speaker = 0
+
+			conf: WiredHeadset
+				ANY
+					#
+					# DTMF falls through Phone strategy if in call
+					#
+					ALL
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication IsNot SPEAKER
+					#
+					# DTMF follows Media strategy if not in call
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes WIRED_HEADSET
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 1
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: UsbDevice
+				ANY
+					#
+					# DTMF falls through Phone strategy if in call (widely speaking)
+					#
+					ALL
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication IsNot SPEAKER
+					#
+					# DTMF follows Media strategy if not in call
+					# Media strategy inverts the priority of USB device vs accessory
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+						AvailableOutputDevices Excludes USB_ACCESSORY
+						ForceUseForCommunication Is SPEAKER
+				AvailableOutputDevices Includes USB_DEVICE
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 1
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: UsbAccessory
+				#
+				# DTMF falls through Phone strategy if in call (widely speaking)
+				# but USB accessory not reachable in call
+				#
+				# DTMF follows Media strategy if not in call
+				# Media strategy inverts the priority of USB device vs accessory
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes USB_ACCESSORY
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 1
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: DgtlDockHeadset
+				#
+				# DTMF falls through Phone strategy if in call (widely speaking)
+				# but DgtlDockHeadset not reachable in call
+				#
+				# DTMF follows Media strategy if not in call
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes DGTL_DOCK_HEADSET
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 1
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: Hdmi
+				#
+				# DTMF falls through Phone strategy if in call (widely speaking)
+				# but Hdmi not reachable in call
+				#
+				# DTMF follows Media strategy if not in call
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes HDMI
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 1
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: AnlgDockHeadset
+				#
+				# DTMF falls through Phone strategy if in call (widely speaking)
+				# but AnlgDockHeadset not reachable in call
+				#
+				# DTMF follows Media strategy if not in call
+				# Media strategy inverts the priority of USB device vs accessory
+				#
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				ForceUseForDock Is ANALOG_DOCK
+				AvailableOutputDevices Includes ANLG_DOCK_HEADSET
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 1
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: Earpiece
+				#
+				# DTMF falls through Phone strategy if in call
+				#
+				ANY
+					TelephonyMode Is IN_CALL
+					TelephonyMode Is IN_COMMUNICATION
+				AvailableOutputDevices Includes EARPIECE
+				ForceUseForCommunication IsNot SPEAKER
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 1
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+			conf: Speaker
+				ANY
+					#
+					# DTMF falls through Phone strategy if in call
+					#
+					ALL
+						ANY
+							TelephonyMode Is IN_CALL
+							TelephonyMode Is IN_COMMUNICATION
+						ForceUseForCommunication Is SPEAKER
+					#
+					# DTMF follows Media strategy if not in call
+					#
+					ALL
+						TelephonyMode IsNot IN_CALL
+						TelephonyMode IsNot IN_COMMUNICATION
+						ForceUseForHdmiSystemAudio IsNot HDMI_SYSTEM_AUDIO_ENFORCED
+				AvailableOutputDevices Includes SPEAKER
+
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 1
+
+			conf: Default
+				component: /Policy/policy/product_strategies/dtmf/selected_output_devices/mask
+					remote_submix = 0
+					earpiece = 0
+					wired_headset = 0
+					wired_headphone = 0
+					bluetooth_sco = 0
+					bluetooth_sco_headset = 0
+					bluetooth_a2dp = 0
+					bluetooth_a2dp_headphones = 0
+					bluetooth_a2dp_speaker = 0
+					hdmi = 0
+					anlg_dock_headset = 0
+					dgtl_dock_headset = 0
+					usb_accessory = 0
+					usb_device = 0
+					telephony_tx = 0
+					line = 0
+					speaker = 0
+
+		domain: Arc
+			#
+			# DTMF strategy follows media strategy if not in call
+			# these following domains consists in device(s) that can co-exist with others
+			# e.g. ARC, SPDIF, AUX_LINE
+			#
+			conf: Selected
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes HDMI_ARC
+
+				/Policy/policy/product_strategies/dtmf/selected_output_devices/mask/hdmi_arc = 1
+
+			conf: NotSelected
+				/Policy/policy/product_strategies/dtmf/selected_output_devices/mask/hdmi_arc = 0
+
+		domain: Spdif
+			#
+			# DTMF strategy follows media strategy if not in call
+			# these following domains consists in device(s) that can co-exist with others
+			# e.g. ARC, SPDIF, AUX_LINE
+			#
+			conf: Selected
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes SPDIF
+
+				/Policy/policy/product_strategies/dtmf/selected_output_devices/mask/spdif = 1
+
+			conf: NotSelected
+				/Policy/policy/product_strategies/dtmf/selected_output_devices/mask/spdif = 0
+
+		domain: AuxLine
+			#
+			# DTMF strategy follows media strategy if not in call
+			# these following domains consists in device(s) that can co-exist with others
+			# e.g. ARC, SPDIF, AUX_LINE
+			#
+			conf: Selected
+				TelephonyMode IsNot IN_CALL
+				TelephonyMode IsNot IN_COMMUNICATION
+				AvailableOutputDevices Includes AUX_LINE
+
+				/Policy/policy/product_strategies/dtmf/selected_output_devices/mask/aux_line = 1
+
+			conf: NotSelected
+				/Policy/policy/product_strategies/dtmf/selected_output_devices/mask/aux_line = 0
