@@ -141,6 +141,7 @@ fn make_sample_bcc_and_cdis(
     uds: &[u8; CDI_SIZE],
     subcomponents: Subcomponents,
 ) -> OwnedDiceArtifacts {
+    let dice_context = DiceContext { authority_algorithm: Ed25519, subject_algorithm: Ed25519 };
     let private_key_seed = derive_cdi_private_key_seed(uds).unwrap();
 
     // Gets the root public key in DICE chain (BCC).
@@ -162,7 +163,7 @@ fn make_sample_bcc_and_cdis(
         DiceMode::kDiceModeNormal,
         HIDDEN_ABL,
     );
-    let (cdi_values, cert) = retry_dice_main_flow(uds, uds, &input_values).unwrap();
+    let (cdi_values, cert) = retry_dice_main_flow(dice_context, uds, uds, &input_values).unwrap();
     let bcc_value =
         Value::Array(vec![ed25519_public_key_value, de::from_reader(&cert[..]).unwrap()]);
     let mut bcc: Vec<u8> = vec![];
@@ -229,7 +230,7 @@ fn make_sample_bcc_and_cdis(
         [0u8; HIDDEN_SIZE], // hidden
     );
     retry_bcc_main_flow(
-        DiceContext { authority_algorithm: Ed25519, subject_algorithm: Ed25519 },
+        dice_context,
         dice_artifacts.cdi_attest(),
         dice_artifacts.cdi_seal(),
         dice_artifacts
