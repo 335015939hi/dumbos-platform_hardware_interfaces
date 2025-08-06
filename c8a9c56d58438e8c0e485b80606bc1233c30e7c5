@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d3f63e_cd3b1e6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-08-06T20:55:16Z",
+      "side": 1,
+      "message": "LGTM. Eric, Oscar, do you have any questions?",
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec6fa214_9d857a3d",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-08-06T20:55:16Z",
+      "side": 1,
+      "message": "Should command line examples be in ``` blocks?",
+      "fixSuggestions": [
+        {
+          "fixId": "903b350e_0dc5b3c6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+              "range": {
+                "startLine": 5,
+                "startChar": 0,
+                "endLine": 21,
+                "endChar": 0
+              },
+              "replacement": "```shell\ncd $ANDROID_BUILD_TOP\npython3 legacyToAidlCapEngineConfigConversion.py \\\n    --legacyEngineStrategyConfiguration ../config/example/phone/audio_policy_engine_product_strategies.xml \\\n    --legacyPFwEdds ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_accessibility.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_dtmf.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_enforced_audible.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_media.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_patch.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_phone.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_rerouting.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_sonification.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_sonification_respectful.pfw \\\n                    ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_transmitted_through_speaker.pfw \\\n    --outputDir $ANDROID_BUILD_TOP/hardware/interfaces/audio/aidl/default/config/audioPolicy/capengine/example/phone/ \\\n    --androidTreeRoot $ANDROID_BUILD_TOP\n```\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+              "range": {
+                "startLine": 25,
+                "startChar": 0,
+                "endLine": 31,
+                "endChar": 0
+              },
+              "replacement": "```shell\npython3 legacyToAidlCapEngineConfigConversion.py \\\n    --legacyEngineStrategyConfiguration ../config/example/automotive/audio_policy_engine_product_strategies.xml \\\n    --legacyPFwEdds ../parameter-framework/examples/Car/Settings/device_for_product_strategies.pfw \\\n                    ../parameter-framework/examples/Settings/device_for_input_source.pfw \\\n    --outputDir $ANDROID_BUILD_TOP/hardware/interfaces/audio/aidl/default/config/audioPolicy/capengine/example/automotive/ \\\n    --androidTreeRoot $ANDROID_BUILD_TOP\n```\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1863ff1d_41ee9830",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-08-06T20:55:16Z",
+      "side": 1,
+      "message": "I think, XML files should have copyright.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 22
+      },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
