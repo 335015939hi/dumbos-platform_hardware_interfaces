@@ -128,6 +128,7 @@
         <interface>
             <name>IBluetoothAudioProviderFactory</name>
             <instance>default</instance>
+            <instance>new</instance>
         </interface>
     </hal>
     <hal format="aidl">
