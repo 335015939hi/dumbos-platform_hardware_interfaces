@@ -142,7 +142,7 @@ fn make_sample_bcc_and_cdis(
     subcomponents: Subcomponents,
 ) -> OwnedDiceArtifacts {
     let dice_context = DiceContext { authority_algorithm: Ed25519, subject_algorithm: Ed25519 };
-    let private_key_seed = derive_cdi_private_key_seed(uds).unwrap();
+    let private_key_seed = derive_cdi_private_key_seed(dice_context, uds).unwrap();
 
     // Gets the root public key in DICE chain (BCC).
     let (public_key, _) = keypair_from_seed(private_key_seed.as_array()).unwrap();
