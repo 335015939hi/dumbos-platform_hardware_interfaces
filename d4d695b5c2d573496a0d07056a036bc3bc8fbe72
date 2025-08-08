@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c811765_f2a7488b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-08-08T16:27:06Z",
+      "side": 1,
+      "message": "I support this fix. However, I have a question: in the bug you say you are using `VTS version: Android Vendor Test Suite 14_r7`, but you have uploaded patch to `android13-tests-dev`. Did you actually mean `android14-tests-dev`?",
+      "revId": "d4d695b5c2d573496a0d07056a036bc3bc8fbe72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
