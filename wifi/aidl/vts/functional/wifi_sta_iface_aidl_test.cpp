@@ -52,6 +52,9 @@ using aidl::android::hardware::wifi::WifiStatusCode;
 class WifiStaIfaceAidlTest : public testing::TestWithParam<std::string> {
   public:
     void SetUp() override {
+        if (!::testing::deviceSupportsFeature("android.hardware.wifi")) {
+            GTEST_SKIP() << "Skipping this test since wifi is not supported.";
+        }
         stopWifiService(getInstanceName());
         wifi_sta_iface_ = getWifiStaIface(getInstanceName());
         ASSERT_NE(nullptr, wifi_sta_iface_.get());
