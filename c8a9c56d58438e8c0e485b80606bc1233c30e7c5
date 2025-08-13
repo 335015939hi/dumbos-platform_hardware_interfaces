@@ -18,6 +18,104 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d03a67f_07c4c51d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "dio",
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d14460_410ba3e7",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "Maybe add a bit more description about what this is for.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 25
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "97f49e0b_2fd3a3cd",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+              "range": {
+                "startLine": 3,
+                "startChar": 0,
+                "endLine": 3,
+                "endChar": 0
+              },
+              "replacement": "This document provides example command lines to migrate legacy CAP engine\nconfiguration files (XML and PFW) to AIDL format.\nThe script `legacyToAidlCapEngineConfigConversion.py` is used to perform this\nmigration.\n\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+              "range": {
+                "startLine": 8,
+                "startChar": 0,
+                "endLine": 10,
+                "endChar": 0
+              },
+              "replacement": "\u003e --legacyEngineStrategyConfiguration \\\n\u003e   ../config/example/phone/audio_policy_engine_product_strategies.xml\n\u003e --legacyPFwEdds \\\n\u003e                 ../parameter-framework/examples/Phone/Settings/device_for_product_strategy_accessibility.pfw\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+              "range": {
+                "startLine": 19,
+                "startChar": 0,
+                "endLine": 20,
+                "endChar": 0
+              },
+              "replacement": "\u003e --outputDir \\\n\u003e   $ANDROID_BUILD_TOP/hardware/interfaces/audio/aidl/default/config/audioPolicy/capengine/example/phone/\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+              "range": {
+                "startLine": 26,
+                "startChar": 0,
+                "endLine": 28,
+                "endChar": 0
+              },
+              "replacement": "\u003e --legacyEngineStrategyConfiguration \\\n\u003e   ../config/example/automotive/audio_policy_engine_product_strategies.xml\n\u003e --legacyPFwEdds \\\n\u003e                 ../parameter-framework/examples/Car/Settings/device_for_product_strategies.pfw\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/README.md",
+              "range": {
+                "startLine": 29,
+                "startChar": 0,
+                "endLine": 30,
+                "endChar": 0
+              },
+              "replacement": "\u003e --outputDir \\\n\u003e   $ANDROID_BUILD_TOP/hardware/interfaces/audio/aidl/default/config/audioPolicy/capengine/example/automotive/\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec6fa214_9d857a3d",
@@ -82,6 +180,500 @@
         "endLine": 1,
         "endChar": 22
       },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aca96cb2_b3f2e30b",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "Should we match tag with the name of the volume, OEM is rather generic.\n\nHere we would user oem_traffic_announcement, same for other strategies.",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "51893c65_8e78a46e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 7,
+                "startChar": 0,
+                "endLine": 8,
+                "endChar": 0
+              },
+              "replacement": "            \u003cBundle key\u003d\"oem_traffic_announcement\" value\u003d\"1\"/\u003e\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 14,
+                "startChar": 0,
+                "endLine": 15,
+                "endChar": 0
+              },
+              "replacement": "            \u003cBundle key\u003d\"oem_adas_2\" value\u003d\"2\"/\u003e\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 21,
+                "startChar": 0,
+                "endLine": 22,
+                "endChar": 0
+              },
+              "replacement": "            \u003cBundle key\u003d\"oem_adas_3\" value\u003d\"3\"/\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d976221_b3586e1a",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "oem_strategy_1 is rather generic, can we use oem_adas?\n\nAlso why do we need more than one oem_adas strategy?",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "169038c9_b0cd00b7",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "Is this mostly for volume management? I see the routing is for the same device as oem_traffic_announcement.",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "81516333_55ab4c22",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 3,
+                "startChar": 0,
+                "endLine": 3,
+                "endChar": 0
+              },
+              "replacement": "    \u003c!-- Example of OEM specific product strategies for volume management --\u003e\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 24,
+                "startChar": 0,
+                "endLine": 24,
+                "endChar": 0
+              },
+              "replacement": "    \u003c!-- Example of product strategies for car audio types --\u003e\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 38,
+                "startChar": 0,
+                "endLine": 38,
+                "endChar": 0
+              },
+              "replacement": "    \u003c!-- Example of product strategies for voice command --\u003e\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 53,
+                "startChar": 0,
+                "endLine": 53,
+                "endChar": 0
+              },
+              "replacement": "    \u003c!-- Example of product strategies for safety alerts --\u003e\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 60,
+                "startChar": 0,
+                "endLine": 60,
+                "endChar": 0
+              },
+              "replacement": "    \u003c!-- Standard product strategies --\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba3b93d_ea32937c",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "Same here, media_car_radio and can we change the volume group to media_car_radio also?",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 39
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7d0079a0_b313880c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 25,
+                "startChar": 0,
+                "endLine": 26,
+                "endChar": 0
+              },
+              "replacement": "        \u003cAttributesGroup volumeGroup\u003d\"media_car_radio\"\u003e\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 28,
+                "startChar": 0,
+                "endLine": 29,
+                "endChar": 0
+              },
+              "replacement": "            \u003cBundle key\u003d\"media_car_radio\" value\u003d\"3\"/\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6897845c_02074d85",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "Do we still need this?",
+      "range": {
+        "startLine": 113,
+        "startChar": 27,
+        "endLine": 113,
+        "endChar": 30
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ffcd37fb_59b3d89a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+              "range": {
+                "startLine": 111,
+                "startChar": 0,
+                "endLine": 118,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdd84e34_8614751c",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "TRAFFIC_ANNOUNCEMENT",
+      "range": {
+        "startLine": 38,
+        "startChar": 51,
+        "endLine": 38,
+        "endChar": 55
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "365276ab_3ee79edd",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 33,
+                "startChar": 0,
+                "endLine": 34,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\t/Policy/policy/product_strategies/vx_1000/device_address \u003d BUS08_TRAFFIC_ANNOUNCEMENT\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 38,
+                "startChar": 0,
+                "endLine": 39,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\tAvailableOutputDevicesAddresses Includes BUS08_TRAFFIC_ANNOUNCEMENT\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 78,
+                "startChar": 0,
+                "endLine": 79,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\t/Policy/policy/product_strategies/vx_1001/device_address \u003d BUS08_TRAFFIC_ANNOUNCEMENT\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 83,
+                "startChar": 0,
+                "endLine": 84,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\tAvailableOutputDevicesAddresses Includes BUS08_TRAFFIC_ANNOUNCEMENT\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 125,
+                "startChar": 0,
+                "endLine": 126,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\t/Policy/policy/product_strategies/vx_1002/device_address \u003d BUS08_TRAFFIC_ANNOUNCEMENT\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 130,
+                "startChar": 0,
+                "endLine": 131,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\tAvailableOutputDevicesAddresses Includes BUS08_TRAFFIC_ANNOUNCEMENT\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 171,
+                "startChar": 0,
+                "endLine": 172,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\t/Policy/policy/product_strategies/vx_1003/device_address \u003d BUS09_RADIO\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 176,
+                "startChar": 0,
+                "endLine": 177,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\tAvailableOutputDevicesAddresses Includes BUS09_RADIO\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 224,
+                "startChar": 0,
+                "endLine": 225,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\t/Policy/policy/product_strategies/vx_1004/device_address \u003d BUS09_RADIO\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 229,
+                "startChar": 0,
+                "endLine": 230,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\tAvailableOutputDevicesAddresses Includes BUS09_RADIO\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fd00d60_46599304",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "RADIO_MEDIA",
+      "fixSuggestions": [
+        {
+          "fixId": "f3958b3f_4fc8f27c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 171,
+                "startChar": 0,
+                "endLine": 172,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\t/Policy/policy/product_strategies/vx_1003/device_address \u003d BUS09_RADIO_MEDIA\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 176,
+                "startChar": 0,
+                "endLine": 177,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\tAvailableOutputDevicesAddresses Includes BUS09_RADIO_MEDIA\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 224,
+                "startChar": 0,
+                "endLine": 225,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\t/Policy/policy/product_strategies/vx_1004/device_address \u003d BUS09_RADIO_MEDIA\n"
+            },
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+              "range": {
+                "startLine": 229,
+                "startChar": 0,
+                "endLine": 230,
+                "endChar": 0
+              },
+              "replacement": "\t\t\t\tAvailableOutputDevicesAddresses Includes BUS09_RADIO_MEDIA\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff1f3df5_44c4b8b1",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/phone/policy/engine/parameter-framework/Settings/device_for_product_strategy_dtmf.pfw",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-13T00:49:02Z",
+      "side": 1,
+      "message": "Question as to why the files are separate for phone? I see the original files were also separate so just a general question.",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a77dceaf_ee384c3f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/config/audioPolicy/capengine/example/phone/policy/engine/parameter-framework/Settings/device_for_product_strategy_dtmf.pfw",
+              "range": {
+                "startLine": 1,
+                "startChar": 0,
+                "endLine": 1,
+                "endChar": 0
+              },
+              "replacement": "# This file contains the configuration for the DTMF product strategy.\n# It defines the rules for selecting the output devices based on the current\n# system state.\n#\n# The DTMF strategy follows the Media strategy when not in call, and the Phone\n# strategy when in call.\n#\n# The rules are defined in the following domains:\n# - UnreachableDevices: devices that are not reachable.\n# - Device2: devices that can be selected.\n# - Arc: devices that can co-exist with others.\n# - Spdif: devices that can co-exist with others.\n# - AuxLine: devices that can co-exist with others.\n\n"
+            }
+          ]
+        }
+      ],
       "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
