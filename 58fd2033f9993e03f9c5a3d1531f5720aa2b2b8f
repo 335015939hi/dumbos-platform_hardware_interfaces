@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b552fb59_77bf1d61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4276861
+      },
+      "writtenOn": "2025-08-14T07:38:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "76929e9c_8996c7c8",
+      "revId": "58fd2033f9993e03f9c5a3d1531f5720aa2b2b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cd9125d_7afea380",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-08-13T15:02:26Z",
       "side": 1,
       "message": "This is not the right bug",
+      "revId": "58fd2033f9993e03f9c5a3d1531f5720aa2b2b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6be28e4_cf2166fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4276861
+      },
+      "writtenOn": "2025-08-14T07:38:27Z",
+      "side": 1,
+      "message": "I am following the format we have had in HIDL https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2555892. \nWhat is your suggestion? Can I just put \"Ticket: 275049370\" or \"Buganizer: 275049370\" ?",
+      "parentUuid": "0cd9125d_7afea380",
       "revId": "58fd2033f9993e03f9c5a3d1531f5720aa2b2b8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
