@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83c7b6e4_e9c0b8aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2025-08-15T16:02:48Z",
+      "side": 1,
+      "message": "This and the other CL should be submitted to internal main, there is no automerger or submit path here anymore.",
+      "revId": "45ecb31a44761a3d145899b6b693789cb17ad654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
