@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a712121_b019c4cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4276861
+      },
+      "writtenOn": "2025-08-15T07:38:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b51eb3b1_3fd00f34",
+      "revId": "58fd2033f9993e03f9c5a3d1531f5720aa2b2b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cd9125d_7afea380",
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "The format is right, but the bug reference is about HIDL. Reference the new bug for AIDL instead.",
       "parentUuid": "f6be28e4_cf2166fd",
+      "revId": "58fd2033f9993e03f9c5a3d1531f5720aa2b2b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "333b1bc5_6ad2893e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4276861
+      },
+      "writtenOn": "2025-08-15T07:38:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b65a69dc_0598f880",
       "revId": "58fd2033f9993e03f9c5a3d1531f5720aa2b2b8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
