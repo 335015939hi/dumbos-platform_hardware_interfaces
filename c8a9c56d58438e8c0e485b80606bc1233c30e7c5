@@ -247,6 +247,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b04ca231_70829ff1",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2025-08-18T15:43:31Z",
+      "side": 1,
+      "message": "I must even update to be compliant with AIDL. Have forgotten this part\n\"VX_OEM\" and value \"TA\"",
+      "parentUuid": "aca96cb2_b3f2e30b",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d976221_b3586e1a",
         "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
         "patchSetId": 3
