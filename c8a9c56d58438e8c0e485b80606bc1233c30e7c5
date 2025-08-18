@@ -69,6 +69,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65666c2e_0ef5c221",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-08-18T18:12:48Z",
+      "side": 1,
+      "message": "That should be fine, we can follow up later on updating the examples, feel free to close the comments that are not relevant since we don\u0027t want to rename for now. Do we need to fix this though: `I must even update to be compliant with AIDL. Have forgotten this part\n\"VX_OEM\" and value \"TA\"`.",
+      "parentUuid": "2e2149e6_46153d3d",
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64d14460_410ba3e7",
