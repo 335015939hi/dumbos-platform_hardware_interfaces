@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e2149e6_46153d3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2025-08-18T15:45:56Z",
+      "side": 1,
+      "message": "@Oscar: I have just applied the script without renaming the source. For naming change, we shall update the source also in frameworks/av (or I can use another set of file to exercise the script)",
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64d14460_410ba3e7",
