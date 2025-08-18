@@ -156,6 +156,30 @@
       },
       "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abbe16f8_d1a58610",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 4281299
+      },
+      "writtenOn": "2025-08-18T20:37:58Z",
+      "side": 1,
+      "message": "@henrichataing@google.com, we tested the exact modifications suggested by @mylesgw@google.com. I tried to apply his suggested edit, but I don\u0027t have the required permissions. Can someone on your end please apply the suggested edit?",
+      "parentUuid": "4ce111ba_034e555a",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 65
+      },
+      "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
