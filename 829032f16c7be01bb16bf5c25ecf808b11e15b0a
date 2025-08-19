@@ -50,6 +50,30 @@
       ],
       "revId": "829032f16c7be01bb16bf5c25ecf808b11e15b0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2341484e_19c70b5e",
+        "filename": "wifi/aidl/vts/functional/wifi_ap_iface_aidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2025-08-19T22:02:23Z",
+      "side": 1,
+      "message": "+1. https://google.github.io/styleguide/cppguide.html#Formatting_Looping_Branching",
+      "parentUuid": "712f2233_ef33e80e",
+      "range": {
+        "startLine": 37,
+        "startChar": 12,
+        "endLine": 37,
+        "endChar": 78
+      },
+      "revId": "829032f16c7be01bb16bf5c25ecf808b11e15b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
