@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "712f2233_ef33e80e",
+        "filename": "wifi/aidl/vts/functional/wifi_ap_iface_aidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-08-19T20:32:09Z",
+      "side": 1,
+      "message": "nit: Just for consistency with the rest of the file, can we put this inside brackets?\n\nSame for the other files that were modified.",
+      "range": {
+        "startLine": 37,
+        "startChar": 12,
+        "endLine": 37,
+        "endChar": 78
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0361afdc_6a35d2a2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "wifi/aidl/vts/functional/wifi_ap_iface_aidl_test.cpp",
+              "range": {
+                "startLine": 36,
+                "startChar": 0,
+                "endLine": 37,
+                "endChar": 0
+              },
+              "replacement": "        if (!::testing::deviceSupportsFeature(\"android.hardware.wifi\")) {\n"
+            },
+            {
+              "path": "wifi/aidl/vts/functional/wifi_ap_iface_aidl_test.cpp",
+              "range": {
+                "startLine": 38,
+                "startChar": 0,
+                "endLine": 38,
+                "endChar": 0
+              },
+              "replacement": "        }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "829032f16c7be01bb16bf5c25ecf808b11e15b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
