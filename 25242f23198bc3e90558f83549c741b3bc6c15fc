@@ -204,6 +204,30 @@
       },
       "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab33a6e6_4a745861",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2025-08-20T19:46:19Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6422c197_2a1337a9",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 65
+      },
+      "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
