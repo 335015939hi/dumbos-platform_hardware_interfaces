@@ -180,6 +180,30 @@
       },
       "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6422c197_2a1337a9",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2025-08-20T18:53:00Z",
+      "side": 1,
+      "message": "I cherry picked the patch to our internal branch. @mylesgw@google.com can you please review that it matches the intended change ?\n\nhttp://ag/35178945\n\n```\n  if (VendorInterface::get() !\u003d nullptr) {\n    ALOGW(\"BluetoothHci is already initialized\");\n    auto hidl_status \u003d cb-\u003einitializationComplete(Status::INITIALIZATION_ERROR);\n    if (!hidl_status.isOk()) {\n      ALOGE(\"Unable to call initializationComplete(ERR)\");\n    }\n    return Void();\n  }\n```",
+      "parentUuid": "abbe16f8_d1a58610",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 65
+      },
+      "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
