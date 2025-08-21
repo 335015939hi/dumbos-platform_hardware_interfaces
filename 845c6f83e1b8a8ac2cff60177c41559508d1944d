@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8478898_93f67334",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1133857
+      },
+      "writtenOn": "2025-08-21T17:50:32Z",
+      "side": 1,
+      "message": "It\u0027s not just for cases when both tags are provided, even when only one tag is provided keymint would still allow either that match. Maybe something like \"For devices with multiple IMEIs, KeyMint validates any provided IMEI values against its unordered set of device IMEIs.\"",
+      "range": {
+        "startLine": 735,
+        "startChar": 57,
+        "endLine": 735,
+        "endChar": 84
+      },
+      "revId": "845c6f83e1b8a8ac2cff60177c41559508d1944d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
