@@ -67,6 +67,23 @@
       "message": "Yes",
       "revId": "6e0c0102aeb382f3fde5772361d291a26f687292",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd4e6b80_f1f792bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1640869
+      },
+      "writtenOn": "2025-08-21T17:21:39Z",
+      "side": 1,
+      "message": "281921: boot_control: Define the boot_control HIDL interface. | https://android-review.googlesource.com/c/platform/hardware/interfaces/+/281921",
+      "revId": "6e0c0102aeb382f3fde5772361d291a26f687292",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
