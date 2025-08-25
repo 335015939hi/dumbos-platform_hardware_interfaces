@@ -68,6 +68,23 @@
       "message": "Hello @ankitarora@google.com\nCan you help out for this patch please? Thank you",
       "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4ba93a0_7bfe318d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4276861
+      },
+      "writtenOn": "2025-08-25T06:36:37Z",
+      "side": 1,
+      "message": "Hi @brunodm@google.com,\nSeem like Ankit is busy for a while, can we get some help from other colleague?\n\nThis patch is hanging around for nearly 2 weeks, I am not sure when the next VTS release will come, hopefully it can be reviewed and delivered asap....",
+      "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
