@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b978a4a_dbb5c027",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-08-26T08:31:35Z",
+      "side": 1,
+      "message": "Do we have a bug to track the changes to the spec and reference implementation(s)?",
+      "revId": "b31edd3e056969d575a2e7f6a339919913865de2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0192bb63_f2e9a9de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-08-26T08:31:35Z",
+      "side": 1,
+      "message": "I only have +1 available, oddly.",
+      "revId": "b31edd3e056969d575a2e7f6a339919913865de2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
