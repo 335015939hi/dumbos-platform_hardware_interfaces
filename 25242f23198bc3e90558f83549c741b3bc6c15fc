@@ -252,6 +252,30 @@
       },
       "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a30c8b2f_1d5e7250",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2025-08-27T15:26:00Z",
+      "side": 1,
+      "message": "Hi Christian, the patch was merged on Aug 26th with the changes proposed by @mylesgw@google.com.",
+      "parentUuid": "51754280_e0267bc1",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 65
+      },
+      "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
