@@ -33,6 +33,24 @@
       "message": "Hi @elsk@google.com can you please help to review the patch",
       "revId": "157cd4e61a1412fd8050a1f5d9eef26f56e1a14c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12d9faaf_1ce654a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-08-28T18:04:47Z",
+      "side": 1,
+      "message": "Thank you for the reminder. Let me cherry-pick this today to the internal main branch.\n\nI will close this AOSP CL once the change is merged.",
+      "parentUuid": "9b7b7de0_455116ac",
+      "revId": "157cd4e61a1412fd8050a1f5d9eef26f56e1a14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
