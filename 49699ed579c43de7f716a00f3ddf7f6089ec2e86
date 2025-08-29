@@ -85,6 +85,47 @@
       "message": "Hi @brunodm@google.com,\nSeem like Ankit is busy for a while, can we get some help from other colleague?\n\nThis patch is hanging around for nearly 2 weeks, I am not sure when the next VTS release will come, hopefully it can be reviewed and delivered asap....",
       "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4725a7ed_9dc2d75b",
+        "filename": "automotive/evs/aidl/vts/VtsHalEvsTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1743,
+      "author": {
+        "id": 1605607
+      },
+      "writtenOn": "2025-08-29T16:38:57Z",
+      "side": 1,
+      "message": "In our internal repo, change has already been merged to fix the issue. In that the logical camera device is only skipped for HAL and not for evsmanagerd. Let\u0027s cherry pick that internal change to AOSP instead .",
+      "range": {
+        "startLine": 1739,
+        "startChar": 0,
+        "endLine": 1743,
+        "endChar": 9
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c59912f9_f45a5344",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/evs/aidl/vts/VtsHalEvsTargetTest.cpp",
+              "range": {
+                "startLine": 1740,
+                "startChar": 0,
+                "endLine": 1742,
+                "endChar": 0
+              },
+              "replacement": "        if (getPhysicalCameraIds(cam.id, isLogicalCam); mIsHwModule \u0026\u0026 isLogicalCam) {\n            LOG(INFO) \u003c\u003c \"Skip a logical device, \" \u003c\u003c cam.id \u003c\u003c \" for HW target.\";\n"
+            }
+          ]
+        }
+      ],
+      "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
