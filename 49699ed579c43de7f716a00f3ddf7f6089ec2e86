@@ -89,6 +89,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fb4ca25_0f82eea7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1605607
+      },
+      "writtenOn": "2025-08-29T17:05:06Z",
+      "side": 1,
+      "message": "Please take a look at this https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3587219 instead",
+      "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4725a7ed_9dc2d75b",
         "filename": "automotive/evs/aidl/vts/VtsHalEvsTargetTest.cpp",
         "patchSetId": 2
