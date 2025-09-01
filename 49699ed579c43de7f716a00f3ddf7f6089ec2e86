@@ -106,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e1f88c4_d4c1e5cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4276861
+      },
+      "writtenOn": "2025-09-01T06:27:53Z",
+      "side": 1,
+      "message": "Thank you. Great to know.\n1 confirmation, the change is merged in Android 14 dev tests branch, will it also appear in Android 15 branch? And when do you think it can be delivered to Android 15?",
+      "parentUuid": "8fb4ca25_0f82eea7",
+      "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4725a7ed_9dc2d75b",
         "filename": "automotive/evs/aidl/vts/VtsHalEvsTargetTest.cpp",
         "patchSetId": 2
