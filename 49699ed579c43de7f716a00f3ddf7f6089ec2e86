@@ -124,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ea68a21_0a6736f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1583555
+      },
+      "writtenOn": "2025-09-01T09:55:39Z",
+      "side": 1,
+      "message": "Yes, once merged in android 14 it will be automatically merged to 15. We should be able to have all the approvals in the next few days.",
+      "parentUuid": "8e1f88c4_d4c1e5cd",
+      "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4725a7ed_9dc2d75b",
         "filename": "automotive/evs/aidl/vts/VtsHalEvsTargetTest.cpp",
         "patchSetId": 2
