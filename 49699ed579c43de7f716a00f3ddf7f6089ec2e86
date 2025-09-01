@@ -140,6 +140,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4640417a_ada4e74a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4276861
+      },
+      "writtenOn": "2025-09-01T10:02:27Z",
+      "side": 1,
+      "message": "Perfect. Then we can abandon this change. I\u0027ll bring this information to close the ticket.",
+      "parentUuid": "5ea68a21_0a6736f7",
+      "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4725a7ed_9dc2d75b",
