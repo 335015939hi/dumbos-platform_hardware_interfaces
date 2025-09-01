@@ -158,6 +158,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ba5c6e6_c4161f3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4276861
+      },
+      "writtenOn": "2025-09-01T11:00:21Z",
+      "side": 1,
+      "message": "Note. This test case for AIDL also available for A13. Please help to bring it to A13 also. We as VCC planing to upgrade to use AIDL EVS API on Android 13 for ICUP project.",
+      "revId": "49699ed579c43de7f716a00f3ddf7f6089ec2e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4725a7ed_9dc2d75b",
