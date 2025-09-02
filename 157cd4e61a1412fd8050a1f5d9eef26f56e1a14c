@@ -51,6 +51,24 @@
       "parentUuid": "9b7b7de0_455116ac",
       "revId": "157cd4e61a1412fd8050a1f5d9eef26f56e1a14c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aea5c2e_7fdf2eeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-09-02T18:59:21Z",
+      "side": 1,
+      "message": "The CL has been merged internally.\n\nSee https://b.corp.google.com/issues/438106635#comment3",
+      "parentUuid": "12d9faaf_1ce654a3",
+      "revId": "157cd4e61a1412fd8050a1f5d9eef26f56e1a14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
