@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9989170_7eb71d28",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-09-03T16:04:20Z",
+      "side": 1,
+      "message": "I found it seems hard for an effect HAL implementor to understand this concept, the suspend logic is something in the framework (EffectChain::isEffectEligibleForSuspend), the logic was tied to type of effects and decided by the framework, but what\u0027s `suspend` here means for the HAL effect?",
+      "range": {
+        "startLine": 163,
+        "startChar": 22,
+        "endLine": 163,
+        "endChar": 69
+      },
+      "revId": "70f0e666dd2139c4e52894a20bb9c6952810327a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
