@@ -22,6 +22,30 @@
       },
       "revId": "70f0e666dd2139c4e52894a20bb9c6952810327a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b2ada3_2303e486",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 3401713
+      },
+      "writtenOn": "2025-09-04T07:17:57Z",
+      "side": 1,
+      "message": "Hi\n\nI have been making minor updates on fs-release\n\nThere I wrote \"Set to true if the effect instance should not be suspended on output mix.\"\n\nIs that enough or should I expand on it?\n\nhttps://partner-android-review.googlesource.com/q/topic:%22NOT_ELIGIBLE_SUSPEND_25Q4%22",
+      "parentUuid": "f9989170_7eb71d28",
+      "range": {
+        "startLine": 163,
+        "startChar": 22,
+        "endLine": 163,
+        "endChar": 69
+      },
+      "revId": "70f0e666dd2139c4e52894a20bb9c6952810327a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
