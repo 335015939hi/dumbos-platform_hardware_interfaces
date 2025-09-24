@@ -113,7 +113,7 @@ constexpr size_t getFrameSizeInBytes(
         return 0;
     }
     using ::aidl::android::media::audio::common::AudioFormatType;
-    if (format.type == AudioFormatType::PCM) {
+    if (format.type == AudioFormatType::PCM || format.encoding == "audio/x-iec61937")
         return getPcmSampleSizeInBytes(format.pcm) * getChannelCount(layout);
     } else if (format.type == AudioFormatType::NON_PCM) {
         // For non-PCM formats always use the underlying PCM size. The default value for
