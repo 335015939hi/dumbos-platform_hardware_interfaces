@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a441e8f4_7a056cb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-09-24T16:08:50Z",
+      "side": 1,
+      "message": "Thank you Aiguo! A couple of technical comments.",
+      "revId": "6437ebf5b4a630984a998a73d5a30a9196ed46b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "290d8a3d_61204c37",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-09-24T16:08:50Z",
+      "side": 1,
+      "message": "`MEDIA_MIMETYPE_AUDIO_IEC61937`",
+      "range": {
+        "startLine": 116,
+        "startChar": 66,
+        "endLine": 116,
+        "endChar": 84
+      },
+      "revId": "6437ebf5b4a630984a998a73d5a30a9196ed46b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ebacf89_a63c052e",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-09-24T16:08:50Z",
+      "side": 1,
+      "message": "Please make condition more strict by checking `format.type \u003d\u003d AudioFormatType::NON_PCM`.",
+      "range": {
+        "startLine": 116,
+        "startChar": 47,
+        "endLine": 116,
+        "endChar": 84
+      },
+      "revId": "6437ebf5b4a630984a998a73d5a30a9196ed46b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
