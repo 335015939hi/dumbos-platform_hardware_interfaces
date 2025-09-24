@@ -31,6 +31,7 @@
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <aidl/android/media/audio/common/PcmType.h>
 #include <android/binder_auto_utils.h>
+#include <media/stagefright/foundation/MediaDefs.h>
 #include <utils/FastStrcmp.h>
 
 namespace ndk {
@@ -113,7 +114,8 @@ constexpr size_t getFrameSizeInBytes(
         return 0;
     }
     using ::aidl::android::media::audio::common::AudioFormatType;
-    if (format.type == AudioFormatType::PCM) {
+    if (format.type == AudioFormatType::PCM || (format.type == AudioFormatType::NON_PCM &&
+        format.encoding == ::android::MEDIA_MIMETYPE_AUDIO_IEC61937)) {
         return getPcmSampleSizeInBytes(format.pcm) * getChannelCount(layout);
     } else if (format.type == AudioFormatType::NON_PCM) {
         // For non-PCM formats always use the underlying PCM size. The default value for
