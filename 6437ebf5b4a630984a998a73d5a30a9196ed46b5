@@ -62,6 +62,54 @@
       },
       "revId": "6437ebf5b4a630984a998a73d5a30a9196ed46b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65dc9c36_80151558",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-09-25T13:15:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ebacf89_a63c052e",
+      "range": {
+        "startLine": 116,
+        "startChar": 47,
+        "endLine": 116,
+        "endChar": 84
+      },
+      "revId": "6437ebf5b4a630984a998a73d5a30a9196ed46b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d444c1f7_8010cb8c",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-09-25T13:15:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "290d8a3d_61204c37",
+      "range": {
+        "startLine": 116,
+        "startChar": 66,
+        "endLine": 116,
+        "endChar": 84
+      },
+      "revId": "6437ebf5b4a630984a998a73d5a30a9196ed46b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
