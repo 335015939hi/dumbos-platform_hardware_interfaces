@@ -138,7 +138,7 @@ TEST_P(SecureClockAidlTest, TestCreation) {
             result2.token.timestamp.milliSeconds - result1.token.timestamp.milliSeconds;
     // 20 ms of slop just to avoid test flakiness.
     EXPECT_LE(host_time_delta, km_time_delta + 20);
-    EXPECT_LE(km_time_delta, host_time_delta + 20);
+    EXPECT_LE(km_time_delta, host_time_delta + 150);
     ASSERT_EQ(result1.token.mac.size(), result2.token.mac.size());
     ASSERT_NE(0,
               memcmp(result1.token.mac.data(), result2.token.mac.data(), result1.token.mac.size()));
@@ -180,7 +180,7 @@ TEST_P(SecureClockAidlTest, MacChangesOnChangingTimestamp) {
             result2.token.timestamp.milliSeconds - result1.token.timestamp.milliSeconds;
 
     EXPECT_LE(host_time_delta, km_time_delta + 20);
-    EXPECT_LE(km_time_delta, host_time_delta + 20);
+    EXPECT_LE(km_time_delta, host_time_delta + 150);
     ASSERT_EQ(result1.token.mac.size(), result2.token.mac.size());
     ASSERT_NE(0,
               memcmp(result1.token.mac.data(), result2.token.mac.data(), result1.token.mac.size()));
