@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dee3d1b_ac3c3838",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/VolumeInvocationType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-09-29T20:24:12Z",
+      "side": 1,
+      "message": "`Invocation of volume group activation performed after each inactivity period.`\nshould this be `Invocation of volume group activation performed after an inactivity period for each client (app/service UID).`\n\nMeaning we will activate volume group min/max only when the source (app) changes after an inactive period by current source?\n\nOr do we mean that we will only activate min/max after a timeout and source change? If so should be use:\n\n /**\n     * Invocation of volume group activation performed when playback starts on this volume group\n     * after the group has been inactive for a configurable timeout period\n     * (inactivtyTimeoutInSeconds). Activation occurs upon the first playback\n     * *after* the idle timeout has been exceeded.\n     */\n    ON_IDLE_TIMEOUT,\n\nW",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6074995f_9158de28",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/VolumeInvocationType.aidl",
+              "range": {
+                "startLine": 41,
+                "startChar": 0,
+                "endLine": 42,
+                "endChar": 0
+              },
+              "replacement": "     * Invocation of volume group activation performed when playback starts on this volume group\n     * after the group has been inactive for a configurable timeout period\n     * (inactivtyTimeoutInSeconds). Activation occurs upon the first playback\n     * *after* the idle timeout has been exceeded.\n"
+            },
+            {
+              "path": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/VolumeInvocationType.aidl",
+              "range": {
+                "startLine": 43,
+                "startChar": 0,
+                "endLine": 44,
+                "endChar": 0
+              },
+              "replacement": "    ON_IDLE_TIMEOUT,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "24283eaea1b0fde9829d32fdc557df49f034488e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
