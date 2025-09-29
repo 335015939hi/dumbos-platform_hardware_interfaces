@@ -37,6 +37,8 @@ parcelable VolumeActivationConfigurationEntry {
   android.hardware.automotive.audiocontrol.VolumeInvocationType type = android.hardware.automotive.audiocontrol.VolumeInvocationType.ON_PLAYBACK_CHANGED;
   int maxActivationVolumePercentage = DEFAULT_MAX_ACTIVATION_VALUE /* 100 */;
   int minActivationVolumePercentage = DEFAULT_MIN_ACTIVATION_VALUE /* 0 */;
+  int inactivtyTimeoutInSeconds = DEFAULT_INACTIVITY_TIMEOUT_VALUE /* 0 */;
   const int DEFAULT_MAX_ACTIVATION_VALUE = 100;
   const int DEFAULT_MIN_ACTIVATION_VALUE = 0;
+  const int DEFAULT_INACTIVITY_TIMEOUT_VALUE = 0;
 }

@@ -37,4 +37,5 @@ enum VolumeInvocationType {
   ON_PLAYBACK_CHANGED,
   ON_SOURCE_CHANGED,
   ON_BOOT,
+  ON_INACTIVE_PLAYBACK,
 }
