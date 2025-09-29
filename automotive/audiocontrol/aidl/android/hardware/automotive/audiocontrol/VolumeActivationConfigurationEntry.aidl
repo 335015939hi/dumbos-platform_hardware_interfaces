@@ -38,8 +38,13 @@ parcelable VolumeActivationConfigurationEntry {
     const int DEFAULT_MIN_ACTIVATION_VALUE = 0;
 
     /**
+     * Default inactivity timeout value in seconds.
+     */
+    const int DEFAULT_INACTIVITY_TIMEOUT_VALUE = 0;
+
+    /**
      * Activation type, should be one of:
-     *  ON_PLAYBACK_CHANGED, ON_SOURCE_CHANGED, ON_BOOT
+     *  ON_PLAYBACK_CHANGED, ON_SOURCE_CHANGED, ON_BOOT, ON_INACTIVE_SOURCE
      */
     VolumeInvocationType type = VolumeInvocationType.ON_PLAYBACK_CHANGED;
 
@@ -60,4 +65,12 @@ parcelable VolumeActivationConfigurationEntry {
      * apply.
      */
     int minActivationVolumePercentage = DEFAULT_MIN_ACTIVATION_VALUE;
+
+    /**
+     * Inactivity timeout value to consider for ON_INACTIVE_SOURCE activation type.
+     *
+     * <p>The value should be {@code DEFAULT_INACTIVITY_TIMEOUT_VALUE} if inactivty invocation type
+     * shall not apply.
+     */
+    int inactivtyTimeoutInSeconds = DEFAULT_INACTIVITY_TIMEOUT_VALUE;
 }

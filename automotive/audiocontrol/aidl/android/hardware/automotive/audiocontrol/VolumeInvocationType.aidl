@@ -37,4 +37,8 @@ enum VolumeInvocationType {
      * Invocation of volume group activation in perform only at playback once after boot up.
      */
     ON_BOOT,
+    /**
+     * Invocation of volume group activation performed after each inactivity period.
+     */
+    ON_INACTIVE_SOURCE,
 }
