@@ -37,4 +37,11 @@ enum VolumeInvocationType {
      * Invocation of volume group activation in perform only at playback once after boot up.
      */
     ON_BOOT,
+    /**
+     * Invocation of volume group activation performed when playback starts on this volume group
+     * after the group has been inactive for a configurable timeout period
+     * (inactivityTimeoutInSeconds). Activation occurs upon the first playback after the idle
+     * timeout has been exceeded.
+     */
+    ON_INACTIVE_PLAYBACK,
 }
