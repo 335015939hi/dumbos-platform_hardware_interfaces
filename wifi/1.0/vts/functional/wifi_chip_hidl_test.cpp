@@ -16,6 +16,7 @@
 
 #include <android-base/logging.h>
 
+#include <VtsCoreUtil.h>
 #include <android/hardware/wifi/1.0/IWifi.h>
 #include <android/hardware/wifi/1.0/IWifiChip.h>
 #include <gtest/gtest.h>
@@ -70,6 +71,8 @@ bool hasAnyRingBufferCapabilities(uint32_t caps) {
 class WifiChipHidlTest : public ::testing::TestWithParam<std::string> {
    public:
     virtual void SetUp() override {
+        isP2PSupported_ = ::testing::deviceSupportsFeature("android.hardware.wifi.direct");
+
         // Make sure test starts with a clean state
         stopWifi(GetInstanceName());
 
@@ -125,7 +128,8 @@ class WifiChipHidlTest : public ::testing::TestWithParam<std::string> {
     sp<IWifiChip> wifi_chip_;
 
    protected:
-    std::string GetInstanceName() { return GetParam(); }
+     bool isP2PSupported_ = false;
+     std::string GetInstanceName() { return GetParam(); }
 };
 
 /*
@@ -335,6 +339,8 @@ TEST_P(WifiChipHidlTest, GetDebugHostWakeReasonStats) {
  * succeeds.
  */
 TEST_P(WifiChipHidlTest, CreateP2pIface) {
+    if (!isP2PSupported_) GTEST_SKIP() << "Missing P2P support";
+
     configureChipForIfaceType(IfaceType::P2P, true);
 
     sp<IWifiP2pIface> iface;
@@ -349,6 +355,8 @@ TEST_P(WifiChipHidlTest, CreateP2pIface) {
  * iface name is returned via the list.
  */
 TEST_P(WifiChipHidlTest, GetP2pIfaceNames) {
+    if (!isP2PSupported_) GTEST_SKIP() << "Missing P2P support";
+
     configureChipForIfaceType(IfaceType::P2P, true);
 
     const auto& status_and_iface_names1 =
@@ -381,6 +389,8 @@ TEST_P(WifiChipHidlTest, GetP2pIfaceNames) {
  * doesn't retrieve an iface object.
  */
 TEST_P(WifiChipHidlTest, GetP2pIface) {
+    if (!isP2PSupported_) GTEST_SKIP() << "Missing P2P support";
+
     configureChipForIfaceType(IfaceType::P2P, true);
 
     sp<IWifiP2pIface> p2p_iface;
@@ -407,6 +417,8 @@ TEST_P(WifiChipHidlTest, GetP2pIface) {
  * doesn't remove the iface.
  */
 TEST_P(WifiChipHidlTest, RemoveP2pIface) {
+    if (!isP2PSupported_) GTEST_SKIP() << "Missing P2P support";
+
     configureChipForIfaceType(IfaceType::P2P, true);
 
     sp<IWifiP2pIface> p2p_iface;

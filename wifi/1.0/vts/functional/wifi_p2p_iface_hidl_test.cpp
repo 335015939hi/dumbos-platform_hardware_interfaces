@@ -16,6 +16,7 @@
 
 #include <android-base/logging.h>
 
+#include <VtsCoreUtil.h>
 #include <android/hardware/wifi/1.0/IWifi.h>
 #include <android/hardware/wifi/1.0/IWifiP2pIface.h>
 #include <gtest/gtest.h>
@@ -34,6 +35,9 @@ using ::android::hardware::wifi::V1_0::IWifiP2pIface;
 class WifiP2pIfaceHidlTest : public ::testing::TestWithParam<std::string> {
    public:
     virtual void SetUp() override {
+        if (!::testing::deviceSupportsFeature("android.hardware.wifi.direct"))
+            GTEST_SKIP() << "Missing P2P support";
+
         // Make sure test starts with a clean state
         stopWifi(GetInstanceName());
     }
