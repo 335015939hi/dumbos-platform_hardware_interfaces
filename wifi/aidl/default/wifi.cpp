@@ -259,7 +259,12 @@ ndk::ScopedAStatus Wifi::startInternal() {
                              "callback";
                 WifiStatusCode errorCode =
                         static_cast<WifiStatusCode>(wifi_status.getServiceSpecificError());
-                if (!callback->onSubsystemRestart(errorCode).isOk()) {
+
+                WifiDetailStatus detailStatus;
+                detailStatus.code = static_cast<int>(errorCode);
+                detailStatus.description = error;
+
+                if (!callback->onSubsystemRestartWithDetail(detailStatus).isOk()) {
                     LOG(ERROR) << "Failed to invoke onSubsystemRestart callback";
                 } else {
                     LOG(INFO) << "Succeeded to invoke onSubsystemRestart "

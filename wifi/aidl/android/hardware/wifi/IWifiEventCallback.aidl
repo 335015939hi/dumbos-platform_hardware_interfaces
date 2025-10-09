@@ -17,6 +17,7 @@
 package android.hardware.wifi;
 
 import android.hardware.wifi.WifiStatusCode;
+import android.hardware.wifi.WifiDetailStatus;
 
 @VintfStability
 oneway interface IWifiEventCallback {
@@ -50,4 +51,12 @@ oneway interface IWifiEventCallback {
      * @param status Status code.
      */
     void onSubsystemRestart(in WifiStatusCode status);
+
+    /**
+     * Must be called when the Wi-Fi subsystem restart completes with detailed status.
+     * Once this event is received, framework must fully reset the Wi-Fi stack state.
+     *
+     * @param status Detailed status information.
+     */
+    void onSubsystemRestartWithDetail(in WifiDetailStatus status);
 }
