@@ -247,6 +247,12 @@ WifiChip::WifiChip(int32_t chip_id, bool is_primary,
       debug_ring_buffer_cb_registered_(false),
       using_dynamic_iface_combination_(using_dynamic_iface_combination),
       subsystemCallbackHandler_(handler) {
+    legacy_hal::wifi_error legacy_status = legacy_hal_.lock()->start();
+    if (legacy_status != legacy_hal::WIFI_SUCCESS) {
+        LOG(ERROR) << "Failed to start legacy HAL: " << legacyErrorToString(legacy_status);
+        return;
+    }
+    retrieveDynamicIfaceCombination();
     setActiveWlanIfaceNameProperty(kNoActiveWlanIfaceNamePropertyValue);
 }
 
