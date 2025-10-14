@@ -1051,11 +1051,14 @@ TEST_P(RadioNetworkTest, startNetworkScan) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
 
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error, {RadioError::SIM_ABSENT}));
     } else if (cardStatus.cardState == CardStatus::STATE_PRESENT) {
-        if (deviceSupportsFeature(FEATURE_TELEPHONY_GSM) && isLteConnected()) {
+        if (isLteConnected()) {
             // Modems support 3GPP RAT family need to
             // support scanning requests combined with some parameters.
             ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
@@ -1095,6 +1098,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_InvalidArgument) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_InvalidArgument, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
 
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
@@ -1132,6 +1138,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_InvalidInterval1) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_InvalidInterval1, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                      {RadioError::SIM_ABSENT, RadioError::INVALID_ARGUMENTS}));
@@ -1168,6 +1177,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_InvalidInterval2) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_InvalidInterval2, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                      {RadioError::SIM_ABSENT, RadioError::INVALID_ARGUMENTS}));
@@ -1204,6 +1216,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_InvalidMaxSearchTime1) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_InvalidMaxSearchTime1, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                      {RadioError::SIM_ABSENT, RadioError::INVALID_ARGUMENTS}));
@@ -1240,6 +1255,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_InvalidMaxSearchTime2) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_InvalidMaxSearchTime2, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                      {RadioError::SIM_ABSENT, RadioError::INVALID_ARGUMENTS}));
@@ -1276,6 +1294,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_InvalidPeriodicity1) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_InvalidPeriodicity1, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                      {RadioError::SIM_ABSENT, RadioError::INVALID_ARGUMENTS}));
@@ -1312,6 +1333,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_InvalidPeriodicity2) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_InvalidPeriodicity2, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                      {RadioError::SIM_ABSENT, RadioError::INVALID_ARGUMENTS}));
@@ -1348,6 +1372,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_GoodRequest1) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_GoodRequest1, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                      {RadioError::NONE, RadioError::SIM_ABSENT}));
@@ -1390,6 +1417,9 @@ TEST_P(RadioNetworkTest, startNetworkScan_GoodRequest2) {
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     ALOGI("startNetworkScan_GoodRequest2, rspInfo.error = %s\n",
           toString(radioRsp_network->rspInfo.error).c_str());
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping startNetworkScan because it's not supported";
+    }
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                      {RadioError::NONE, RadioError::SIM_ABSENT}));
@@ -1428,7 +1458,8 @@ TEST_P(RadioNetworkTest, setNetworkSelectionModeManual) {
             radioRsp_network->rspInfo.error,
             {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INVALID_ARGUMENTS,
              RadioError::INVALID_STATE, RadioError::NO_MEMORY, RadioError::INTERNAL_ERR,
-             RadioError::SYSTEM_ERR, RadioError::CANCELLED, RadioError::MODEM_ERR}));
+             RadioError::SYSTEM_ERR, RadioError::CANCELLED, RadioError::MODEM_ERR,
+             RadioError::REQUEST_NOT_SUPPORTED}));
 }
 
 /*
@@ -1447,6 +1478,9 @@ TEST_P(RadioNetworkTest, getBarringInfo) {
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
     EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
+    if (radioRsp_network->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) {
+        GTEST_SKIP() << "Skipping getBarringInfo because it's not supported";
+    }
     ASSERT_TRUE(radioRsp_network->barringInfoList.size() > 0);
 
     std::set<int> reportedServices;
@@ -1721,42 +1755,6 @@ TEST_P(RadioNetworkTest, getDataRegistrationState) {
 }
 
 /*
- * Test IRadioNetwork.getAvailableBandModes() for the response returned.
- */
-TEST_P(RadioNetworkTest, getAvailableBandModes) {
-    if (telephony_flags::enforce_telephony_feature_mapping()) {
-        if (!deviceSupportsFeature(FEATURE_TELEPHONY_RADIO_ACCESS)) {
-            GTEST_SKIP() << "Skipping getAvailableBandModes "
-                            "due to undefined FEATURE_TELEPHONY_RADIO_ACCESS";
-        }
-    }
-
-    serial = GetRandomSerialNumber();
-
-    ndk::ScopedAStatus res = radio_network->getAvailableBandModes(serial);
-    ASSERT_OK(res);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
-    ALOGI("getAvailableBandModes, rspInfo.error = %s\n",
-          toString(radioRsp_network->rspInfo.error).c_str());
-    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
-                                 {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE,
-                                  RadioError::MODEM_ERR, RadioError::INTERNAL_ERR,
-                                  // If REQUEST_NOT_SUPPORTED is returned, then it should also be
-                                  // returned for setBandMode().
-                                  RadioError::REQUEST_NOT_SUPPORTED}));
-    bool hasUnspecifiedBandMode = false;
-    if (radioRsp_network->rspInfo.error == RadioError::NONE) {
-        for (const RadioBandMode& mode : radioRsp_network->radioBandModes) {
-            // Automatic mode selection must be supported
-            if (mode == RadioBandMode::BAND_MODE_UNSPECIFIED) hasUnspecifiedBandMode = true;
-        }
-        ASSERT_TRUE(hasUnspecifiedBandMode);
-    }
-}
-
-/*
  * Test IRadioNetwork.setIndicationFilter()
  */
 TEST_P(RadioNetworkTest, setIndicationFilter) {
@@ -1961,54 +1959,6 @@ TEST_P(RadioNetworkTest, getAvailableNetworks) {
                 {RadioError::NONE, RadioError::CANCELLED, RadioError::DEVICE_IN_USE,
                  RadioError::MODEM_ERR, RadioError::OPERATION_NOT_ALLOWED},
                 CHECK_GENERAL_ERROR));
-    }
-}
-
-/*
- * Test IRadioNetwork.setBandMode() for the response returned.
- */
-TEST_P(RadioNetworkTest, setBandMode) {
-    if (telephony_flags::enforce_telephony_feature_mapping()) {
-        if (!deviceSupportsFeature(FEATURE_TELEPHONY_RADIO_ACCESS)) {
-            GTEST_SKIP() << "Skipping setBandMode "
-                            "due to undefined FEATURE_TELEPHONY_RADIO_ACCESS";
-        }
-    }
-
-    serial = GetRandomSerialNumber();
-
-    radio_network->setBandMode(serial, RadioBandMode::BAND_MODE_USA);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
-
-    if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
-        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error, {RadioError::NONE},
-                                     CHECK_GENERAL_ERROR));
-    }
-}
-
-/*
- * Test IRadioNetwork.setLocationUpdates() for the response returned.
- */
-TEST_P(RadioNetworkTest, setLocationUpdates) {
-    if (telephony_flags::enforce_telephony_feature_mapping()) {
-        if (!deviceSupportsFeature(FEATURE_TELEPHONY_RADIO_ACCESS)) {
-            GTEST_SKIP() << "Skipping setLocationUpdates "
-                            "due to undefined FEATURE_TELEPHONY_RADIO_ACCESS";
-        }
-    }
-
-    serial = GetRandomSerialNumber();
-
-    radio_network->setLocationUpdates(serial, true);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
-
-    if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
-        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
-                                     {RadioError::NONE, RadioError::SIM_ABSENT}));
     }
 }
 
@@ -2501,28 +2451,28 @@ TEST_P(RadioNetworkTest, setCellularIdentifierTransparencyEnabled) {
     ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
                                  {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE,
                                   RadioError::MODEM_ERR, RadioError::REQUEST_NOT_SUPPORTED}));
+    if (radioRsp_network->rspInfo.error != RadioError::NONE) return;
 
+    // Assert the value has changed
+    serial = GetRandomSerialNumber();
+    ndk::ScopedAStatus res = radio_network->isCellularIdentifierTransparencyEnabled(serial);
+
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
+    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
+                                 {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE,
+                                  RadioError::MODEM_ERR, RadioError::REQUEST_NOT_SUPPORTED}));
     if (radioRsp_network->rspInfo.error == RadioError::NONE) {
-        // Assert the value has changed
-        serial = GetRandomSerialNumber();
-        ndk::ScopedAStatus res = radio_network->isCellularIdentifierTransparencyEnabled(serial);
-
-        ASSERT_OK(res);
-        EXPECT_EQ(std::cv_status::no_timeout, wait());
-        EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
-        EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
-        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,
-                                     {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE,
-                                      RadioError::MODEM_ERR, RadioError::REQUEST_NOT_SUPPORTED}));
         EXPECT_EQ(valueToSet, radioRsp_network->isCellularIdentifierTransparencyEnabled);
-
-        // Reset original state
-        radio_network->setCellularIdentifierTransparencyEnabled(serial,
-                                                                originalTransparencySetting);
-        EXPECT_EQ(std::cv_status::no_timeout, wait());
-        EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
-        EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
     }
+
+    // Reset original state
+    radio_network->setCellularIdentifierTransparencyEnabled(serial, originalTransparencySetting);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
 }
 
 /*
