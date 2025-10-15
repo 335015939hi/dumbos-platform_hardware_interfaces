@@ -73,4 +73,18 @@ interface IAllocator {
      * The library that will attempt to be loaded is "/vendor/lib[64]/hw/mapper.<imapper_suffix>.so"
      */
     String getIMapperLibrarySuffix();
+
+    /**
+     * Allocates multi-view buffers with the properties specified by the descriptors.
+     *
+     * Allocations should be optimized for usage bits provided in the
+     * descriptors.
+     *
+     * @param descriptor Properties of the buffers to allocate.
+     * @param baseViewIndex The index of the base view to allocate.
+     * @return An AllocationResult containing the result of the allocation
+     * @throws AllocationError on failure
+     */
+    AllocationResult allocateMultiView(in BufferDescriptorInfo[] descriptor, in int baseViewIndex);
+
 }

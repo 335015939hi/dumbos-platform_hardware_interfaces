@@ -33,13 +33,7 @@
 
 package android.hardware.graphics.allocator;
 @VintfStability
-interface IAllocator {
-  /**
-   * @deprecated As of android.hardware.graphics.allocator-V2 in combination with AIMAPPER_VERSION_5 this is deprecated & replaced with allocate2. If android.hardware.graphics.mapper@4 is still in use, however, this is still required to be implemented.
-   */
-  android.hardware.graphics.allocator.AllocationResult allocate(in byte[] descriptor, in int count);
-  android.hardware.graphics.allocator.AllocationResult allocate2(in android.hardware.graphics.allocator.BufferDescriptorInfo descriptor, in int count);
-  boolean isSupported(in android.hardware.graphics.allocator.BufferDescriptorInfo descriptor);
-  String getIMapperLibrarySuffix();
-  android.hardware.graphics.allocator.AllocationResult allocateMultiView(in android.hardware.graphics.allocator.BufferDescriptorInfo[] descriptor, in int baseViewIndex);
+parcelable AllocationResult {
+  int stride;
+  android.hardware.common.NativeHandle[] buffers;
 }
