@@ -48,6 +48,13 @@ aidl_interface {
                 "android.hardware.graphics.common-V6",
             ],
         },
+        {
+            version: "3",
+            imports: [
+                "android.hardware.graphics.common-V6",
+                "android.hardware.common-V2",
+            ],
+        },
 
     ],
 
