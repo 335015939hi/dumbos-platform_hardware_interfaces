@@ -16,6 +16,24 @@
       "message": "Owners to unblock. However, please note b/453737684. I don\u0027t think this is the right longterm solution.",
       "revId": "c6c9c02df8c5c768b2dddf01d18c4c1411736cfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f7bfc94_dd7a144c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-10-21T19:41:35Z",
+      "side": 1,
+      "message": "GSI overrides the system properties and sets RKP properties to empty, at present vendors can\u0027t set their default value after flashing GSI. This leads to test failures. As of now we are skipping the tests requiring attestation to run on GSI.\nb/453737684#comment2",
+      "parentUuid": "6b5b65d4_daa8d38f",
+      "revId": "c6c9c02df8c5c768b2dddf01d18c4c1411736cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
