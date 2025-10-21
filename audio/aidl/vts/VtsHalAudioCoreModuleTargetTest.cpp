@@ -555,6 +555,7 @@ class AudioCoreModuleBase {
             ASSERT_NO_FATAL_FAILURE(SetUpDebug());
         }
         ASSERT_TRUE(module->getInterfaceVersion(&aidlVersion).isOk());
+        isStubModule = (moduleName.find("stub") != std::string::npos);
     }
 
     void RestartService() {
@@ -656,6 +657,7 @@ class AudioCoreModuleBase {
     std::vector<AudioPort> initialPorts;
     std::vector<AudioRoute> initialRoutes;
     int32_t aidlVersion = -1;
+    bool isStubModule = false;
 };
 
 class WithDevicePortConnectedState {
@@ -1810,13 +1812,16 @@ TEST_P(AudioCoreModule, CheckDevicePorts) {
         if (port.ext.getTag() != AudioPortExt::Tag::device) continue;
         const AudioPortDeviceExt& devicePort = port.ext.get<AudioPortExt::Tag::device>();
         EXPECT_NE(AudioDeviceType::NONE, devicePort.device.type.type);
-        EXPECT_NE(AudioDeviceType::IN_DEFAULT, devicePort.device.type.type);
-        EXPECT_NE(AudioDeviceType::OUT_DEFAULT, devicePort.device.type.type);
-        if (devicePort.device.type.type > AudioDeviceType::IN_DEFAULT &&
-            devicePort.device.type.type < AudioDeviceType::OUT_DEFAULT) {
-            EXPECT_EQ(AudioIoFlags::Tag::input, port.flags.getTag());
-        } else if (devicePort.device.type.type > AudioDeviceType::OUT_DEFAULT) {
-            EXPECT_EQ(AudioIoFlags::Tag::output, port.flags.getTag());
+        // the STUB device is the DEFAULT device.
+        if (!isStubModule) {
+            EXPECT_NE(AudioDeviceType::IN_DEFAULT, devicePort.device.type.type);
+            EXPECT_NE(AudioDeviceType::OUT_DEFAULT, devicePort.device.type.type);
+            if (devicePort.device.type.type > AudioDeviceType::IN_DEFAULT &&
+                devicePort.device.type.type < AudioDeviceType::OUT_DEFAULT) {
+                EXPECT_EQ(AudioIoFlags::Tag::input, port.flags.getTag());
+            } else if (devicePort.device.type.type > AudioDeviceType::OUT_DEFAULT) {
+                EXPECT_EQ(AudioIoFlags::Tag::output, port.flags.getTag());
+            }
         }
         EXPECT_FALSE((devicePort.flags & defaultDeviceFlag) != 0 &&
                      !devicePort.device.type.connection.empty())
