@@ -40,6 +40,10 @@ aidl::SignalStrength makeSignalStrength() {
             kValueUnavailable,
             kValueUnavailable,
     };
+    constexpr aidl::CdmaSignalStrength cdma{
+            kValueUnavailable,
+            kValueUnavailable,
+    };
     constexpr aidl::WcdmaSignalStrength wcdma{
             kValueUnavailable,
             kValueUnavailable,
@@ -56,6 +60,7 @@ aidl::SignalStrength makeSignalStrength() {
             .gsm = gsm,
             .lte = lte,
             .tdscdma = tdscdma,
+            .cdma = cdma,
             .wcdma = wcdma,
             .nr = nr,
     };
@@ -84,6 +89,12 @@ aidl::CellInfo makeCellInfo(const aidl::RegStateResult& regState,
             ratSpecificInfo = aidl::CellInfoTdscdma{
                     .cellIdentityTdscdma = cellId.get<aidl::CellIdentity::Tag::tdscdma>(),
                     .signalStrengthTdscdma = signalStrength.tdscdma,
+            };
+            break;
+        case aidl::CellIdentity::Tag::cdma:
+            ratSpecificInfo = aidl::CellInfoCdma{
+                    .cellIdentityCdma = cellId.get<aidl::CellIdentity::Tag::cdma>(),
+                    .signalStrengthCdma = signalStrength.cdma,
             };
             break;
         case aidl::CellIdentity::Tag::lte:
@@ -122,6 +133,8 @@ aidl::OperatorInfo getOperatorInfo(const aidl::CellIdentity& cellId) {
             return cellId.get<aidl::CellIdentity::Tag::wcdma>().operatorNames;
         case aidl::CellIdentity::Tag::tdscdma:
             return cellId.get<aidl::CellIdentity::Tag::tdscdma>().operatorNames;
+        case aidl::CellIdentity::Tag::cdma:
+            return cellId.get<aidl::CellIdentity::Tag::cdma>().operatorNames;
         case aidl::CellIdentity::Tag::lte:
             return cellId.get<aidl::CellIdentity::Tag::lte>().operatorNames;
         case aidl::CellIdentity::Tag::nr:
