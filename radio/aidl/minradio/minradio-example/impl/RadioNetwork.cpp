@@ -16,6 +16,7 @@
 
 #include "RadioNetwork.h"
 
+#include <libminradio/constants.h>
 #include <libminradio/debug.h>
 #include <libminradio/network/structs.h>
 #include <libminradio/response.h>
@@ -24,8 +25,8 @@
 
 namespace android::hardware::radio::service {
 
-using ::aidl::android::hardware::radio::RadioConst;
 using ::android::hardware::radio::minimal::noError;
+using minimal::constants::kValueUnavailable;
 using ::ndk::ScopedAStatus;
 namespace aidl = ::aidl::android::hardware::radio::network;
 namespace aidlRadio = ::aidl::android::hardware::radio;
@@ -77,7 +78,7 @@ ScopedAStatus RadioNetwork::getSignalStrength(int32_t serial) {
             30,   // (0-31, 99)
             100,  // Range: 44 to 140 dBm
             10,   // Range: 20 to 3 dB
-            100, 10, RadioConst::VALUE_UNAVAILABLE, RadioConst::VALUE_UNAVAILABLE,
+            100, 10, kValueUnavailable, kValueUnavailable,
     };
 
     respond()->getSignalStrengthResponse(noError(serial), signal);

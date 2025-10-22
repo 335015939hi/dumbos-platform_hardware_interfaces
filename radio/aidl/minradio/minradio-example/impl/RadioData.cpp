@@ -16,7 +16,7 @@
 
 #include "RadioData.h"
 
-#include <aidl/android/hardware/radio/RadioConst.h>
+#include <libminradio/constants.h>
 #include <libminradio/debug.h>
 #include <libminradio/response.h>
 #include <libnetdevice/libnetdevice.h>
@@ -25,8 +25,8 @@
 
 namespace android::hardware::radio::service {
 
+using minimal::constants::kTimeUnavailable;
 using namespace ::android::hardware::radio::minimal::binder_printing;
-using ::aidl::android::hardware::radio::RadioConst;
 using ::aidl::android::hardware::radio::RadioError;
 using ::android::hardware::radio::minimal::errorResponse;
 using ::android::hardware::radio::minimal::noError;
@@ -60,7 +60,7 @@ ScopedAStatus RadioData::setupDataCall(int32_t serial, aidlCommon::AccessNetwork
 
     aidl::SetupDataCallResult result{
             .cause = aidl::DataCallFailCause::NONE,
-            .suggestedRetryTime = RadioConst::VALUE_UNAVAILABLE_LONG,
+            .suggestedRetryTime = kTimeUnavailable,
             .cid = setupDataCallCid(),
             .active = aidl::SetupDataCallResult::DATA_CONNECTION_STATUS_ACTIVE,
             .type = aidl::PdpProtocolType::IP,
@@ -68,8 +68,8 @@ ScopedAStatus RadioData::setupDataCall(int32_t serial, aidlCommon::AccessNetwork
             .addresses = {{
                     .address = "192.168.97.2/30",
                     .addressProperties = 0,
-                    .deprecationTime = RadioConst::VALUE_UNAVAILABLE_LONG,
-                    .expirationTime = RadioConst::VALUE_UNAVAILABLE_LONG,
+                    .deprecationTime = kTimeUnavailable,
+                    .expirationTime = kTimeUnavailable,
             }},
             .dnses = {"8.8.8.8"},
             .gateways = {"192.168.97.1"},

@@ -17,42 +17,39 @@
 
 #include <android-base/logging.h>
 #include <libminradio/binder_printing.h>
+#include <libminradio/constants.h>
 
 namespace android::hardware::radio::minimal::structs {
 
+using constants::kValueUnavailable;
 using namespace ::android::hardware::radio::minimal::binder_printing;
-using ::aidl::android::hardware::radio::RadioConst;
 namespace aidl = ::aidl::android::hardware::radio::network;
 
 aidl::SignalStrength makeSignalStrength() {
     constexpr aidl::GsmSignalStrength gsm{
-            RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE,
+            kValueUnavailable,
+            kValueUnavailable,
+            kValueUnavailable,
     };
     constexpr aidl::LteSignalStrength lte{
-            RadioConst::VALUE_UNAVAILABLE, RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE, RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE, RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE,
+            kValueUnavailable, kValueUnavailable, kValueUnavailable, kValueUnavailable,
+            kValueUnavailable, kValueUnavailable, kValueUnavailable,
     };
     constexpr aidl::TdscdmaSignalStrength tdscdma{
-            RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE,
+            kValueUnavailable,
+            kValueUnavailable,
+            kValueUnavailable,
     };
     constexpr aidl::WcdmaSignalStrength wcdma{
-            RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE,
+            kValueUnavailable,
+            kValueUnavailable,
+            kValueUnavailable,
+            kValueUnavailable,
     };
     constexpr aidl::NrSignalStrength nr{
-            RadioConst::VALUE_UNAVAILABLE, RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE, RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE, RadioConst::VALUE_UNAVAILABLE,
-            RadioConst::VALUE_UNAVAILABLE, {},
-            RadioConst::VALUE_UNAVAILABLE,
+            kValueUnavailable, kValueUnavailable, kValueUnavailable, kValueUnavailable,
+            kValueUnavailable, kValueUnavailable, kValueUnavailable, {},
+            kValueUnavailable,
     };
 
     return {
@@ -149,7 +146,7 @@ int32_t validateRsrp(int32_t rsrp) {
 
 int32_t validateRsrq(int32_t rsrq) {
     // 3GPP TS 27.007 8.69
-    if (rsrq < -20 || rsrq > -3) return RadioConst::VALUE_UNAVAILABLE;
+    if (rsrq < -20 || rsrq > -3) return kValueUnavailable;
     return -rsrq;
 }
 
