@@ -106,14 +106,4 @@ ScopedAStatus RadioConfig::getSimultaneousCallingSupport(int32_t serial) {
     return ok();
 }
 
-ScopedAStatus RadioConfig::getSimTypeInfo(int32_t serial) {
-    LOG_NOT_SUPPORTED;
-    return ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
-}
-
-ScopedAStatus RadioConfig::setSimType(int32_t serial, const std::vector<aidl::SimType>& simTypes) {
-    LOG_NOT_SUPPORTED << simTypes;
-    return ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
-}
-
 }  // namespace android::hardware::radio::minimal

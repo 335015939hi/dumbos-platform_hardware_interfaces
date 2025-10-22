@@ -41,11 +41,6 @@ class RadioConfig : public aidl::android::hardware::radio::config::BnRadioConfig
             const std::vector<aidl::android::hardware::radio::config::SlotPortMapping>& slotMap)
             override;
     ::ndk::ScopedAStatus getSimultaneousCallingSupport(int32_t serial) override;
-    ::ndk::ScopedAStatus getSimTypeInfo(int32_t serial) override;
-    ::ndk::ScopedAStatus setSimType(
-            int32_t serial,
-            const std::vector<::aidl::android::hardware::radio::config::SimType>& simTypes)
-            override;
 
     GuaranteedCallback<::aidl::android::hardware::radio::config::IRadioConfigIndication,
                        ::aidl::android::hardware::radio::config::IRadioConfigIndicationDefault,
