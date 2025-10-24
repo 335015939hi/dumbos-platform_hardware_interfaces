@@ -2,26 +2,26 @@
     <hal format="aidl">
         <name>android.hardware.radio.config</name>
         <fqname>IRadioConfig/default</fqname>
-        <version>4</version>
+        <version>3</version>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.data</name>
         <fqname>IRadioData/slot1</fqname>
-        <version>4</version>
+        <version>3</version>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.modem</name>
         <fqname>IRadioModem/slot1</fqname>
-        <version>4</version>
+        <version>3</version>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.network</name>
         <fqname>IRadioNetwork/slot1</fqname>
-        <version>4</version>
+        <version>3</version>
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.sim</name>
         <fqname>IRadioSim/slot1</fqname>
-        <version>4</version>
+        <version>3</version>
     </hal>
 </manifest>
