@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99f07b60_d7de78c2",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-10-27T20:45:45Z",
+      "side": 1,
+      "message": "nit: This p should be lowercase",
+      "range": {
+        "startLine": 74,
+        "startChar": 12,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f6c6461d_15270d09",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+              "range": {
+                "startLine": 74,
+                "startChar": 0,
+                "endLine": 75,
+                "endChar": 0
+              },
+              "replacement": "        isP2pSupported_ \u003d ::testing::deviceSupportsFeature(\"android.hardware.wifi.direct\");\n"
+            },
+            {
+              "path": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+              "range": {
+                "startLine": 131,
+                "startChar": 0,
+                "endLine": 132,
+                "endChar": 0
+              },
+              "replacement": "     bool isP2pSupported_ \u003d false;\n"
+            },
+            {
+              "path": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+              "range": {
+                "startLine": 342,
+                "startChar": 0,
+                "endLine": 343,
+                "endChar": 0
+              },
+              "replacement": "    if (!isP2pSupported_) GTEST_SKIP() \u003c\u003c \"Missing P2P support\";\n"
+            },
+            {
+              "path": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+              "range": {
+                "startLine": 358,
+                "startChar": 0,
+                "endLine": 359,
+                "endChar": 0
+              },
+              "replacement": "    if (!isP2pSupported_) GTEST_SKIP() \u003c\u003c \"Missing P2P support\";\n"
+            },
+            {
+              "path": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+              "range": {
+                "startLine": 392,
+                "startChar": 0,
+                "endLine": 393,
+                "endChar": 0
+              },
+              "replacement": "    if (!isP2pSupported_) GTEST_SKIP() \u003c\u003c \"Missing P2P support\";\n"
+            },
+            {
+              "path": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+              "range": {
+                "startLine": 420,
+                "startChar": 0,
+                "endLine": 421,
+                "endChar": 0
+              },
+              "replacement": "    if (!isP2pSupported_) GTEST_SKIP() \u003c\u003c \"Missing P2P support\";\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9df99e2841e0b618a9277f32fc6f73dae8a92b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fced2f8_b9f1b6e7",
+        "filename": "wifi/1.0/vts/functional/wifi_p2p_iface_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-10-27T20:45:45Z",
+      "side": 1,
+      "message": "nit: Let\u0027s add brackets around this statement",
+      "range": {
+        "startLine": 39,
+        "startChar": 12,
+        "endLine": 39,
+        "endChar": 50
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a0954d02_fb80a934",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "wifi/1.0/vts/functional/wifi_p2p_iface_hidl_test.cpp",
+              "range": {
+                "startLine": 38,
+                "startChar": 0,
+                "endLine": 39,
+                "endChar": 0
+              },
+              "replacement": "        if (!::testing::deviceSupportsFeature(\"android.hardware.wifi.direct\")) {\n"
+            },
+            {
+              "path": "wifi/1.0/vts/functional/wifi_p2p_iface_hidl_test.cpp",
+              "range": {
+                "startLine": 40,
+                "startChar": 0,
+                "endLine": 40,
+                "endChar": 0
+              },
+              "replacement": "        }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9df99e2841e0b618a9277f32fc6f73dae8a92b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
