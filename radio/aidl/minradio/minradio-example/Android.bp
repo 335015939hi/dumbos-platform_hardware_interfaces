@@ -56,6 +56,7 @@ apex {
     key: "com.android.hardware.key",
     certificate: ":com.android.hardware.certificate",
     updatable: false,
+    vendor: true,
     soc_specific: true,
 
     binaries: [
@@ -66,6 +67,7 @@ apex {
 
         // TODO(b/369726708): adding to init_rc field of cc_binary doesn't work in apex yet
         "minradio-example.rc",
+        "minradio-example.xml",
     ],
     overrides: ["rild"],
     // TODO(b/415983829): for some reason, neither of these gets loaded
@@ -79,4 +81,10 @@ prebuilt_etc {
     name: "minradio-example.rc",
     src: "minradio-example.rc",
     installable: false,
+}
+
+prebuilt_etc {
+    name: "minradio-example.xml",
+    src: "minradio-example.xml",
+    sub_dir: "vintf",
 }
