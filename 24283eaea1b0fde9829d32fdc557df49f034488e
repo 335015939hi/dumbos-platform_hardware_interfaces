@@ -50,6 +50,30 @@
       ],
       "revId": "24283eaea1b0fde9829d32fdc557df49f034488e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "353b6d11_4fd2d121",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/VolumeInvocationType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2025-10-28T08:37:44Z",
+      "side": 1,
+      "message": "ON_INACTIVE_PLAYBACK",
+      "parentUuid": "1dee3d1b_ac3c3838",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "24283eaea1b0fde9829d32fdc557df49f034488e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
