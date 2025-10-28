@@ -92,6 +92,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5090b2c8_f5ae9d85",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-10-28T16:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99f07b60_d7de78c2",
+      "range": {
+        "startLine": 74,
+        "startChar": 12,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "9df99e2841e0b618a9277f32fc6f73dae8a92b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fced2f8_b9f1b6e7",
@@ -139,6 +163,30 @@
           ]
         }
       ],
+      "revId": "9df99e2841e0b618a9277f32fc6f73dae8a92b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19eb5430_ed06c871",
+        "filename": "wifi/1.0/vts/functional/wifi_p2p_iface_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-10-28T16:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fced2f8_b9f1b6e7",
+      "range": {
+        "startLine": 39,
+        "startChar": 12,
+        "endLine": 39,
+        "endChar": 50
+      },
       "revId": "9df99e2841e0b618a9277f32fc6f73dae8a92b8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
