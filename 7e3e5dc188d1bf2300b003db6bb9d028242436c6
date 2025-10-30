@@ -1,0 +1,250 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a674422c_1b7dd403",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2025-10-30T20:32:11Z",
+      "side": 1,
+      "message": "need to release the importViewBuffer result here or wrap the result in a BufferHandle instance",
+      "fixSuggestions": [
+        {
+          "fixId": "b267a9a2_d13947a0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 674,
+                "startChar": 0,
+                "endLine": 675,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 683,
+                "startChar": 0,
+                "endLine": 684,
+                "endChar": 0
+              },
+              "replacement": "    buffer_handle_t raw_hnd_1 \u003d nullptr;\n    result \u003d mapper()-\u003ev6.importViewBuffer(*bufferHandle, base_view, \u0026raw_hnd_1);\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 685,
+                "startChar": 0,
+                "endLine": 686,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_NE(nullptr, raw_hnd_1);\n    BufferHandle hnd_1(mapper(), raw_hnd_1);\n    EXPECT_TRUE(hnd_1);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37b0a941_67b7e555",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2025-10-30T20:32:11Z",
+      "side": 1,
+      "message": "Should also either assert that IAllocator is version 3 or skip if it\u0027s not since this needs to be able to allocate a multiview result.",
+      "fixSuggestions": [
+        {
+          "fixId": "c8c6df0f_01d80885",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 180,
+                "startChar": 0,
+                "endLine": 180,
+                "endChar": 0
+              },
+              "replacement": "    int32_t getIAllocatorVersion() const { return mIAllocatorVersion; }\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 690,
+                "startChar": 0,
+                "endLine": 690,
+                "endChar": 0
+              },
+              "replacement": "    if (getIAllocatorVersion() \u003c 3) {\n        GTEST_SKIP() \u003c\u003c \"IAllocator version is \" \u003c\u003c getIAllocatorVersion()\n                     \u003c\u003c \", but version 3 is required for multi-view allocation.\";\n    }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec478b3f_673285f0",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2025-10-30T20:32:11Z",
+      "side": 1,
+      "message": "with allocateMultiView I don\u0027t think we have/need this usage bit right? I think this test needs to be updated for IAllocator-v3",
+      "range": {
+        "startLine": 697,
+        "startChar": 48,
+        "endLine": 697,
+        "endChar": 76
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d1d07d5e_0e0d3056",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 640,
+                "startChar": 0,
+                "endLine": 641,
+                "endChar": 0
+              },
+              "replacement": "            .usage \u003d BufferUsage::CPU_WRITE_OFTEN,\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 666,
+                "startChar": 0,
+                "endLine": 667,
+                "endChar": 0
+              },
+              "replacement": "            .usage \u003d BufferUsage::CPU_WRITE_OFTEN,\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 697,
+                "startChar": 0,
+                "endLine": 698,
+                "endChar": 0
+              },
+              "replacement": "        .usage \u003d BufferUsage::CPU_WRITE_OFTEN,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c6baa32_46f7cd17",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2025-10-30T20:32:11Z",
+      "side": 1,
+      "message": "since this is already asserted to be 2 on the line above this could just be a stack variable instead.",
+      "fixSuggestions": [
+        {
+          "fixId": "ccb23bae_af5cac31",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 705,
+                "startChar": 0,
+                "endLine": 706,
+                "endChar": 0
+              },
+              "replacement": "    const uint32_t* viewListPtr \u003d nullptr;\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 710,
+                "startChar": 0,
+                "endLine": 711,
+                "endChar": 0
+              },
+              "replacement": "    int result \u003d mapper()-\u003ev6.getMultiViewInfo(*bufferHandle, \u0026viewListPtr, \u0026numberOfViews);\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 713,
+                "startChar": 0,
+                "endLine": 714,
+                "endChar": 0
+              },
+              "replacement": "    std::vector\u003cuint32_t\u003e viewList(numberOfViews);\n    viewListPtr \u003d viewList.data();\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 715,
+                "startChar": 0,
+                "endLine": 716,
+                "endChar": 0
+              },
+              "replacement": "    result \u003d mapper()-\u003ev6.getMultiViewInfo(*bufferHandle, \u0026viewListPtr, \u0026numberOfViews);\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 717,
+                "startChar": 0,
+                "endLine": 718,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NE(nullptr, viewListPtr);\n"
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 720,
+                "startChar": 0,
+                "endLine": 724,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(viewListPtr[0], 1);\n    EXPECT_EQ(viewListPtr[1], 2);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
