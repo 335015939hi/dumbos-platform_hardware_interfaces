@@ -539,10 +539,13 @@ TEST_P(CertificateRequestTest, NewKeyPerCallInTestMode) {
     ASSERT_TRUE(secondBcc) << secondBcc.message();
 
     // Verify that none of the keys in the first BCC are repeated in the second one.
-    for (const auto& i : *firstBcc) {
-        for (auto& j : *secondBcc) {
-            ASSERT_THAT(i.pubKey, testing::Not(testing::ElementsAreArray(j.pubKey)))
-                    << "Found a repeated pubkey in two generateCertificateRequest test mode calls";
+    if (firstBcc && secondBcc) {
+        for (const auto& i : *firstBcc) {
+            for (auto& j : *secondBcc) {
+                ASSERT_THAT(i.pubKey, testing::Not(testing::ElementsAreArray(j.pubKey)))
+                        << "Found a repeated pubkey in two generateCertificateRequest test mode "
+                           "calls";
+            }
         }
     }
 }
