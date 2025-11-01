@@ -733,6 +733,7 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_testKeyInProdCert) {
     generateKeys(true /* testMode */, 2 /* numKeys */);
 
     bytevec keysToSignMac;
+<<<<<<< HEAD
     DeviceInfo deviceInfo;
     ProtectedData protectedData;
     generateTestEekChain(3);
@@ -743,6 +744,21 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_testKeyInProdCert) {
     ASSERT_EQ(status.getServiceSpecificError(),
               BnRemotelyProvisionedComponent::STATUS_TEST_KEY_IN_PRODUCTION_REQUEST);
 }
+=======
+    verifyCertificateRequestResult(secondBcc);
+
+    // Verify that none of the keys in the first BCC are repeated in the second one.
+    if (firstBcc && secondBcc) {
+        for (const auto& i : *firstBcc) {
+            for (auto& j : *secondBcc) {
+                ASSERT_THAT(i.pubKey, testing::Not(testing::ElementsAreArray(j.pubKey)))
+                        << "Found a repeated pubkey in two generateCertificateRequest test mode "
+                           "calls";
+            }
+        }
+    }
+}
+>>>>>>> PATCH
 
 INSTANTIATE_REM_PROV_AIDL_TEST(CertificateRequestTest);
 
