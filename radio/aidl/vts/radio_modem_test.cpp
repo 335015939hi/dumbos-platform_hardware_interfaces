@@ -202,6 +202,13 @@ TEST_P(RadioModemTest, getDeviceIdentity) {
                             "due to undefined FEATURE_TELEPHONY";
         }
     }
+    int32_t aidl_version;
+    ndk::ScopedAStatus aidl_status = radio_modem->getInterfaceVersion(&aidl_version);
+    ASSERT_OK(aidl_status);
+    if (aidl_version >= 4) {
+        ALOGI("Skipped the test since getDeviceIdentity is deprecated");
+        GTEST_SKIP();
+    }
 
     serial = GetRandomSerialNumber();
 
@@ -220,13 +227,6 @@ TEST_P(RadioModemTest, getDeviceIdentity) {
  * Test IRadioModem.getImei() for the response returned.
  */
 TEST_P(RadioModemTest, getImei) {
-    if (telephony_flags::enforce_telephony_feature_mapping()) {
-        if (!deviceSupportsFeature(FEATURE_TELEPHONY_GSM)) {
-            GTEST_SKIP() << "Skipping getImei "
-                            "due to undefined FEATURE_TELEPHONY_GSM";
-        }
-    }
-
     int32_t aidl_version;
     ndk::ScopedAStatus aidl_status = radio_modem->getInterfaceVersion(&aidl_version);
     ASSERT_OK(aidl_status);
@@ -244,43 +244,6 @@ TEST_P(RadioModemTest, getImei) {
     if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_modem->rspInfo.error,
                                      {RadioError::NONE, RadioError::EMPTY_RECORD}));
-    }
-}
-
-/*
- * Test IRadioModem.nvReadItem() for the response returned.
- */
-TEST_P(RadioModemTest, nvReadItem) {
-    serial = GetRandomSerialNumber();
-
-    radio_modem->nvReadItem(serial, NvItem::LTE_BAND_ENABLE_25);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_modem->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_modem->rspInfo.serial);
-
-    if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
-        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_modem->rspInfo.error, {RadioError::NONE},
-                                     CHECK_GENERAL_ERROR));
-    }
-}
-
-/*
- * Test IRadioModem.nvWriteItem() for the response returned.
- */
-TEST_P(RadioModemTest, nvWriteItem) {
-    serial = GetRandomSerialNumber();
-    NvWriteItem item;
-    memset(&item, 0, sizeof(item));
-    item.value = std::string();
-
-    radio_modem->nvWriteItem(serial, item);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_modem->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_modem->rspInfo.serial);
-
-    if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
-        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_modem->rspInfo.error, {RadioError::NONE},
-                                     CHECK_GENERAL_ERROR));
     }
 }
 

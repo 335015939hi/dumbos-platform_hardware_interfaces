@@ -263,6 +263,8 @@ oneway interface IRadioSimResponse {
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
+     *   RadioError:INVALID_ARGUMENTS when given channel is invalid or basic (channel 0)
+     *   RadioError:MISSING_RESOURCE when given channel is not open
      *   RadioError:NO_MEMORY
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
@@ -325,6 +327,7 @@ oneway interface IRadioSimResponse {
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
+     *   RadioError:INVALID_ARGUMENTS
      *   RadioError:NO_MEMORY
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
@@ -378,6 +381,7 @@ oneway interface IRadioSimResponse {
      *   RadioError:INVALID_MODEM_STATE
      *   RadioError:SIM_ERR
      *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:REQUEST_NOT_SUPPORTED
      */
     void requestIccSimAuthenticationResponse(in RadioResponseInfo info, in IccIoResult result);
 

@@ -33,7 +33,7 @@ namespace android::netdevice::can {
 
 static constexpr can_err_mask_t kErrMask = CAN_ERR_MASK;
 
-base::unique_fd socket(const std::string& ifname) {
+base::unique_fd socket(std::string_view ifname) {
     sockaddr_can addr = {};
     addr.can_family = AF_CAN;
     addr.can_ifindex = nametoindex(ifname);
@@ -66,11 +66,11 @@ base::unique_fd socket(const std::string& ifname) {
     return sock;
 }
 
-bool setBitrate(std::string ifname, uint32_t bitrate) {
+bool setBitrate(std::string_view ifname, uint32_t bitrate) {
     can_bittiming bt = {};
     bt.bitrate = bitrate;
 
-    nl::MessageFactory<ifinfomsg> req(RTM_NEWLINK, NLM_F_REQUEST | NLM_F_ACK);
+    nl::MessageFactory<ifinfomsg> req(RTM_NEWLINK);
 
     req->ifi_index = nametoindex(ifname);
     if (req->ifi_index == 0) {
@@ -80,7 +80,7 @@ bool setBitrate(std::string ifname, uint32_t bitrate) {
 
     {
         auto linkinfo = req.addNested(IFLA_LINKINFO);
-        req.addBuffer(IFLA_INFO_KIND, "can");
+        req.add(IFLA_INFO_KIND, "can");
         {
             auto infodata = req.addNested(IFLA_INFO_DATA);
             /* For CAN FD, it would require to add IFLA_CAN_DATA_BITTIMING
