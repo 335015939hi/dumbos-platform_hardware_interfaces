@@ -478,6 +478,29 @@ class CertificateRequestTest : public CertificateRequestTestBase {
                          << "RKP version discovered: " << rpcHardwareInfo.versionNumber;
         }
     }
+
+    void verifyCertificateRequestResult(ErrMsgOr<std::vector<BccEntryData>>& result) {
+        // Retrieve the vendor API level.
+        int vendor_api_level = ::android::base::GetIntProperty("ro.vendor.api_level", -1);
+
+        if (vendor_api_level > __ANDROID_API_T__) {
+            // For devices with API level > Tiramisu (e.g., Android 14+).
+            // Verification MUST succeed.
+            ASSERT_TRUE(result) << result.message();
+        } else {
+            // For devices with API level <= Tiramisu (Android 13 & under).
+            // It passes if result is true, OR if it's false with the specific expected error.
+            if (!result) {
+                const std::string& error_message = result.message();
+
+                // If the failure message DOES NOT contain the expected string, it's an UNEXPECTED
+                // failure.
+                if (error_message.find("keyCertSign") == std::string::npos) {
+                    FAIL() << "Unexpected verification failure. Message was: " << error_message;
+                }
+            }
+        }
+    }
 };
 
 /**
@@ -498,6 +521,7 @@ TEST_P(CertificateRequestTest, EmptyRequest_testMode) {
                 &protectedData, &keysToSignMac);
         ASSERT_TRUE(status.isOk()) << status.getDescription();
 
+<<<<<<< HEAD
         auto result = verifyProductionProtectedData(
                 deviceInfo, cppbor::Array(), keysToSignMac, protectedData, testEekChain_, eekId_,
                 rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
@@ -505,6 +529,15 @@ TEST_P(CertificateRequestTest, EmptyRequest_testMode) {
     }
 }
 
+=======
+        auto result = verifyProductionProtectedData(deviceInfo, cppbor::Array(), keysToSignMac,
+                                                    protectedData, testEekChain_, eekId_,
+                                                    rpcHardwareInfo, GetParam(), challenge_);
+        verifyCertificateRequestResult(result);
+    }
+}
+
+>>>>>>> PATCH
 /**
  * Ensure that test mode outputs a unique BCC root key every time we request a
  * certificate request. Else, it's possible that the test mode API could be used
@@ -513,6 +546,7 @@ TEST_P(CertificateRequestTest, EmptyRequest_testMode) {
  */
 TEST_P(CertificateRequestTest, NewKeyPerCallInTestMode) {
     constexpr bool testMode = true;
+<<<<<<< HEAD
 
     bytevec keysToSignMac;
     DeviceInfo deviceInfo;
@@ -520,6 +554,25 @@ TEST_P(CertificateRequestTest, NewKeyPerCallInTestMode) {
     generateTestEekChain(3);
     auto status = provisionable_->generateCertificateRequest(
             testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
+=======
+    auto firstBcc = verifyProductionProtectedData(deviceInfo, /*keysToSign=*/cppbor::Array(),
+<<<<<<< HEAD
+                                                  keysToSignMac, protectedData, testEekChain_,
+                                                  eekId_, rpcHardwareInfo, GetParam(), challenge_);
+    verifyCertificateRequestResult(firstBcc);
+
+    status = provisionable_->generateCertificateRequest(
+            testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
+>>>>>>> PATCH
+=======
+    auto secondBcc = verifyProductionProtectedData(deviceInfo, /*keysToSign=*/cppbor::Array(),
+                                                   keysToSignMac, protectedData, testEekChain_,
+                                                   eekId_, rpcHardwareInfo, GetParam(), challenge_);
+    verifyCertificateRequestResult(secondBcc);
+
+    // Verify that none of the keys in the first BCC are repeated in the second one.
+    for (const auto& i : *firstBcc) {
+>>>>>>> PATCH
             &protectedData, &keysToSignMac);
     ASSERT_TRUE(status.isOk()) << status.getDescription();
 
@@ -553,6 +606,7 @@ TEST_P(CertificateRequestTest, NewKeyPerCallInTestMode) {
  * trust the Google EEK root.
  */
 TEST_P(CertificateRequestTest, DISABLED_EmptyRequest_prodMode) {
+<<<<<<< HEAD
     bool testMode = false;
 
     bytevec keysToSignMac;
@@ -560,6 +614,15 @@ TEST_P(CertificateRequestTest, DISABLED_EmptyRequest_prodMode) {
     ProtectedData protectedData;
     auto status = provisionable_->generateCertificateRequest(
             testMode, {} /* keysToSign */, getProdEekChain(rpcHardwareInfo.supportedEekCurve),
+=======
+        auto result = verifyProductionProtectedData(deviceInfo, cborKeysToSign_, keysToSignMac,
+                                                    protectedData, testEekChain_, eekId_,
+                                                    rpcHardwareInfo, GetParam(), challenge_);
+        verifyCertificateRequestResult(result);
+    }
+}
+
+>>>>>>> PATCH
             challenge_, &deviceInfo, &protectedData, &keysToSignMac);
     EXPECT_TRUE(status.isOk());
 }
