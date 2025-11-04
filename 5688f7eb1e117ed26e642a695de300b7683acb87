@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b310d3_b321b7c3",
+        "filename": "wifi/aidl/default/wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2025-11-04T22:57:15Z",
+      "side": 0,
+      "message": "When incrementing a HAL, you are required to retain backwards compatibility with previous versions. You\u0027ll need to make sure that `onSubsystemRestart()` _also_ works.\n\nIt\u0027s unfortunate that WifiStatusCode is an enum, and not a parcelable. Otherwise, you could extend it.",
+      "range": {
+        "startLine": 262,
+        "startChar": 15,
+        "endLine": 262,
+        "endChar": 70
+      },
+      "revId": "5688f7eb1e117ed26e642a695de300b7683acb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

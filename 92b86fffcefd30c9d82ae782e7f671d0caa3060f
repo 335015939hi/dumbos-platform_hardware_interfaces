@@ -1,0 +1,137 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc32b767_160c6bc6",
+        "filename": "wifi/aidl/android/hardware/wifi/WifiDetailStatus.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2025-11-04T22:57:15Z",
+      "side": 1,
+      "message": "This part should only be in the aidl_api files",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 78
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2c3d7b6e_8f668709",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "wifi/aidl/android/hardware/wifi/WifiDetailStatus.aidl",
+              "range": {
+                "startLine": 16,
+                "startChar": 0,
+                "endLine": 33,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "92b86fffcefd30c9d82ae782e7f671d0caa3060f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb2ce950_1d5ad401",
+        "filename": "wifi/aidl/android/hardware/wifi/WifiDetailStatus.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2025-11-04T22:57:15Z",
+      "side": 1,
+      "message": "It was mentioned in the bug thread that this int is the same as the pre-existing WifiStatusCode enum. If so, this should be a WifiStatusCode.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "56003619_e2d66257",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "wifi/aidl/android/hardware/wifi/WifiDetailStatus.aidl",
+              "range": {
+                "startLine": 35,
+                "startChar": 0,
+                "endLine": 35,
+                "endChar": 0
+              },
+              "replacement": "\nimport android.hardware.wifi.WifiStatusCode;\n\n"
+            },
+            {
+              "path": "wifi/aidl/android/hardware/wifi/WifiDetailStatus.aidl",
+              "range": {
+                "startLine": 40,
+                "startChar": 0,
+                "endLine": 41,
+                "endChar": 0
+              },
+              "replacement": "    WifiStatusCode code;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "92b86fffcefd30c9d82ae782e7f671d0caa3060f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81903064_f36d8059",
+        "filename": "wifi/aidl/android/hardware/wifi/WifiDetailStatus.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2025-11-04T22:57:15Z",
+      "side": 1,
+      "message": "If it\u0027s only a description, then there\u0027s little reason for this change. There could be a framework side \"status code to string\" function.  From our discussions on the bug thread, it sounds like it\u0027s not just a human readable description, but rather a more verbose description of what broke",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 55
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "402d95c6_906f29b5",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "wifi/aidl/android/hardware/wifi/WifiDetailStatus.aidl",
+              "range": {
+                "startLine": 43,
+                "startChar": 0,
+                "endLine": 44,
+                "endChar": 0
+              },
+              "replacement": "     * A verbose description of what broke, providing more details than just the status code.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "92b86fffcefd30c9d82ae782e7f671d0caa3060f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
