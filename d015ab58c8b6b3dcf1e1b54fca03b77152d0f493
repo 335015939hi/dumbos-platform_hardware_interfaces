@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccd18055_c8a99312",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-11-05T17:08:50Z",
+      "side": 1,
+      "message": "This does not make sense to me because it\u0027s code for the vendor partition. OEMs use their own vendor partition code.",
+      "revId": "d015ab58c8b6b3dcf1e1b54fca03b77152d0f493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
