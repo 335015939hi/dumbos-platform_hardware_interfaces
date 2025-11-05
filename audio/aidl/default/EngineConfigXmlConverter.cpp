@@ -250,12 +250,34 @@ void EngineConfigXmlConverter::init() {
         capSpecificConfig.criteria = VALUE_OR_FATAL(
                 (convertWrappedCollectionToAidl<eng_xsd::CriteriaType, eng_xsd::CriterionType,
                                                 AudioHalCapCriterion>(
+<<<<<<< HEAD
                         getXsdcConfig()->getCriteria(), &eng_xsd::CriteriaType::getCriterion,
                         &convertCapCriterionToAidl)));
         capSpecificConfig.criterionTypes =
                 VALUE_OR_FATAL((convertWrappedCollectionToAidl<eng_xsd::CriterionTypesType,
                                                                eng_xsd::CriterionTypeType,
                                                                AudioHalCapCriterionType>(
+=======
+    }
+    if (getXsdcConfig()->hasCriteria() && getXsdcConfig()->hasCriterion_types()) {
+        AudioHalEngineConfig::CapSpecificConfig capSpecificConfig;
+<<<<<<< HEAD
+        // In hybrid mode, we use legacy XML file, that would not be compatible with AIDL
+        // (e.g. some device like ambient or incommunication deprecated...)
+#ifndef DISABLE_CAP_AIDL
+        capSpecificConfig.criteriaV2 =
+                std::make_optional<>(VALUE_OR_FATAL((convertCapCriteriaCollectionToAidl(
+                        getXsdcConfig()->getCriteria(), getXsdcConfig()->getCriterion_types()))));
+=======
+        if (capEngConfigConverter.getStatus() == ::android::OK) {
+            capSpecificConfig.domains = std::move(capEngConfigConverter.getAidlCapEngineConfig());
+        }
+#endif
+        mAidlEngineConfig.capSpecificConfig = capSpecificConfig;
+    }
+}
+>>>>>>> PATCH
+>>>>>>> PATCH
                         getXsdcConfig()->getCriterion_types(),
                         &eng_xsd::CriterionTypesType::getCriterion_type,
                         &convertCapCriterionTypeToAidl)));

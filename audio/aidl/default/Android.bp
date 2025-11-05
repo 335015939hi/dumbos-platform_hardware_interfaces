@@ -118,6 +118,7 @@ cc_library {
 }
 
 cc_binary {
+<<<<<<< HEAD
     name: "android.hardware.audio.service-aidl.example",
     relative_install_path: "hw",
     defaults: [
@@ -125,6 +126,18 @@ cc_binary {
         "latest_android_hardware_audio_core_sounddose_ndk_shared",
         "latest_android_hardware_audio_core_ndk_shared",
         "latest_android_hardware_bluetooth_audio_ndk_shared",
+=======
+        "-Werror",
+        "-Wthread-safety",
+        "-DBACKEND_NDK",
+    ] + select(release_flag("RELEASE_HARDWARE_AUDIO_USE_CAP_AIDL"), {
+        true: [],
+        default: ["-DDISABLE_CAP_AIDL"],
+    }),
+}
+
+cc_library {
+>>>>>>> PATCH
         "latest_android_media_audio_common_types_ndk_shared",
     ],
     static_libs: [
