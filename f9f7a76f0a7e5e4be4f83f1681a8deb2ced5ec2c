@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adeeacb6_6d786753",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1962821
+      },
+      "writtenOn": "2025-11-05T21:40:02Z",
+      "side": 1,
+      "message": "@bduddie@google.com Note: I have `TODO`s at the bottom of many sections for things that I think could particularly use some consideration.\n\nTwo bonus questions that don\u0027t fit in the scope of a single file:\n1. Should some of these files be split or consolidated?\n2. Is hardware/contexthub a suitable dir for this or should we make a new one?",
+      "revId": "f9f7a76f0a7e5e4be4f83f1681a8deb2ced5ec2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
