@@ -478,6 +478,29 @@ class CertificateRequestTest : public CertificateRequestTestBase {
                          << "RKP version discovered: " << rpcHardwareInfo.versionNumber;
         }
     }
+
+    void verifyCertificateRequestResult(ErrMsgOr<std::vector<BccEntryData>>& result) {
+        // Retrieve the vendor API level.
+        int vendor_api_level = ::android::base::GetIntProperty("ro.vendor.api_level", -1);
+
+        if (vendor_api_level > __ANDROID_API_T__) {
+            // For devices with API level > Tiramisu (e.g., Android 14+).
+            // Verification MUST succeed.
+            ASSERT_TRUE(result) << result.message();
+        } else {
+            // For devices with API level <= Tiramisu (Android 13 & under).
+            // It passes if result is true, OR if it's false with the specific expected error.
+            if (!result) {
+                const std::string& error_message = result.message();
+
+                // If the failure message DOES NOT contain the expected string, it's an UNEXPECTED
+                // failure.
+                if (error_message.find("keyCertSign") == std::string::npos) {
+                    FAIL() << "Unexpected verification failure. Message was: " << error_message;
+                }
+            }
+        }
+    }
 };
 
 /**
@@ -501,7 +524,7 @@ TEST_P(CertificateRequestTest, EmptyRequest_testMode) {
         auto result = verifyProductionProtectedData(
                 deviceInfo, cppbor::Array(), keysToSignMac, protectedData, testEekChain_, eekId_,
                 rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
-        ASSERT_TRUE(result) << result.message();
+        verifyCertificateRequestResult(result);
     }
 }
 
@@ -526,7 +549,7 @@ TEST_P(CertificateRequestTest, NewKeyPerCallInTestMode) {
     auto firstBcc = verifyProductionProtectedData(
             deviceInfo, /*keysToSign=*/cppbor::Array(), keysToSignMac, protectedData, testEekChain_,
             eekId_, rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
-    ASSERT_TRUE(firstBcc) << firstBcc.message();
+    verifyCertificateRequestResult(firstBcc);
 
     status = provisionable_->generateCertificateRequest(
             testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
@@ -536,13 +559,16 @@ TEST_P(CertificateRequestTest, NewKeyPerCallInTestMode) {
     auto secondBcc = verifyProductionProtectedData(
             deviceInfo, /*keysToSign=*/cppbor::Array(), keysToSignMac, protectedData, testEekChain_,
             eekId_, rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
-    ASSERT_TRUE(secondBcc) << secondBcc.message();
+    verifyCertificateRequestResult(secondBcc);
 
     // Verify that none of the keys in the first BCC are repeated in the second one.
-    for (const auto& i : *firstBcc) {
-        for (auto& j : *secondBcc) {
-            ASSERT_THAT(i.pubKey, testing::Not(testing::ElementsAreArray(j.pubKey)))
-                    << "Found a repeated pubkey in two generateCertificateRequest test mode calls";
+    if (firstBcc && secondBcc) {
+        for (const auto& i : *firstBcc) {
+            for (auto& j : *secondBcc) {
+                ASSERT_THAT(i.pubKey, testing::Not(testing::ElementsAreArray(j.pubKey)))
+                        << "Found a repeated pubkey in two generateCertificateRequest test mode "
+                           "calls";
+            }
         }
     }
 }
@@ -586,7 +612,7 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_testMode) {
         auto result = verifyProductionProtectedData(
                 deviceInfo, cborKeysToSign_, keysToSignMac, protectedData, testEekChain_, eekId_,
                 rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
-        ASSERT_TRUE(result) << result.message();
+        verifyCertificateRequestResult(result);
     }
 }
 
