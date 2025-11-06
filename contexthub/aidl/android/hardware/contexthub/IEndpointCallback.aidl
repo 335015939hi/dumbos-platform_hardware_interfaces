@@ -31,7 +31,7 @@ interface IEndpointCallback {
      * object. The EndpointInfo reported here should be consistent with values from getEndpoints().
      *
      * Endpoints added by registerEndpoint should not be included. registerEndpoint() should not
-     * cause this call.
+     * cause this call
      *
      * @param endpointInfos An array of EndpointInfo representing endpoints that just started.
      */
