@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "15c93dd9_83b9e94e",
         "filename": "/COMMIT_MSG",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "implementation of this?",
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5f8b4262_f3d04cb0",
         "filename": "/COMMIT_MSG",
@@ -32,10 +33,28 @@
       "message": "I\u0027ve added an implementation now, but nothing is using it yet. I\u0027ll add it to cuttlefish once I can get it a misc partition.",
       "parentUuid": "15c93dd9_83b9e94e",
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38fc81eb_9cd2c434",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4460905
+      },
+      "writtenOn": "2025-11-09T23:30:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8b4262_f3d04cb0",
+      "revId": "119591debbbda11c55ed311f395b073649af00ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "fb5fc54f_b6354aff",
         "filename": "boot/1.1/vts/functional/Android.bp",
@@ -55,10 +74,10 @@
         "endChar": 35
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e1a326da_01badb8f",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -78,10 +97,10 @@
         "endChar": 46
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7455bdc4_06045dee",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -102,10 +121,10 @@
         "endChar": 46
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "fb02059b_81365422",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -125,10 +144,10 @@
         "endChar": 50
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "72ac01a0_1f1e91de",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -148,10 +167,10 @@
         "endChar": 59
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "4cb60a2b_210f052e",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -172,10 +191,10 @@
         "endChar": 59
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e10a0006_e4a6aea2",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -196,10 +215,10 @@
         "endChar": 59
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d8389651_f988e94f",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -220,10 +239,10 @@
         "endChar": 59
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "6ad6cc7c_fe973acf",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -244,10 +263,10 @@
         "endChar": 59
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "49a8b362_57e1023a",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -267,10 +286,10 @@
         "endChar": 50
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b015cfd0_43271c80",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -290,10 +309,10 @@
         "endChar": 64
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "26c0320a_c5577ef8",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -314,10 +333,10 @@
         "endChar": 64
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "be8cc792_8c297bac",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -338,10 +357,10 @@
         "endChar": 50
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a349e0a8_e9e66ca1",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -361,10 +380,10 @@
         "endChar": 43
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "9b8aa166_ab2dcadf",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -385,10 +404,10 @@
         "endChar": 43
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "20f1c3cc_63ae5500",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -408,10 +427,10 @@
         "endChar": 55
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "fa89910d_e8cf50a6",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -432,10 +451,10 @@
         "endChar": 55
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "29b395a7_17eec83f",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
@@ -455,8 +474,7 @@
         "endChar": 8
       },
       "revId": "119591debbbda11c55ed311f395b073649af00ad",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
