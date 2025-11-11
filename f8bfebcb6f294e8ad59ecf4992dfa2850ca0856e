@@ -44,6 +44,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2018b62_45363c2a",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1958225
+      },
+      "writtenOn": "2025-11-11T08:17:41Z",
+      "side": 1,
+      "message": "This CL introduces a 200ms delay between each poll and it will loop with a timeout. Could the change here introduce other regressions?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 60
+      },
+      "revId": "f8bfebcb6f294e8ad59ecf4992dfa2850ca0856e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99e20177_c9cec591",
         "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
         "patchSetId": 10
