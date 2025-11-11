@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78ed7b3e_f22d7b41",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1958225
+      },
+      "writtenOn": "2025-11-11T06:53:11Z",
+      "side": 1,
+      "message": "can be const",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 23
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "536c24c2_f7860737",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 96,
+                "startChar": 0,
+                "endLine": 97,
+                "endChar": 0
+              },
+              "replacement": "  const int retry_times \u003d 15;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f8bfebcb6f294e8ad59ecf4992dfa2850ca0856e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e20177_c9cec591",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1958225
+      },
+      "writtenOn": "2025-11-11T06:53:11Z",
+      "side": 1,
+      "message": "Instead of check the length, why not just check the ev.opcode?\nsomething like\nif (ev.opcode \u003d\u003d MGMT_EV_CMD_COMPLELTE)\n...\nelse if(ev.opcode \u003d\u003d MGMT_EV_INDEX_ADDED \u0026\u0026 ev.index \u003d\u003d hci_interface)\n...\nelse {\n// wait 200ms\n}",
+      "range": {
+        "startLine": 161,
+        "startChar": 8,
+        "endLine": 161,
+        "endChar": 42
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c4b739a9_f693524e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 161,
+                "startChar": 0,
+                "endLine": 166,
+                "endChar": 0
+              },
+              "replacement": "\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 188,
+                "startChar": 0,
+                "endLine": 192,
+                "endChar": 0
+              },
+              "replacement": "    } else if (ev.opcode \u003d\u003d MGMT_EV_INDEX_ADDED \u0026\u0026 ev.index \u003d\u003d hci_interface) {\n      // Received [Index Added] event.\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 195,
+                "startChar": 0,
+                "endLine": 195,
+                "endChar": 0
+              },
+              "replacement": "    } else {\n      // Unexpected event or controller not yet registered.\n      ALOGI(\"hci controller not register, wait 200ms to retry again!\");\n      std::this_thread::sleep_for(std::chrono::milliseconds(200));\n      continue;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f8bfebcb6f294e8ad59ecf4992dfa2850ca0856e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
