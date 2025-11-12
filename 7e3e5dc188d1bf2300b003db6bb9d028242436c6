@@ -56,6 +56,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bc33fc7_a375e750",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 3621465
+      },
+      "writtenOn": "2025-11-12T11:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a674422c_1b7dd403",
+      "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37b0a941_67b7e555",
@@ -97,6 +115,24 @@
           ]
         }
       ],
+      "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "111a3f85_9e97e5f6",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 3621465
+      },
+      "writtenOn": "2025-11-12T11:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37b0a941_67b7e555",
       "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -158,6 +194,30 @@
           ]
         }
       ],
+      "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2da27fb_0efc59f6",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 3621465
+      },
+      "writtenOn": "2025-11-12T11:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec478b3f_673285f0",
+      "range": {
+        "startLine": 697,
+        "startChar": 48,
+        "endLine": 697,
+        "endChar": 76
+      },
       "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -243,6 +303,24 @@
           ]
         }
       ],
+      "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5f188fd_0687b390",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 3621465
+      },
+      "writtenOn": "2025-11-12T11:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c6baa32_46f7cd17",
       "revId": "7e3e5dc188d1bf2300b003db6bb9d028242436c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
