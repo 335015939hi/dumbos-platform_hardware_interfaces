@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71df6540_f0fded1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4455942
+      },
+      "writtenOn": "2025-11-12T20:23:55Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/device/generic/trusty/+/3536359?usp\u003dsubmitted-together",
+      "revId": "a45b9f3955cefd0971e2e21cb33e1955b489b611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
