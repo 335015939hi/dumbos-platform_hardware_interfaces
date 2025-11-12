@@ -90,6 +90,19 @@ struct IMapperV5Impl {
                                              uint64_t* _Nonnull outReservedSize) = 0;
 };
 
+struct IMapperV6Impl : public IMapperV5Impl {
+    virtual AIMapper_Error getMultiViewInfo(buffer_handle_t _Nonnull buffer,
+                                            const uint32_t* _Nullable* _Nonnull outViewList,
+                                            size_t* _Nonnull outNumberOfViews) = 0;
+
+    virtual AIMapper_Error getBaseView(buffer_handle_t _Nonnull buffer,
+                                       uint32_t* _Nonnull outViewIndex) = 0;
+
+    virtual AIMapper_Error importViewBuffer(
+            buffer_handle_t _Nonnull multiViewHandle, uint32_t viewIndex,
+            buffer_handle_t _Nullable* _Nonnull outBufferHandle) = 0;
+};
+
 namespace provider {
 #ifndef __cpp_inline_variables
 #error "Only C++17 & newer is supported; inline variables is missing"
@@ -199,6 +212,24 @@ class IMapperProvider {
                 },
         };
     }
+    void bindV6() {
+        mMapper->v6 = {
+                .getMultiViewInfo = [](buffer_handle_t _Nonnull buffer,
+                                       const uint32_t* _Nullable* _Nonnull outViewList,
+                                       size_t* _Nonnull outNumberOfViews) -> AIMapper_Error {
+                    return impl().getMultiViewInfo(buffer, outViewList, outNumberOfViews);
+                },
+
+                .getBaseView = [](buffer_handle_t _Nonnull buffer, uint32_t* _Nonnull outViewIndex)
+                        -> AIMapper_Error { return impl().getBaseView(buffer, outViewIndex); },
+
+                .importViewBuffer =
+                        [](buffer_handle_t _Nonnull multiViewHandle, uint32_t viewIndex,
+                           buffer_handle_t _Nullable* _Nonnull outBufferHandle) -> AIMapper_Error {
+                    return impl().importViewBuffer(multiViewHandle, viewIndex, outBufferHandle);
+                },
+        };
+    }
 
   public:
     explicit IMapperProvider() = default;
@@ -213,6 +244,9 @@ class IMapperProvider {
             mMapper->version = IMPL::version;
             if (IMPL::version >= AIMAPPER_VERSION_5) {
                 bindV5();
+            }
+            if (IMPL::version >= AIMAPPER_VERSION_6) {
+                bindV6();
             }
         });
         *outImplementation = mMapper;

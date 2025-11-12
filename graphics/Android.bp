@@ -38,7 +38,7 @@ cc_defaults {
     target: {
         linux: {
             static_libs: [
-                "android.hardware.graphics.allocator-V2-ndk",
+                "android.hardware.graphics.allocator-V3-ndk",
             ],
         },
     },
@@ -52,7 +52,7 @@ cc_defaults {
     target: {
         linux: {
             shared_libs: [
-                "android.hardware.graphics.allocator-V2-ndk",
+                "android.hardware.graphics.allocator-V3-ndk",
             ],
         },
     },
