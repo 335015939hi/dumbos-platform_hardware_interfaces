@@ -509,17 +509,21 @@ package android.media.tuner.testing.configuration.V1_0 {
   public class IsdbtFrontendSettings {
     ctor public IsdbtFrontendSettings();
     method @Nullable public java.math.BigInteger getBandwidth();
+    method @Nullable public java.math.BigInteger getCoderate();
     method @Nullable public android.media.tuner.testing.configuration.V1_0.FrontendIsdbtLayerSettings getFrontendIsdbtLayerSettings();
     method @Nullable public java.math.BigInteger getGuardInterval();
     method @Nullable public java.math.BigInteger getInversion();
     method @Nullable public java.math.BigInteger getMode();
+    method @Nullable public java.math.BigInteger getModulation();
     method @Nullable public java.math.BigInteger getPartialReceptionFlag();
     method @Nullable public java.math.BigInteger getServiceAreaId();
     method public void setBandwidth(@Nullable java.math.BigInteger);
+    method public void setCoderate(@Nullable java.math.BigInteger);
     method public void setFrontendIsdbtLayerSettings(@Nullable android.media.tuner.testing.configuration.V1_0.FrontendIsdbtLayerSettings);
     method public void setGuardInterval(@Nullable java.math.BigInteger);
     method public void setInversion(@Nullable java.math.BigInteger);
     method public void setMode(@Nullable java.math.BigInteger);
+    method public void setModulation(@Nullable java.math.BigInteger);
     method public void setPartialReceptionFlag(@Nullable java.math.BigInteger);
     method public void setServiceAreaId(@Nullable java.math.BigInteger);
   }
