@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7e2ad62_146b4c27",
+        "filename": "wifi/aidl/default/wifi_chip.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1391574
+      },
+      "writtenOn": "2025-11-18T23:54:41Z",
+      "side": 1,
+      "message": "This additional change causes the start() to get called from two places. Do you see any functional issues without change ? If not, can we fix this issue from the test side by calling retrieveDynamicIfaceCombination() after EXPECT_CALL(*legacy_hal_, start() ) ? hardware/interfaces/wifi/aidl/default/tests/wifi_chip_unit_tests.cpp setup() class ?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 72
+      },
+      "revId": "f2d2a8b5e90a6595d8352aa07fa15621431d2125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
