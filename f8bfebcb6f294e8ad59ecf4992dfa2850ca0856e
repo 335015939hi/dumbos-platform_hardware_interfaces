@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c740737f_c0e6ef57",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 4453137
+      },
+      "writtenOn": "2025-11-18T08:48:51Z",
+      "side": 1,
+      "message": "please help review the new change, thanks. https://android-review.googlesource.com/c/platform/hardware/interfaces/+/3853693",
+      "parentUuid": "78ed7b3e_f22d7b41",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 23
+      },
+      "revId": "f8bfebcb6f294e8ad59ecf4992dfa2850ca0856e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2018b62_45363c2a",
@@ -55,6 +79,30 @@
       "writtenOn": "2025-11-11T08:17:41Z",
       "side": 1,
       "message": "This CL introduces a 200ms delay between each poll and it will loop with a timeout. Could the change here introduce other regressions?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 60
+      },
+      "revId": "f8bfebcb6f294e8ad59ecf4992dfa2850ca0856e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9525986_df90fd57",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 4453137
+      },
+      "writtenOn": "2025-11-18T08:48:51Z",
+      "side": 1,
+      "message": "When a problem occurs, wait hci will continue until bt init abort. In comparison, waiting 200ms for a retry may have a smaller impact.",
+      "parentUuid": "d2018b62_45363c2a",
       "range": {
         "startLine": 132,
         "startChar": 0,
@@ -122,6 +170,30 @@
           ]
         }
       ],
+      "revId": "f8bfebcb6f294e8ad59ecf4992dfa2850ca0856e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76071cbb_c3a295ae",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 4453137
+      },
+      "writtenOn": "2025-11-18T08:48:51Z",
+      "side": 1,
+      "message": "please help review the new change, thanks. https://android-review.googlesource.com/c/platform/hardware/interfaces/+/3853693",
+      "parentUuid": "99e20177_c9cec591",
+      "range": {
+        "startLine": 161,
+        "startChar": 8,
+        "endLine": 161,
+        "endChar": 42
+      },
       "revId": "f8bfebcb6f294e8ad59ecf4992dfa2850ca0856e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
