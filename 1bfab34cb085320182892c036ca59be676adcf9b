@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56e23283_663eb26c",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 4453137
+      },
+      "writtenOn": "2025-11-18T09:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f06d3368_6707f110",
+      "revId": "1bfab34cb085320182892c036ca59be676adcf9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "115601a2_f378ab4c",
@@ -73,6 +91,30 @@
           ]
         }
       ],
+      "revId": "1bfab34cb085320182892c036ca59be676adcf9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c0beef3_43163095",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 4453137
+      },
+      "writtenOn": "2025-11-18T09:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "115601a2_f378ab4c",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 14
+      },
       "revId": "1bfab34cb085320182892c036ca59be676adcf9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
