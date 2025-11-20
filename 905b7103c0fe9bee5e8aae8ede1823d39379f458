@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3098787c_1c6018c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "Closed most of the comments relating to name/file changes since the name/structures should remain the same.\n\nWe still have a few comments that should be resolved.",
+      "revId": "905b7103c0fe9bee5e8aae8ede1823d39379f458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -321,6 +321,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec9928c0_62ce4651",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b04ca231_70829ff1",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d976221_b3586e1a",
@@ -425,6 +449,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e288125_d124788b",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "Closing as this is keeping in line with previous example in frameworks/av/services/audiopolicy/engineconfigurable/config/example/automotive/audio_policy_engine_product_strategies.xml.",
+      "parentUuid": "2d976221_b3586e1a",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b117706_caebeb46",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "Closing as this is keeping in line with previous example in frameworks/av/services/audiopolicy/engineconfigurable/config/example/automotive/audio_policy_engine_product_strategies.xml.",
+      "parentUuid": "169038c9_b0cd00b7",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dba3b93d_ea32937c",
@@ -476,6 +548,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28410060_ed0708c0",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "I see it was fixed with VX_* below.",
+      "parentUuid": "dba3b93d_ea32937c",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 39
+      },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6897845c_02074d85",
@@ -513,6 +609,30 @@
           ]
         }
       ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eba13e38_0a660e71",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/config/audio_policy_engine_product_strategies.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "6897845c_02074d85",
+      "range": {
+        "startLine": 113,
+        "startChar": 27,
+        "endLine": 113,
+        "endChar": 30
+      },
       "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -648,6 +768,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9ab05a0_766a6fd8",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "Same comment here, need to keep the name as is since this is just a conversion of frameworks/av/services/audiopolicy/engineconfigurable/parameter-framework/examples/Car/Settings/device_for_product_strategies.pfw",
+      "parentUuid": "cdd84e34_8614751c",
+      "range": {
+        "startLine": 38,
+        "startChar": 51,
+        "endLine": 38,
+        "endChar": 55
+      },
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fd00d60_46599304",
@@ -713,6 +857,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0565fa09_a0c193a4",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/automotive/policy/engine/parameter-framework/Settings/device_for_product_strategies.pfw",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "Same comment here, need to keep the name as is since this is just a conversion of frameworks/av/services/audiopolicy/engineconfigurable/parameter-framework/examples/Car/Settings/device_for_product_strategies.pfw",
+      "parentUuid": "8fd00d60_46599304",
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff1f3df5_44c4b8b1",
@@ -750,6 +912,30 @@
           ]
         }
       ],
+      "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0907734_50fa9354",
+        "filename": "audio/aidl/default/config/audioPolicy/capengine/example/phone/policy/engine/parameter-framework/Settings/device_for_product_strategy_dtmf.pfw",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-11-20T20:26:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff1f3df5_44c4b8b1",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
       "revId": "c8a9c56d58438e8c0e485b80606bc1233c30e7c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
