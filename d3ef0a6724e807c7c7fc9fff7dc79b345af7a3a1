@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd797a9_4392481e",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2025-12-02T10:45:59Z",
+      "side": 1,
+      "message": "The spurious wakeup should not result in the command being sent again.\nThe same applies to interleaved events like [Index Added].\n\nI don\u0027t think that you need to send the command more than once anyway, as new interfaces will be notified with the [Index Added] event.\n\nThe proper structure should be:\n\n1. Send [Read Index List] command\n2. 1st loop wait for [Read Index List Complete] response. All [Index Added] events received in the same loop can be ignored (the same interfaces will be reported in the response).\n3. If no interface is found; enter a poll loop to wait for [Index Added] events for a fixed timeout duration.\n\nThe current implementation does 1. and 2., but fails if no interface is found.",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 5
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "41ed1578_0c2dbac3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 95,
+                "startChar": 0,
+                "endLine": 96,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 115,
+                "startChar": 0,
+                "endLine": 116,
+                "endChar": 0
+              },
+              "replacement": "    ::close(fd);\n    return -1;\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 118,
+                "startChar": 0,
+                "endLine": 119,
+                "endChar": 0
+              },
+              "replacement": "  // 1. Send [Read Index List] command\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 124,
+                "startChar": 0,
+                "endLine": 124,
+                "endChar": 0
+              },
+              "replacement": "  if (write(fd, \u0026cmd, 6) !\u003d 6) {\n    ALOGE(\"error writing mgmt command: %s\", strerror(errno));\n    ::close(fd);\n    return -1;\n  }\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 125,
+                "startChar": 0,
+                "endLine": 130,
+                "endChar": 0
+              },
+              "replacement": "  // 2. Wait for [Read Index List Complete] response.\n  bool cmd_complete_received \u003d false;\n  // Poll for command complete for up to 5 seconds.\n  for (int i \u003d 0; i \u003c 10; ++i) {\n    pollfd \u003d {.fd \u003d fd, .events \u003d POLLIN};\n    ret \u003d poll(\u0026pollfd, 1, 500);  // Poll with 500ms timeout\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 131,
+                "startChar": 0,
+                "endLine": 140,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 141,
+                "startChar": 0,
+                "endLine": 143,
+                "endChar": 0
+              },
+              "replacement": "      if (errno \u003d\u003d EINTR || errno \u003d\u003d EAGAIN) continue;\n      ALOGE(\"poll error waiting for cmd complete: %s\", strerror(errno));\n      goto end;\n    }\n    if (ret \u003d\u003d 0) {  // Timeout\n      ALOGW(\"Timeout waiting for MGMT_EV_CMD_COMPLETE, retry %d\", i);\n      continue;\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 145,
+                "startChar": 0,
+                "endLine": 147,
+                "endChar": 0
+              },
+              "replacement": "    // Spurious wakeup or not POLLIN\n    if ((pollfd.revents \u0026 POLLIN) \u003d\u003d 0) {\n      ALOGW(\"Spurious wakeup waiting for cmd complete\");\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 152,
+                "startChar": 0,
+                "endLine": 154,
+                "endChar": 0
+              },
+              "replacement": "    ssize_t bytes_read \u003d read(fd, \u0026ev, sizeof(ev));\n    if (bytes_read \u003c 0) {\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 157,
+                "startChar": 0,
+                "endLine": 157,
+                "endChar": 0
+              },
+              "replacement": "    if (bytes_read \u003d\u003d 0) continue;  // Should not happen with POLLIN\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 158,
+                "startChar": 0,
+                "endLine": 159,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 180,
+                "startChar": 0,
+                "endLine": 181,
+                "endChar": 0
+              },
+              "replacement": "      cmd_complete_received \u003d true;\n      break;  // Exit the loop for waiting for CMD_COMPLETE\n    } else if (ev.opcode \u003d\u003d MGMT_EV_INDEX_ADDED) {\n      ALOGI(\"Ignoring MGMT_EV_INDEX_ADDED for index %d while waiting for CMD_COMPLETE\", ev.index);\n    } else {\n      ALOGW(\"Received unexpected event opcode 0x%04x while waiting for CMD_COMPLETE\", ev.opcode);\n    }\n  }\n\n  if (!cmd_complete_received) {\n    ALOGW(\"Did not receive MGMT_EV_CMD_COMPLETE within timeout.\");\n  }\n\n  // 3. If no interface is found; enter a poll loop to wait for [Index Added]\n  ALOGI(\"Waiting for MGMT_EV_INDEX_ADDED for interface %d\", hci_interface);\n  while (true) {\n    pollfd \u003d {.fd \u003d fd, .events \u003d POLLIN};\n    ret \u003d poll(\u0026pollfd, 1, -1);  // Indefinite poll\n\n    if (ret \u003d\u003d -1) {\n      if (errno \u003d\u003d EINTR || errno \u003d\u003d EAGAIN) continue;\n      ALOGE(\"poll error waiting for index added: %s\", strerror(errno));\n      goto end;\n    }\n    // ret \u003d\u003d 0 is not possible with timeout -1\n\n    // Spurious wakeup or not POLLIN\n    if ((pollfd.revents \u0026 POLLIN) \u003d\u003d 0) {\n      ALOGW(\"Spurious wakeup waiting for index added\");\n      continue;\n    }\n\n    // Read the next control event.\n    struct mgmt_pkt ev {};\n    ssize_t bytes_read \u003d read(fd, \u0026ev, sizeof(ev));\n    if (bytes_read \u003c 0) {\n      ALOGE(\"error reading mgmt event: %s\", strerror(errno));\n      goto end;\n    }\n    if (bytes_read \u003d\u003d 0) continue;\n\n    if (ev.opcode \u003d\u003d MGMT_EV_INDEX_ADDED \u0026\u0026 ev.index \u003d\u003d hci_interface) {\n"
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 185,
+                "startChar": 0,
+                "endLine": 187,
+                "endChar": 0
+              },
+              "replacement": "      ALOGI(\"Received event opcode 0x%04x index %d while waiting for index %d\", ev.opcode, ev.index,\n            hci_interface);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d3ef0a6724e807c7c7fc9fff7dc79b345af7a3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
