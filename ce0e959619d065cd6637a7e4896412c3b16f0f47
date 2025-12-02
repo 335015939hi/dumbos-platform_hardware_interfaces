@@ -40,6 +40,30 @@
       ],
       "revId": "ce0e959619d065cd6637a7e4896412c3b16f0f47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32107dfd_1704bc03",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 4453137
+      },
+      "writtenOn": "2025-12-02T06:58:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b5e359f_ea59df83",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 1
+      },
+      "revId": "ce0e959619d065cd6637a7e4896412c3b16f0f47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
