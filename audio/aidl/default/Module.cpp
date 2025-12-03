@@ -1564,7 +1564,6 @@ const std::string Module::kClipTransitionSupportName = "aosp.clipTransitionSuppo
 ndk::ScopedAStatus Module::getVendorParameters(const std::vector<std::string>& in_ids,
                                                std::vector<VendorParameter>* _aidl_return) {
     LOG(VERBOSE) << __func__ << ": " << mType << ": id count: " << in_ids.size();
-    bool allParametersKnown = true;
     for (const auto& id : in_ids) {
         if (id == VendorDebug::kForceTransientBurstName) {
             VendorParameter forceTransientBurst{.id = id};
@@ -1579,12 +1578,12 @@ ndk::ScopedAStatus Module::getVendorParameters(const std::vector<std::string>& i
             clipTransitionSupport.ext.setParcelable(Boolean{true});
             _aidl_return->push_back(std::move(clipTransitionSupport));
         } else {
-            allParametersKnown = false;
+            VendorParameter notSupportedParam{.id = id};
+            _aidl_return->push_back(std::move(notSupportedParam));
             LOG(VERBOSE) << __func__ << ": " << mType << ": unrecognized parameter \"" << id << "\"";
         }
     }
-    if (allParametersKnown) return ndk::ScopedAStatus::ok();
-    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+    return ndk::ScopedAStatus::ok();
 }
 
 namespace {
@@ -1608,7 +1607,6 @@ ndk::ScopedAStatus Module::setVendorParameters(const std::vector<VendorParameter
                                                bool in_async) {
     LOG(VERBOSE) << __func__ << ": " << mType << ": parameter count " << in_parameters.size()
                  << ", async: " << in_async;
-    bool allParametersKnown = true;
     for (const auto& p : in_parameters) {
         if (p.id == VendorDebug::kForceTransientBurstName) {
             if (!extractParameter<Boolean>(p, &mVendorDebug.forceTransientBurst)) {
@@ -1619,13 +1617,13 @@ ndk::ScopedAStatus Module::setVendorParameters(const std::vector<VendorParameter
                 return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
             }
         } else {
-            allParametersKnown = false;
+            VendorParameter notSupportedParam{.id = id};
+            _aidl_return->push_back(std::move(notSupportedParam));
             LOG(VERBOSE) << __func__ << ": " << mType << ": unrecognized parameter \"" << p.id
                          << "\"";
         }
     }
-    if (allParametersKnown) return ndk::ScopedAStatus::ok();
-    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+    return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Module::addDeviceEffect(
