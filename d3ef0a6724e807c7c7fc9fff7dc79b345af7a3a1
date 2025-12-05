@@ -160,6 +160,30 @@
       ],
       "revId": "d3ef0a6724e807c7c7fc9fff7dc79b345af7a3a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28e0cf13_c0267697",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 2063545
+      },
+      "writtenOn": "2025-12-05T01:47:02Z",
+      "side": 1,
+      "message": "As the issue summary, If AIDL get HCI interface failed at the first time, it will no longer poll the [Index Added] events, even if HCI has been registered. I suspect that the socket might have missed the add event. Resending [Read Index List] command line to retrieve the list is a possible remedy.",
+      "parentUuid": "9fd797a9_4392481e",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 5
+      },
+      "revId": "d3ef0a6724e807c7c7fc9fff7dc79b345af7a3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
