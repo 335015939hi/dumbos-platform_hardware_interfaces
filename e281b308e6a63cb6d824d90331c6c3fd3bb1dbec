@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c87ffcb_147eabe5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-12-08T17:07:30Z",
+      "side": 1,
+      "message": "Not sure what you are trying to achieve. You can set the log level to `DEBUG` and these logs will not be printed anymore.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "e281b308e6a63cb6d824d90331c6c3fd3bb1dbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e954f1d2_9b0add64",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1582,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-12-08T17:07:30Z",
+      "side": 1,
+      "message": "This can create security issues. An app which had somehow got ability to send parameters to HAL can start sending big random sets of ids and see which ids are accepted and which are not. The current approach is more secure as it only accepts a set of parameters when all IDs are correct. That limits the guessing attack surface as it requires only send one parameter at the time.",
+      "range": {
+        "startLine": 1581,
+        "startChar": 0,
+        "endLine": 1582,
+        "endChar": 66
+      },
+      "revId": "e281b308e6a63cb6d824d90331c6c3fd3bb1dbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83557b0e_1a8149a0",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1586,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-12-08T17:07:30Z",
+      "side": 1,
+      "message": "This violates the interface contract: https://cs.android.com/android/platform/superproject/+/android-latest-release:hardware/interfaces/audio/aidl/android/hardware/audio/core/IModule.aidl;l\u003d839;drc\u003dde083aa730c0506bb634b8404521ca6933d5dff0\n\n```\n     * @throws EX_ILLEGAL_ARGUMENT If the module does not recognize provided ids.\n```",
+      "range": {
+        "startLine": 1586,
+        "startChar": 0,
+        "endLine": 1586,
+        "endChar": 36
+      },
+      "revId": "e281b308e6a63cb6d824d90331c6c3fd3bb1dbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
