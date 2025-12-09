@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "917eca74_2de297b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2025-12-09T03:19:39Z",
+      "side": 1,
+      "message": "When the HAL receives an unsupported parameter, it returns an error. This error is caught by the `RETURN_STATUS_IF_ERROR` macro in DeviceHalAidl, which generates a large volume of log messages, leading to a significant increase in CPU load.\n\nNote: These unsupported parameters are intended for the AOSP HAL, not the vendor HAL.\n\nIf these changes raise any concerns, what are your suggestions for improvement?",
+      "parentUuid": "7c87ffcb_147eabe5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "e281b308e6a63cb6d824d90331c6c3fd3bb1dbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e954f1d2_9b0add64",
         "filename": "audio/aidl/default/Module.cpp",
         "patchSetId": 2
