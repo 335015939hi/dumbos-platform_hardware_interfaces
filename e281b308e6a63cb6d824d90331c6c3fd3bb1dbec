@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "903684a2_05272c9d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-12-09T19:30:58Z",
+      "side": 1,
+      "message": "Excessive CPU usage due to logging is a known problem when the process uses a lot of different log tags. This is because each log tags is looked up by `ShouldLog` function which has a cache with fairly limited size (https://cs.android.com/android/platform/superproject/+/android-latest-release:system/libbase/include/android-base/logging.h;l\u003d216;drc\u003df191c17a5c56c6ef4744ddbdacca841c0b212ccf).\n\nThe typical solution we employ for this is to create a header file which redefines `WOULD_LOG` to avoid calling `ShouldLog`:\n\n`Log.h`\n```\n#pragma once\n\n#include \u003candroid-base/logging.h\u003e\n\n#ifdef WOULD_LOG\n#undef WOULD_LOG\n\n// WOULD_LOG is redefined to avoid costs of looking up whether the particular\n// LOG_TAG is currently enabled.\n#define WOULD_LOG(severity)                                                               \\\n    (UNLIKELY((SEVERITY_LAMBDA(severity)) \u003e\u003d ::android::base::GetMinimumLogSeverity()) || \\\n     MUST_LOG_MESSAGE(severity))\n\n#endif  // WOULD_LOG\n```\n\nand then replace `#include \u003candroid-base/logging.h\u003e` with `#include \u003cLog.h\u003e` in source code files.\n\nWe have already done that for the audio HAL code, it should be in AOSP after the next push. Or if you have access to Partner preview branches, you can check there.",
+      "parentUuid": "917eca74_2de297b0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "e281b308e6a63cb6d824d90331c6c3fd3bb1dbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e954f1d2_9b0add64",
         "filename": "audio/aidl/default/Module.cpp",
         "patchSetId": 2
