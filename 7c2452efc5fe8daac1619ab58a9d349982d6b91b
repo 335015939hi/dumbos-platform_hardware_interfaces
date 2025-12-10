@@ -22,6 +22,30 @@
       },
       "revId": "7c2452efc5fe8daac1619ab58a9d349982d6b91b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f72e9c83_641a6b70",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4361,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-12-10T16:33:15Z",
+      "side": 1,
+      "message": "Hi Abhishek!\n\nThe method signature is:\n\n```\nvoid selectPresentation(int presentationId, int programId);\n```\n\nThe first argument is presentation ID, the second is program ID.\n\nHere we set the first argument to `-2` and say that we use presentation ID `-2`, thus consistent:\n\n```\n        // Negative presentation IDs are not allowed, but \u0027-1\u0027 is OK, so use \u0027-2\u0027.\n        ASSERT_STATUS(EX_ILLEGAL_ARGUMENT, stream.get()-\u003eselectPresentation(-2, 0));\n```\n\nSame for \"program ID\" value used in the second argument. Program IDs can be negative, but must be within 16-bit range. The test provides values that are beyond this range and expects argument rejection.\n\nCould you please clarify where exactly are you seeing a contradiction?",
+      "parentUuid": "2c8aa40d_2721e90e",
+      "range": {
+        "startLine": 4356,
+        "startChar": 8,
+        "endLine": 4361,
+        "endChar": 98
+      },
+      "revId": "7c2452efc5fe8daac1619ab58a9d349982d6b91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
