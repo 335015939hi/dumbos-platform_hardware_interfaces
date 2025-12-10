@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f9915af_72cc86d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-12-10T17:18:00Z",
+      "side": 1,
+      "message": "Thank you for providing this information! In my opinion hiding logs in this case will just hide the symptoms of the problem, but it will not solve it. Please see my full reply on the bug.",
+      "parentUuid": "ba533d3a_b36fa55a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "e281b308e6a63cb6d824d90331c6c3fd3bb1dbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e954f1d2_9b0add64",
         "filename": "audio/aidl/default/Module.cpp",
         "patchSetId": 2
