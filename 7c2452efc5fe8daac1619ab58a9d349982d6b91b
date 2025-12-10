@@ -46,6 +46,30 @@
       },
       "revId": "7c2452efc5fe8daac1619ab58a9d349982d6b91b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "675f7ae7_eae002ef",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4361,
+      "author": {
+        "id": 1565664
+      },
+      "writtenOn": "2025-12-10T20:28:27Z",
+      "side": 1,
+      "message": "The contradiction with the current code is highlighted below\n\nASSERT_STATUS(EX_ILLEGAL_ARGUMENT,\n                      stream.get()-\u003eselectPresentation(\n                              0, static_cast\u003cint32_t\u003e(std::numeric_limits\u003cuint16_t\u003e::min()) - 1))\n\ni.e.\nstd::numeric_limits\u003cuint16_t\u003e::min() \u003d\u003d 0\nand \nselectPresentation will be mapped to below\nstream.get()-\u003eselectPresentation(0, -1));\n\nNow for programID -1 is a valid value, same as presentationID case.\nHence I had suggested below\n\n\n// Negative program IDs are not allowed, but \u0027-1\u0027 is OK, so use \u0027-2\u0027.\nASSERT_STATUS(EX_ILLEGAL_ARGUMENT, stream.get()-\u003eselectPresentation(0, -2));\n\nASSERT_STATUS(EX_ILLEGAL_ARGUMENT,\nstream.get()-\u003eselectPresentation(\n0, static_cast\u003cint32_t\u003e(std::numeric_limits\u003cuint16_t\u003e::max()) + 1));\n\nthe above will ensure \u003c -1 values check is covered plus max 16-bit range also covered.",
+      "parentUuid": "f72e9c83_641a6b70",
+      "range": {
+        "startLine": 4356,
+        "startChar": 8,
+        "endLine": 4361,
+        "endChar": 98
+      },
+      "revId": "7c2452efc5fe8daac1619ab58a9d349982d6b91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
