@@ -70,6 +70,30 @@
       },
       "revId": "7c2452efc5fe8daac1619ab58a9d349982d6b91b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d629e3e1_edb939b1",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4361,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-12-10T21:16:30Z",
+      "side": 1,
+      "message": "Ah, indeed that expression is not what I intended. I was thinking of values below the minimum of `int16_t`.\n\nSo the correct expression should be:\n\n`static_cast\u003cint32_t\u003e(std::numeric_limits\u003cint16_t\u003e::min()) - 1)` (`int16_t` instead of `uint16_t`).\n\nI\u0027m leaving `uint16_t` for over the max calculation because maybe the HAL uses unsigned 16-bits underneath. The standard doesn\u0027t say \"signed 16-bit values\" explicitly.\n\n---\n\nNote that `-2` for `programID` is a correct value, at least by the standard. See Dean\u0027s comment here: https://b.corp.google.com/issues/466889574#comment3.",
+      "parentUuid": "675f7ae7_eae002ef",
+      "range": {
+        "startLine": 4356,
+        "startChar": 8,
+        "endLine": 4361,
+        "endChar": 98
+      },
+      "revId": "7c2452efc5fe8daac1619ab58a9d349982d6b91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
