@@ -94,6 +94,30 @@
       },
       "revId": "7c2452efc5fe8daac1619ab58a9d349982d6b91b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "027b2e21_b47b61c6",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4361,
+      "author": {
+        "id": 1565664
+      },
+      "writtenOn": "2025-12-12T00:44:10Z",
+      "side": 1,
+      "message": "Thank you Mikhail for addressing the fix related to int16_t usage for min check. However, the values acceptable for a prog ID includes unsigned uint16_t values and -1 being the only valid negative value (exception) i.e. Program ID \u003c -1 is not accepted. Perhpas thats what the earlier comment from Dean was trying to convey. \n\nHence, can you consider the below suggestion \n\n// Program IDs \u003c \u0027-1\u0027 are not allowed, so use \u0027-2\u0027.\nASSERT_STATUS(EX_ILLEGAL_ARGUMENT, stream.get()-\u003eselectPresentation(0, -2));\n\nASSERT_STATUS(EX_ILLEGAL_ARGUMENT,\nstream.get()-\u003eselectPresentation(\n0, static_cast\u003cint32_t\u003e(std::numeric_limits\u003cuint16_t\u003e::max()) + 1));",
+      "parentUuid": "d629e3e1_edb939b1",
+      "range": {
+        "startLine": 4356,
+        "startChar": 8,
+        "endLine": 4361,
+        "endChar": 98
+      },
+      "revId": "7c2452efc5fe8daac1619ab58a9d349982d6b91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
