@@ -723,12 +723,24 @@ class GraphicsTestsBase {
                     return 0;
                 }
             case PixelFormat::R_8:
-            case PixelFormat::R_12_UINT:
-            case PixelFormat::R_14_UINT:
             case PixelFormat::R_16_UINT:
                 return 0;
+            case PixelFormat::R_12_UINT:
+                return 4;
+            case PixelFormat::R_14_UINT:
+                return 2;
             case PixelFormat::RG_1212_UINT:
+                if (channel == gralloc4::PlaneLayoutComponentType_R) {
+                    return 4;
+                } else {
+                    return 20;
+                }
             case PixelFormat::RG_1414_UINT:
+                if (channel == gralloc4::PlaneLayoutComponentType_R) {
+                    return 2;
+                } else {
+                    return 18;
+                }
             case PixelFormat::RG_1616_UINT:
                 if (channel == gralloc4::PlaneLayoutComponentType_R) {
                     return 0;
@@ -736,8 +748,35 @@ class GraphicsTestsBase {
                     return 16;
                 }
             case PixelFormat::RGBA_12121212_UINT:
+                if (channel == gralloc4::PlaneLayoutComponentType_R) {
+                    return 4;
+                } else if (channel == gralloc4::PlaneLayoutComponentType_G) {
+                    return 20;
+                } else if (channel == gralloc4::PlaneLayoutComponentType_B) {
+                    return 36;
+                } else {
+                    return 52;
+                }
             case PixelFormat::RGBA_14141414_UINT:
+                if (channel == gralloc4::PlaneLayoutComponentType_R) {
+                    return 2;
+                } else if (channel == gralloc4::PlaneLayoutComponentType_G) {
+                    return 18;
+                } else if (channel == gralloc4::PlaneLayoutComponentType_B) {
+                    return 34;
+                } else {
+                    return 50;
+                }
             case PixelFormat::RGBA_10101010:
+                if (channel == gralloc4::PlaneLayoutComponentType_R) {
+                    return 6;
+                } else if (channel == gralloc4::PlaneLayoutComponentType_G) {
+                    return 22;
+                } else if (channel == gralloc4::PlaneLayoutComponentType_B) {
+                    return 38;
+                } else {
+                    return 54;
+                }
             case PixelFormat::RGBA_FP16:
                 if (channel == gralloc4::PlaneLayoutComponentType_R) {
                     return 0;
