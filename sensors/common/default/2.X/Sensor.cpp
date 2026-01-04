@@ -83,7 +83,8 @@ void Sensor::activate(bool enable) {
 Result Sensor::flush() {
     // Only generate a flush complete event if the sensor is enabled and if the sensor is not a
     // one-shot sensor.
-    if (!mIsEnabled || (mSensorInfo.flags & static_cast<uint32_t>(SensorFlagBits::ONE_SHOT_MODE))) {
+    if (!mIsEnabled || (static_cast<uint32_t>(mSensorInfo.flags) == 
+                        static_cast<uint32_t>(SensorFlagBits::ONE_SHOT_MODE))) {
         return Result::BAD_VALUE;
     }
 
