@@ -184,6 +184,81 @@
       },
       "revId": "d3ef0a6724e807c7c7fc9fff7dc79b345af7a3a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "139635fd_4492230d",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1958225
+      },
+      "writtenOn": "2026-01-09T07:22:59Z",
+      "side": 1,
+      "message": "I suspect if the read index command response is ready before the binding, we will be stuck in the poll loop. It might be a good idea to send the read index command again. @henrichataing@google.com can you please comment on this?",
+      "parentUuid": "28e0cf13_c0267697",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 5
+      },
+      "revId": "d3ef0a6724e807c7c7fc9fff7dc79b345af7a3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13fa7ad0_2191f737",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1958225
+      },
+      "writtenOn": "2026-01-09T07:22:59Z",
+      "side": 1,
+      "message": "Maybe move this out of `else` block because if the previous `if` conditions are met, it may rerun without the delay.",
+      "range": {
+        "startLine": 184,
+        "startChar": 6,
+        "endLine": 187,
+        "endChar": 5
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e416ba6c_369edaae",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 184,
+                "startChar": 0,
+                "endLine": 187,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+              "range": {
+                "startLine": 188,
+                "startChar": 0,
+                "endLine": 188,
+                "endChar": 0
+              },
+              "replacement": "    ALOGI(\"hci controller not register, wait 200ms to retry again!\");\n    std::this_thread::sleep_for(std::chrono::milliseconds(200));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d3ef0a6724e807c7c7fc9fff7dc79b345af7a3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
