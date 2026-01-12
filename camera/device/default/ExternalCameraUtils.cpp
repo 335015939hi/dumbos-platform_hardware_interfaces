@@ -718,12 +718,16 @@ int encodeJpegYU12(const Size& inSz, const YCbCrLayout& inLayout, int jpegQualit
         if (done != batchSize) {
             ALOGE("%s: compressed %u lines, expected %u (total %u/%u)", __FUNCTION__, done,
                   batchSize, cinfo.next_scanline, cinfo.image_height);
+            jpeg_destroy_compress(&cinfo);
             return -1;
         }
     }
 
     /* This will flush everything */
     jpeg_finish_compress(&cinfo);
+
+    /* Free libjpeg resources to prevent memory leak */
+    jpeg_destroy_compress(&cinfo);
 
     /* Grab the actual code size and set it */
     actualCodeSize = dmgr.mEncodedSize;
