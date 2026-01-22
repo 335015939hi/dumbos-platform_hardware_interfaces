@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9abd596b_e4f6dc9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1565664
+      },
+      "writtenOn": "2026-01-22T09:52:22Z",
+      "side": 1,
+      "message": "Thank you for pushing the changes.",
+      "revId": "3651307a7091577a8e3c3b9c5a83a55a3da26348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9291943_55b2f947",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4355,
+      "author": {
+        "id": 1565664
+      },
+      "writtenOn": "2026-01-22T09:52:22Z",
+      "side": 1,
+      "message": "nit: move the comment on top of\nASSERT_STATUS(EX_ILLEGAL_ARGUMENT, stream.get()-\u003eselectPresentation(0, -2));\nline 4360",
+      "range": {
+        "startLine": 4355,
+        "startChar": 8,
+        "endLine": 4355,
+        "endChar": 77
+      },
+      "revId": "3651307a7091577a8e3c3b9c5a83a55a3da26348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
