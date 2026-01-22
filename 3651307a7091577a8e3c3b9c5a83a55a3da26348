@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a802dfe_a4a3ade8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2026-01-22T11:04:32Z",
+      "side": 1,
+      "message": "I\u0027ve verified this change with an updated HAL implementation and the changes look consistent and correct.",
+      "revId": "3651307a7091577a8e3c3b9c5a83a55a3da26348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9291943_55b2f947",
