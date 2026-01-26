@@ -125,16 +125,21 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
   }
 
   // Poll the control socket waiting for the command response,
-  // and subsequent [Index Added] events. The loops continue without
-  // timeout until the selected hci interface is detected.
+  // and subsequent [Index Added] events.
   pollfd = {.fd = fd, .events = POLLIN};
 
   for (;;) {
-    ret = poll(&pollfd, 1, -1);
+    ret = poll(&pollfd, 1, 3000);
 
     // Poll interrupted, try again.
     if (ret == -1 && (errno == EINTR || errno == EAGAIN)) {
       continue;
+    }
+
+    if (ret == 0) {
+      ALOGE("poll timeout ");
+      ret = -ETIMEDOUT;
+      break;
     }
 
     // Poll failure, abandon.
@@ -144,7 +149,7 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
     }
 
     // Spurious wakeup, try again.
-    if (ret == 0 || (pollfd.revents & POLLIN) == 0) {
+    if ((pollfd.revents & POLLIN) == 0) {
       continue;
     }
 
