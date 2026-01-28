@@ -34,6 +34,24 @@
       "parentUuid": "140c107f_40f7fa07",
       "revId": "c2250e7af8dcdfcb021652a1edaf9a407878795c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ff062f_e1af4441",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3250865
+      },
+      "writtenOn": "2026-01-28T00:52:59Z",
+      "side": 1,
+      "message": "thanks, \nthis seems easy reproduce if you rmmod bluetooth driver and Open BT from setting, and then insmod bluetooth driver, bluetooth failed to open.\nI have tested the patch you mentioned, The behavior appears somewhat similar. retry mechanism is ok for me.\nand you below  suggestion is ok for me.\nmove the timeout to the poll invocation itself.",
+      "parentUuid": "b514f2bc_a8f234cb",
+      "revId": "c2250e7af8dcdfcb021652a1edaf9a407878795c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
