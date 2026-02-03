@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "196e517f_f391ffad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1565663
+      },
+      "writtenOn": "2026-02-03T22:55:06Z",
+      "side": 1,
+      "message": "WifiTest/WifiStaIfaceAidlTest#CheckApfIsSupported/0_android_hardware_wifi_IWifi_default should be skipped (ignored) for IVI (FEATURE_AUTOMOTIVE) devices.",
+      "revId": "0855c2a59f40e2204adeb48d3bd64e1d0ff45356",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
