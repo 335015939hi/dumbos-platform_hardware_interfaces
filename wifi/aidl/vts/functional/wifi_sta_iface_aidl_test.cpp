@@ -84,6 +84,11 @@ class WifiStaIfaceAidlTest : public testing::TestWithParam<std::string> {
                testing::deviceSupportsFeature("android.hardware.type.television");
     }
 
+    // Detect Automotive devices.
+    bool isAutomotiveDevice() {
+        return testing::deviceSupportsFeature("android.hardware.type.automotive");
+    }
+
     // Detect Panel TV devices by using ro.oem.key1 property.
     // https://docs.partner.android.com/tv/build/platform/props-vars/ro-oem-key1
     bool isPanelTvDevice() {
@@ -164,8 +169,8 @@ TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
         }
     }
     int vendor_api_level = property_get_int32("ro.vendor.api_level", 0);
-    // Before VSR 14, APF support is optional.
-    if (vendor_api_level < __ANDROID_API_U__) {
+    // Before VSR 14 or AutomotiveDevice, APF support is optional.
+    if (vendor_api_level < __ANDROID_API_U__ || isAutomotiveDevice()) {
         if (!isFeatureSupported(IWifiStaIface::FeatureSetMask::APF)) {
             GTEST_SKIP() << "APF packet filter capabilities are not supported.";
         }
