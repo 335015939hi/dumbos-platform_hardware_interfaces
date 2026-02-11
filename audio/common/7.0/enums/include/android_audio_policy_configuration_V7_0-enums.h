@@ -168,6 +168,7 @@ static inline bool isOutputDevice(AudioDevice device) {
         case AudioDevice::AUDIO_DEVICE_OUT_USB_HEADSET:
         case AudioDevice::AUDIO_DEVICE_OUT_HEARING_AID:
         case AudioDevice::AUDIO_DEVICE_OUT_ECHO_CANCELLER:
+        case AudioDevice::AUDIO_DEVICE_OUT_BLE_BROADCAST:
         case AudioDevice::AUDIO_DEVICE_OUT_BLE_HEADSET:
         case AudioDevice::AUDIO_DEVICE_OUT_BLE_SPEAKER:
         case AudioDevice::AUDIO_DEVICE_OUT_DEFAULT:
