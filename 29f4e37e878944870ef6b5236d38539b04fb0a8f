@@ -50,6 +50,23 @@
       "message": "Adding Yuyang since he owns the APF functionality",
       "revId": "29f4e37e878944870ef6b5236d38539b04fb0a8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b977509f_4107def6",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1758351
+      },
+      "writtenOn": "2026-02-24T00:28:05Z",
+      "side": 1,
+      "message": "This matches the APF CTS \n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:packages/modules/Connectivity/tests/cts/net/src/android/net/cts/ApfTestBase.kt;l\u003d126\n\nI think the test change is fine.",
+      "revId": "29f4e37e878944870ef6b5236d38539b04fb0a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
