@@ -73,6 +73,13 @@ class DriverOffloadStubImpl : public DriverStubImpl {
     void shutdown() override;
 
   private:
+    struct ClipInfo {
+        int64_t durationFrames;
+        int32_t sampleRate;
+    };
+
+    std::vector<ClipInfo> scanApeHeaders(void*& buffer, size_t& frameCount,
+                                         size_t* actualFrameCount);
     ::android::status_t startWorkerIfNeeded();
 
     const int64_t mBufferNotifyFrames;
