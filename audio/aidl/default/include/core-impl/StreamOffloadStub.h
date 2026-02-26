@@ -73,6 +73,8 @@ class DriverOffloadStubImpl : public DriverStubImpl {
     void shutdown() override;
 
   private:
+    std::vector<int64_t> scanApeHeaders(void*& buffer, size_t& frameCount,
+                                        size_t* actualFrameCount);
     ::android::status_t startWorkerIfNeeded();
 
     const int64_t mBufferNotifyFrames;
