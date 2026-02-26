@@ -26,8 +26,8 @@
 #include "core-impl/StreamPrimary.h"
 #include "core-impl/Telephony.h"
 
-using aidl::android::hardware::audio::common::areAllBitPositionFlagsSet;
 using aidl::android::hardware::audio::common::hasMmapFlag;
+using aidl::android::hardware::audio::common::isBitPositionFlagSet;
 using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
 using aidl::android::hardware::audio::core::StreamDescriptor;
@@ -83,12 +83,20 @@ ndk::ScopedAStatus ModulePrimary::createOutputStream(
         // "Stub" is used because there is no support for MMAP audio I/O on CVD.
         return createStreamInstance<StreamOutMmapStub>(result, std::move(context), sourceMetadata,
                                                        offloadInfo);
-    } else if (areAllBitPositionFlagsSet(
-                       context.getFlags().get<AudioIoFlags::output>(),
-                       {AudioOutputFlags::COMPRESS_OFFLOAD, AudioOutputFlags::NON_BLOCKING})) {
+    } else if (isBitPositionFlagSet(context.getFlags().get<AudioIoFlags::output>(),
+                                    AudioOutputFlags::COMPRESS_OFFLOAD)) {
         // "Stub" is used because there is no actual decoder. The stream just
         // extracts the clip duration from the media file header and simulates
         // playback over time.
+        // StreamOutOffloadStub supports both modes:
+        //   - NON_BLOCKING (async): transfer() returns immediately; the framework
+        //     is notified via onBufferStateChange / onClipStateChange callbacks.
+        //   - Blocking (sync): transfer() sleeps for the decoded playback duration
+        //     of the written encoded frames and returns only when data is consumed.
+        const bool isNonBlocking = isBitPositionFlagSet(
+                context.getFlags().get<AudioIoFlags::output>(), AudioOutputFlags::NON_BLOCKING);
+        LOG(DEBUG) << __func__ << ": creating offload stream in "
+                   << (isNonBlocking ? "NON_BLOCKING (async)" : "BLOCKING (sync)") << " mode";
         return createStreamInstance<StreamOutOffloadStub>(result, std::move(context),
                                                           sourceMetadata, offloadInfo);
     }

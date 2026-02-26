@@ -101,9 +101,7 @@ DriverOffloadStubImpl::DriverOffloadStubImpl(const StreamContext& context)
       mBufferNotifyFrames(static_cast<int64_t>(context.getBufferSizeInFrames()) / 2),
       mState{context.getFormat().encoding, context.getSampleRate(),
              250 /*earlyNotifyMs*/ * context.getSampleRate() / MILLIS_PER_SECOND},
-      mDspWorker(mState) {
-    LOG_IF(FATAL, !mIsAsynchronous) << "The steam must be used in asynchronous mode";
-}
+      mDspWorker(mState) {}
 
 ::android::status_t DriverOffloadStubImpl::init(DriverCallbackInterface* callback) {
     RETURN_STATUS_IF_ERROR(DriverStubImpl::init(callback));
@@ -170,32 +168,28 @@ DriverOffloadStubImpl::DriverOffloadStubImpl(const StreamContext& context)
     return ::android::OK;
 }
 
-::android::status_t DriverOffloadStubImpl::transfer(void* buffer, size_t frameCount,
-                                                    size_t* actualFrameCount, int32_t* latencyMs) {
-    RETURN_STATUS_IF_ERROR(
-            DriverStubImpl::transfer(buffer, frameCount, actualFrameCount, latencyMs));
-    RETURN_STATUS_IF_ERROR(startWorkerIfNeeded());
-    // Scan the buffer for clip headers.
+std::vector<int64_t> DriverOffloadStubImpl::scanApeHeaders(
+        void*& buffer, size_t& frameCount, size_t* actualFrameCount) {
+    std::vector<int64_t> clipDurations;
     *actualFrameCount = frameCount;
+
     while (buffer != nullptr && frameCount > 0) {
         ApeHeader* apeHeader = nullptr;
         void* prevBuffer = buffer;
         buffer = findApeHeader(prevBuffer, frameCount * mFrameSizeBytes, &apeHeader);
         if (buffer != nullptr && apeHeader != nullptr) {
-            // Frame count does not include the size of the header data.
             const size_t headerSizeFrames =
                     (static_cast<uint8_t*>(buffer) - static_cast<uint8_t*>(prevBuffer)) /
                     mFrameSizeBytes;
             frameCount -= headerSizeFrames;
             *actualFrameCount = frameCount;
-            // Stage the clip duration into the DSP worker's queue.
+
             const int64_t clipDurationFrames = getApeClipDurationFrames(apeHeader);
             const int32_t clipSampleRate = apeHeader->sampleRate;
             LOG(DEBUG) << __func__ << ": found APE clip of " << clipDurationFrames << " frames, "
                        << "sample rate: " << clipSampleRate;
             if (clipSampleRate == mState.sampleRate) {
-                std::lock_guard l(mState.lock);
-                mState.clipFramesLeft.push_back(clipDurationFrames);
+                clipDurations.push_back(clipDurationFrames);
             } else {
                 LOG(ERROR) << __func__ << ": clip sample rate " << clipSampleRate
                            << " does not match stream sample rate " << mState.sampleRate;
@@ -204,12 +198,37 @@ DriverOffloadStubImpl::DriverOffloadStubImpl(const StreamContext& context)
             frameCount = 0;
         }
     }
-    {
-        std::lock_guard l(mState.lock);
-        mState.bufferFramesLeft = *actualFrameCount;
-        mState.bufferNotifyFrames = mBufferNotifyFrames;
+    return clipDurations;
+}
+
+::android::status_t DriverOffloadStubImpl::transfer(void* buffer, size_t frameCount,
+                                                    size_t* actualFrameCount, int32_t* latencyMs) {
+    if (mIsAsynchronous) {
+        RETURN_STATUS_IF_ERROR(
+                DriverStubImpl::transfer(buffer, frameCount, actualFrameCount, latencyMs));
+        RETURN_STATUS_IF_ERROR(startWorkerIfNeeded());
+
+        // Scan the buffer for clip headers and add clip durations to playback queue.
+        const auto clipDurations = scanApeHeaders(buffer, frameCount, actualFrameCount);
+        {
+            std::lock_guard l(mState.lock);
+            for (const auto& duration : clipDurations) {
+                mState.clipFramesLeft.push_back(duration);
+            }
+            mState.bufferFramesLeft = *actualFrameCount;
+            mState.bufferNotifyFrames = mBufferNotifyFrames;
+        }
+        mDspWorker.resume();
+    } else {
+        // Sync mode: scan APE headers first to get decompressed clip duration.
+        const auto clipDurations = scanApeHeaders(buffer, frameCount, actualFrameCount);
+        // APE header gives compressed clip duration. Apply 1:2 compression ratio to get
+        // uncompressed audio duration for playback timing (same as async DSP cycle).
+        size_t dummyFrameCount;
+        int64_t uncompressedFrames = *actualFrameCount * 2;
+        RETURN_STATUS_IF_ERROR(
+                DriverStubImpl::transfer(buffer, uncompressedFrames, &dummyFrameCount, latencyMs));
     }
-    mDspWorker.resume();
     return ::android::OK;
 }
 
