@@ -92,6 +92,43 @@ std::shared_ptr<IWifi> getWifi(const char* instance_name) {
     return IWifi::fromBinder(ndk::SpAIBinder(AServiceManager_waitForService(instance_name)));
 }
 
+std::vector<std::shared_ptr<IWifiChip>> getWifiChips(const char *instance_name) {
+    std::shared_ptr<IWifi> wifi = getWifi(instance_name);
+    if (!wifi.get()) {
+        return {};
+    }
+
+    const int retry_interval_ms = 2;
+    const int max_retries = 5;
+    int retry_count = 0;
+    auto status = wifi->start();
+    while (retry_count < max_retries && !status.isOk()) {
+        retry_count++;
+        usleep(retry_interval_ms * 1000);
+        status = wifi->start();
+    }
+    if (!status.isOk()) {
+        return {};
+    }
+
+    std::vector<int> chip_ids = {};
+    status = wifi->getChipIds(&chip_ids);
+    if (!status.isOk() || chip_ids.size() == 0) {
+        return {};
+    }
+    std::vector<std::shared_ptr<IWifiChip>> chips;
+    chips.reserve(chip_ids.size());
+
+    for (int chip_id : chip_ids) {
+        std::shared_ptr<IWifiChip> chip;
+        status = wifi->getChip(chip_id, &chip);
+        if (status.isOk() && chip) {
+            chips.push_back(std::move(chip));
+        }
+    }
+    return chips;
+}
+
 std::shared_ptr<IWifiChip> getWifiChip(const char* instance_name) {
     std::shared_ptr<IWifi> wifi = getWifi(instance_name);
     if (!wifi.get()) {
@@ -212,8 +249,17 @@ std::shared_ptr<IWifiApIface> getBridgedWifiApIface(std::shared_ptr<IWifiChip> w
 }
 
 std::shared_ptr<IWifiApIface> getBridgedWifiApIface(const char* instance_name) {
-    std::shared_ptr<IWifiChip> wifi_chip = getWifiChip(instance_name);
-    return getBridgedWifiApIface(wifi_chip);
+    std::vector<std::shared_ptr<IWifiChip>> wifi_chips = getWifiChips(instance_name);
+    std::shared_ptr<IWifiApIface> iface;
+    for (const auto& wifi_chip : wifi_chips) {
+        if (wifi_chip != nullptr) {
+            iface = getBridgedWifiApIface(wifi_chip);
+            if (iface.get() != nullptr) {
+                return iface;
+            }
+        }
+    }
+    return nullptr;
 }
 
 bool configureChipToSupportConcurrencyType(const std::shared_ptr<IWifiChip>& wifi_chip,
