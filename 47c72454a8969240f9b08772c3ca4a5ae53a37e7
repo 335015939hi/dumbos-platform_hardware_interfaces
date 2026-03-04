@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0bb9cb5_97561936",
+        "filename": "audio/aidl/default/include/core-impl/StreamOffloadStub.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-03-04T00:31:04Z",
+      "side": 1,
+      "message": "Why do we need to store the sample rate for each clip? The framework opens a HAL stream for a fixed sample rate, and it is not allowed to feed the stream with clips of non-matching sample rate.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 27
+      },
+      "revId": "47c72454a8969240f9b08772c3ca4a5ae53a37e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
