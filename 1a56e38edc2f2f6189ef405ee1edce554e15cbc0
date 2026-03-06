@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd0ae50_56dc539d",
+        "filename": "audio/aidl/default/stub/StreamOffloadStub.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-03-06T18:33:33Z",
+      "side": 0,
+      "message": "This logging must be retained so that we can detect problems.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 89
+      },
+      "revId": "1a56e38edc2f2f6189ef405ee1edce554e15cbc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
