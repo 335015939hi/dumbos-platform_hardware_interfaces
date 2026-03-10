@@ -3459,7 +3459,8 @@ static bool skipStreamIoTestForMixPortConfig(const AudioPortConfig& portConfig) 
                                      {AudioOutputFlags::VOIP_RX, AudioOutputFlags::INCALL_MUSIC}) ||
              (isBitPositionFlagSet(portConfig.flags.value().template get<AudioIoFlags::output>(),
                                    AudioOutputFlags::COMPRESS_OFFLOAD) &&
-              !getMediaFileInfoForConfig(portConfig))));
+              !getMediaFileInfoForConfig(portConfig)) ||
+             (portConfig.format.value().type != AudioFormatType::PCM)));
 }
 
 // Certain types of devices can not be used without special preconditions.
