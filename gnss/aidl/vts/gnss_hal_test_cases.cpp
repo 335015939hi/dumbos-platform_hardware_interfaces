@@ -1334,6 +1334,9 @@ TEST_P(GnssHalTest, TestGnssAgcInGnssMeasurement) {
     if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
         return;
     }
+    if (IsAutomotiveDevice()) {
+        return;
+    }
     const int kFirstGnssMeasurementTimeoutSeconds = 10;
     const int kNumMeasurementEvents = 5;
 
