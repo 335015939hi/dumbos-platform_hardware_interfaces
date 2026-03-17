@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a45a45db_16f92fce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1565948
+      },
+      "writtenOn": "2026-03-17T23:01:15Z",
+      "side": 1,
+      "message": "Not directly related, but I\u0027m not sure if these AOSP branches are still supported?\n\nMost work is done on internal main now (i.e. I can\u0027t even +2 on this branch). Did you do it here for any specific reason?",
+      "revId": "63b15b5d4bb8c4333057d66e1016c4f6096aabf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
