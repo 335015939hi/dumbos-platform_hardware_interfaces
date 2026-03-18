@@ -16,6 +16,24 @@
       "message": "Not directly related, but I\u0027m not sure if these AOSP branches are still supported?\n\nMost work is done on internal main now (i.e. I can\u0027t even +2 on this branch). Did you do it here for any specific reason?",
       "revId": "63b15b5d4bb8c4333057d66e1016c4f6096aabf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2176b210_785bb63f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3531687
+      },
+      "writtenOn": "2026-03-18T08:43:39Z",
+      "side": 1,
+      "message": "You are right. See the note in https://g3doc.corp.google.com/company/teams/android/teampages/android-open-source-team/aosp-first.md",
+      "parentUuid": "a45a45db_16f92fce",
+      "revId": "63b15b5d4bb8c4333057d66e1016c4f6096aabf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
