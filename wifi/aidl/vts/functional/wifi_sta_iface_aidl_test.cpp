@@ -97,6 +97,11 @@ class WifiStaIfaceAidlTest : public testing::TestWithParam<std::string> {
                testing::deviceSupportsFeature("android.hardware.type.television");
     }
 
+    // Detect Automotive devices.
+    bool isAutomotiveDevice() {
+        return testing::deviceSupportsFeature("android.hardware.type.automotive");
+    }
+
     // Detect Panel TV devices by using ro.oem.key1 property.
     // https://docs.partner.android.com/tv/build/platform/props-vars/ro-oem-key1
     bool isPanelTvDevice() {
@@ -184,6 +189,7 @@ TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
         }
         StaApfPacketFilterCapabilities apf_caps = {};
         EXPECT_TRUE(wifi_sta_iface_->getApfPacketFilterCapabilities(&apf_caps).isOk());
+<<<<<<< TARGET BRANCH (aca2a9500d7c46c3baf6621c0917191d0dcd161c Carve out automotive in TestGnssAgcInGnssMeasurement)
         return;
     }
 
@@ -196,6 +202,29 @@ TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
     if (vendor_api_level >= __ANDROID_API_V__) {
         // Based on VSR-15 the usable memory must be at least 2000 bytes.
         EXPECT_GE(apf_caps.maxLength, 2000);
+||||||| BASE          (1bce59e1dd9adfa9ba572400332eaef3bf0d8175 Merge changes from topic "cherrypicker-selfservice-L22000030)
+    } else {
+        EXPECT_TRUE(isFeatureSupported(IWifiStaIface::FeatureSetMask::APF));
+        StaApfPacketFilterCapabilities apf_caps = {};
+        EXPECT_TRUE(wifi_sta_iface_->getApfPacketFilterCapabilities(&apf_caps).isOk());
+        // The APF version must be 4 or higher and the usable memory must be at least
+        // 1024 bytes.
+        EXPECT_GE(apf_caps.version, 4);
+        EXPECT_GE(apf_caps.maxLength, 1024);
+=======
+    } else {
+        if (isAutomotiveDevice()) {
+            GTEST_SKIP() << "The practical benefit of APF packet filter capabilities on Automotive "
+                            "devices is mininal. It is not required to support APF.";
+        }
+        EXPECT_TRUE(isFeatureSupported(IWifiStaIface::FeatureSetMask::APF));
+        StaApfPacketFilterCapabilities apf_caps = {};
+        EXPECT_TRUE(wifi_sta_iface_->getApfPacketFilterCapabilities(&apf_caps).isOk());
+        // The APF version must be 4 or higher and the usable memory must be at least
+        // 1024 bytes.
+        EXPECT_GE(apf_caps.version, 4);
+        EXPECT_GE(apf_caps.maxLength, 1024);
+>>>>>>> SOURCE BRANCH (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
     }
 }
 
