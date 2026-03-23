@@ -16,6 +16,23 @@
       "message": "Adding Aaqib who is responsible for vehicle property",
       "revId": "656f5701fe8a51a034f5ff8b0186b102c47ff046",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa611d30_2e789136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1965084
+      },
+      "writtenOn": "2026-03-23T17:53:53Z",
+      "side": 1,
+      "message": "Hello,\n\nThank you for the patch. We\u0027ve already fixed this internally. I\u0027ll send the internal patch on the partner ticket. Thank you.",
+      "revId": "656f5701fe8a51a034f5ff8b0186b102c47ff046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
