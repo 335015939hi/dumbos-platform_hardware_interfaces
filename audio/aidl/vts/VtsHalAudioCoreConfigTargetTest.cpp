@@ -283,6 +283,10 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
      * Validate contained types.
      */
     void ValidateCapSpecificConfig(const AudioHalEngineConfig::CapSpecificConfig& capCfg) {
+        if (android::base::GetIntProperty(
+                "ro.vendor.api_level", __ANDROID_API_FUTURE__) <=__ANDROID_API_U__) {
+            GTEST_SKIP() << "Old vendor does not support AIDL CapSpecificConfig";
+        }
         EXPECT_FALSE(capCfg.criteria.empty());
         EXPECT_FALSE(capCfg.criterionTypes.empty());
         std::unordered_map<std::string, AudioHalCapCriterionType> criterionTypeMap;
@@ -334,7 +338,7 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
                       static_cast<int>(AudioProductStrategyType::SYS_RESERVED_NONE))
                     << "defaultProductStrategyId defined, but no productStrategies were provided";
         }
-        if (mEngineConfig->capSpecificConfig) {
+        if (mEngineConfig->capSpecificConfig.has_value()) {
             EXPECT_NO_FATAL_FAILURE(
                     ValidateCapSpecificConfig(mEngineConfig->capSpecificConfig.value()));
             EXPECT_FALSE(mEngineConfig->productStrategies.empty());
