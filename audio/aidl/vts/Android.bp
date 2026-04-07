@@ -38,6 +38,7 @@ cc_defaults {
         "-Werror",
         "-Wthread-safety",
         "-Wno-error=unused-parameter",
+<<<<<<< HEAD
     ],
     test_config_template: "VtsHalAudioTargetTestTemplate.xml",
     test_suites: [
@@ -45,6 +46,18 @@ cc_defaults {
         "vts",
     ],
     srcs: [
+=======
+        "-Werror",
+        "-Wthread-safety",
+        "-Wno-error=unused-parameter",
+    ] + select(release_flag("RELEASE_HARDWARE_AUDIO_USE_CAP_AIDL"), {
+        true: [],
+        default: ["-DDISABLE_CAP_AIDL"],
+    }),
+    test_suites: [
+        "general-tests",
+        "vts",
+>>>>>>> PATCH
         "TestUtils.cpp",
     ],
 }

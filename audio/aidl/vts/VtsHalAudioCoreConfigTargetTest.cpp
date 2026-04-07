@@ -334,11 +334,15 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
                       static_cast<int>(AudioProductStrategyType::SYS_RESERVED_NONE))
                     << "defaultProductStrategyId defined, but no productStrategies were provided";
         }
-        if (mEngineConfig->capSpecificConfig) {
+#ifndef DISABLE_CAP_AIDL
+        // Skip the configuration check if CAP AIDL is disabled (may run in hybrid mode
+        // where capSpecificConfig has a value to select the CapEngine library)
+        if (mEngineConfig->capSpecificConfig.has_value()) {
             EXPECT_NO_FATAL_FAILURE(
                     ValidateCapSpecificConfig(mEngineConfig->capSpecificConfig.value()));
             EXPECT_FALSE(mEngineConfig->productStrategies.empty());
         }
+#endif
     }
 
     void ValidateAudioFormatDescription(const AudioFormatDescription& format) {
