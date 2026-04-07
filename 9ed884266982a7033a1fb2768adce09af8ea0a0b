@@ -16,6 +16,23 @@
       "message": "Thank you for the contribution. The fix will be in next release.",
       "revId": "9ed884266982a7033a1fb2768adce09af8ea0a0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24d59878_fe6d4602",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2026-04-07T16:41:03Z",
+      "side": 1,
+      "message": "This was cherry-picked internally in ag/39148537 already. We don\u0027t submit changes in AOSP gerrit anymore, so this CL can now be abandoned.",
+      "revId": "9ed884266982a7033a1fb2768adce09af8ea0a0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
