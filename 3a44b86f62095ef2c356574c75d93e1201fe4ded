@@ -22,6 +22,57 @@
       },
       "revId": "3a44b86f62095ef2c356574c75d93e1201fe4ded",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07e71d40_49d80198",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-04-08T16:52:00Z",
+      "side": 1,
+      "message": "I\u0027m not sure `GTEST_SKIP` will work as intended from a helper function.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 81
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0e39ea5c_44537ebd",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+              "range": {
+                "startLine": 286,
+                "startChar": 0,
+                "endLine": 290,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+              "range": {
+                "startLine": 1,
+                "startChar": 0,
+                "endLine": 1,
+                "endChar": 0
+              },
+              "replacement": "            if (android::base::GetIntProperty(\n                    \"ro.vendor.api_level\", __ANDROID_API_FUTURE__) \u003c\u003d__ANDROID_API_U__) {\n                GTEST_SKIP() \u003c\u003c \"Old vendor does not support AIDL CapSpecificConfig validation\";\n            }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3a44b86f62095ef2c356574c75d93e1201fe4ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
