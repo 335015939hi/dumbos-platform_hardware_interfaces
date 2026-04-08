@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10f3345_4e4bb32d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2017803
+      },
+      "writtenOn": "2026-04-08T10:10:25Z",
+      "side": 1,
+      "message": "See the linked bug for more info regarding the test environment which sees occasional flakes without this.",
+      "revId": "067ad868aa8a0176439c3cec2ec93a509957485b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
