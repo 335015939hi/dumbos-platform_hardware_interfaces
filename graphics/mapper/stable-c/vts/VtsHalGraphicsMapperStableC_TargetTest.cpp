@@ -1869,7 +1869,7 @@ std::vector<std::tuple<std::string, std::shared_ptr<IAllocator>>> getIAllocators
     filteredInstances.reserve(instanceNames.size());
     for (const auto& name : instanceNames) {
         auto allocator =
-                IAllocator::fromBinder(ndk::SpAIBinder(AServiceManager_checkService(name.c_str())));
+                IAllocator::fromBinder(ndk::SpAIBinder(AServiceManager_waitForService(name.c_str())));
         int32_t version = 0;
         if (allocator->getInterfaceVersion(&version).isOk()) {
             if (version >= minVersion) {
