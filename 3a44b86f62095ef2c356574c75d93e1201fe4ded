@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac481d2_760adcfe",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-04-08T16:49:34Z",
+      "side": 1,
+      "message": "I would prefer to check the interface version of `IConfig` rather than API level for this check, since that\u0027s the approach that we normally use. API U corresponds to the version `1` of the Core HAL API.",
+      "range": {
+        "startLine": 287,
+        "startChar": 65,
+        "endLine": 287,
+        "endChar": 82
+      },
+      "revId": "3a44b86f62095ef2c356574c75d93e1201fe4ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
