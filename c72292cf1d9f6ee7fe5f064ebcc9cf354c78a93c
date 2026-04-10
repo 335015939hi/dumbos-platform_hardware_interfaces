@@ -22,6 +22,30 @@
       },
       "revId": "c72292cf1d9f6ee7fe5f064ebcc9cf354c78a93c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3df33ff_6e5f4394",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-04-10T00:02:31Z",
+      "side": 1,
+      "message": "Your original CL (aosp/4025698) has:\n\n```\nif (android::base::GetIntProperty(\n                \"ro.vendor.api_level\", __ANDROID_API_FUTURE__) \u003c\u003d__ANDROID_API_U__) {\n   SKIP\n```\n\nSo, `API level \u003c\u003d API_U \u003d\u003e skip test`. I have:\n`HAL version \u003e\u003d 2 \u003d\u003e do test`, or, inverting:\n`HAL version \u003c 2 \u003d\u003e skip test`, or:\n`HAL version \u003c\u003d 1 \u003d\u003e skip test`,\nand since `API_U` (A14) used HAL version 1:\n`API level \u003c\u003d API_U \u003d\u003e skip test`\nSame thing!\n\nWas your original condition correct then? I\u0027m fine with anything here but I just want to make sure that we will not have to revisit this.",
+      "parentUuid": "fa3689e9_cc98e445",
+      "range": {
+        "startLine": 339,
+        "startChar": 88,
+        "endLine": 339,
+        "endChar": 90
+      },
+      "revId": "c72292cf1d9f6ee7fe5f064ebcc9cf354c78a93c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
