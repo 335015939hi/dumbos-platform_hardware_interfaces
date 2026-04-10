@@ -46,6 +46,30 @@
       },
       "revId": "c72292cf1d9f6ee7fe5f064ebcc9cf354c78a93c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b09d9c1_d338d441",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2026-04-10T06:46:00Z",
+      "side": 1,
+      "message": "Sorry for the mess, I have double checked, on our AIVI A15, the getprop vendor.api_level is answering... 34, but build version release would answer 15...\n\nHowever, regarding HAL version, for sure QC is using V2",
+      "parentUuid": "f3df33ff_6e5f4394",
+      "range": {
+        "startLine": 339,
+        "startChar": 88,
+        "endLine": 339,
+        "endChar": 90
+      },
+      "revId": "c72292cf1d9f6ee7fe5f064ebcc9cf354c78a93c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
