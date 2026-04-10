@@ -70,6 +70,30 @@
       },
       "revId": "c72292cf1d9f6ee7fe5f064ebcc9cf354c78a93c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27c8ed4d_2261d608",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-04-10T18:31:24Z",
+      "side": 1,
+      "message": "OK. But in that case, we can just remove this part of tests altogether. This is because VTS 15 can only be run on A15 or lower (to check that for example A14 vendor is ready to receive A15 system update). A15 vendor HAL API implementation can only be \u003c\u003d V2 (it was released with A15). V3 can only appear on A16 vendor. So basically this A15 test will never encounter the condition `HAL version \u003e\u003d 3` to be true because no one will run this test on A16 or higher (the scenario of putting A15 system on A16 vendor is not allowed).",
+      "parentUuid": "3b09d9c1_d338d441",
+      "range": {
+        "startLine": 339,
+        "startChar": 88,
+        "endLine": 339,
+        "endChar": 90
+      },
+      "revId": "c72292cf1d9f6ee7fe5f064ebcc9cf354c78a93c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
