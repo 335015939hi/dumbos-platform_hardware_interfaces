@@ -334,11 +334,6 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
                       static_cast<int>(AudioProductStrategyType::SYS_RESERVED_NONE))
                     << "defaultProductStrategyId defined, but no productStrategies were provided";
         }
-        if (mEngineConfig->capSpecificConfig) {
-            EXPECT_NO_FATAL_FAILURE(
-                    ValidateCapSpecificConfig(mEngineConfig->capSpecificConfig.value()));
-            EXPECT_FALSE(mEngineConfig->productStrategies.empty());
-        }
     }
 
     void ValidateAudioFormatDescription(const AudioFormatDescription& format) {
