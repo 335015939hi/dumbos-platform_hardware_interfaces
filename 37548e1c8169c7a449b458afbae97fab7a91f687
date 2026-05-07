@@ -1,0 +1,131 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29534a8d_3a6304b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-05-07T20:59:00Z",
+      "side": 1,
+      "message": "Please change to: `Update calculateBufferSizeFramesForPcm`",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "528db99a_271666b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-05-07T20:59:00Z",
+      "side": 1,
+      "message": "add `although the original buffer size allows its use`.",
+      "range": {
+        "startLine": 10,
+        "startChar": 62,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16eb2ece_74722380",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-05-07T20:59:00Z",
+      "side": 1,
+      "message": "Please change to:\n\n```\nTest: atest CtsMediaAudioTestCases CtsVirtualDevicesAudioTestCases\nTest: atest VtsHalAudioCoreTargetTest\n```",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb0880b_6c8fafad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-05-07T20:59:00Z",
+      "side": 1,
+      "message": "Thank you! I will be submitting via internal main branch.",
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33234bef_7a00b61f",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-05-07T20:59:00Z",
+      "side": 1,
+      "message": "Also, I think it\u0027s OK to use `\u003c\u003d` here because if it\u0027s `1024` then it\u0027s also a power of `2`, the code below will choose the same value.",
+      "range": {
+        "startLine": 225,
+        "startChar": 49,
+        "endLine": 225,
+        "endChar": 50
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "478793af_61c3a1e9",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/include/core-impl/Module.h",
+              "range": {
+                "startLine": 225,
+                "startChar": 0,
+                "endLine": 226,
+                "endChar": 0
+              },
+              "replacement": "        if (sampleRateHz \u003c 44100 || multipleOf16 \u003c\u003d 1024) return multipleOf16;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
