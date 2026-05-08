@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a7e8035_548b996d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2041936
+      },
+      "writtenOn": "2026-05-08T01:53:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29534a8d_3a6304b0",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "528db99a_271666b6",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "986e4cab_320c2135",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2041936
+      },
+      "writtenOn": "2026-05-08T01:53:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "528db99a_271666b6",
+      "range": {
+        "startLine": 10,
+        "startChar": 62,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16eb2ece_74722380",
@@ -60,6 +108,30 @@
       "writtenOn": "2026-05-07T20:59:00Z",
       "side": 1,
       "message": "Please change to:\n\n```\nTest: atest CtsMediaAudioTestCases CtsVirtualDevicesAudioTestCases\nTest: atest VtsHalAudioCoreTargetTest\n```",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "650c0acd_b508cfdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 2041936
+      },
+      "writtenOn": "2026-05-08T01:53:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16eb2ece_74722380",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -124,6 +196,30 @@
           ]
         }
       ],
+      "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6016033_92cce9f2",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 2041936
+      },
+      "writtenOn": "2026-05-08T01:53:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33234bef_7a00b61f",
+      "range": {
+        "startLine": 225,
+        "startChar": 49,
+        "endLine": 225,
+        "endChar": 50
+      },
       "revId": "37548e1c8169c7a449b458afbae97fab7a91f687",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
