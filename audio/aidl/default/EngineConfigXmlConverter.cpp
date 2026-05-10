@@ -17,7 +17,6 @@
 #include <fcntl.h>
 #include <inttypes.h>
 #include <unistd.h>
-#include <functional>
 #include <unordered_map>
 
 #define LOG_TAG "AHAL_Config"
@@ -139,8 +138,7 @@ ConversionResult<AudioHalAttributesGroup> EngineConfigXmlConverter::convertAttri
         aidlAttributesGroup.attributes =
                 VALUE_OR_FATAL((convertCollectionToAidl<eng_xsd::AttributesType, AudioAttributes>(
                         xsdcAttributesGroup.getAttributes_optional(),
-                        std::bind(&EngineConfigXmlConverter::convertAudioAttributesToAidl, this,
-                                  std::placeholders::_1))));
+                        [this](const auto& item) { return convertAudioAttributesToAidl(item); })));
     } else if (xsdcAttributesGroup.hasContentType_optional() ||
                xsdcAttributesGroup.hasUsage_optional() ||
                xsdcAttributesGroup.hasSource_optional() ||
@@ -178,8 +176,7 @@ ConversionResult<AudioHalProductStrategy> EngineConfigXmlConverter::convertProdu
         aidlProductStrategy.attributesGroups = VALUE_OR_FATAL(
                 (convertCollectionToAidl<eng_xsd::AttributesGroup, AudioHalAttributesGroup>(
                         xsdcProductStrategy.getAttributesGroup(),
-                        std::bind(&EngineConfigXmlConverter::convertAttributesGroupToAidl, this,
-                                  std::placeholders::_1))));
+                        [this](const auto& item) { return convertAttributesGroupToAidl(item); })));
     }
     if ((mDefaultProductStrategyId != std::nullopt) && (mDefaultProductStrategyId.value() == -1)) {
         mDefaultProductStrategyId = aidlProductStrategy.id;
@@ -200,11 +197,11 @@ ConversionResult<AudioHalVolumeCurve> EngineConfigXmlConverter::convertVolumeCur
         aidlVolumeCurve.curvePoints = VALUE_OR_FATAL(
                 (convertCollectionToAidl<std::string, AudioHalVolumeCurve::CurvePoint>(
                         mVolumesReferenceMap.at(xsdcVolumeCurve.getRef()).getPoint(),
-                        &convertCurvePointToAidl)));
+                        [](const auto& item) { return convertCurvePointToAidl(item); })));
     } else {
         aidlVolumeCurve.curvePoints = VALUE_OR_FATAL(
                 (convertCollectionToAidl<std::string, AudioHalVolumeCurve::CurvePoint>(
-                        xsdcVolumeCurve.getPoint(), &convertCurvePointToAidl)));
+                        xsdcVolumeCurve.getPoint(), [](const auto& item) { return convertCurvePointToAidl(item); })));
     }
     return aidlVolumeCurve;
 }
@@ -218,8 +215,7 @@ ConversionResult<AudioHalVolumeGroup> EngineConfigXmlConverter::convertVolumeGro
     aidlVolumeGroup.volumeCurves =
             VALUE_OR_FATAL((convertCollectionToAidl<eng_xsd::Volume, AudioHalVolumeCurve>(
                     xsdcVolumeGroup.getVolume(),
-                    std::bind(&EngineConfigXmlConverter::convertVolumeCurveToAidl, this,
-                              std::placeholders::_1))));
+                    [this](const auto& item) { return convertVolumeCurveToAidl(item); })));
     return aidlVolumeGroup;
 }
 
@@ -236,8 +232,7 @@ void EngineConfigXmlConverter::init() {
                                                 AudioHalProductStrategy>(
                         getXsdcConfig()->getProductStrategies(),
                         &eng_xsd::ProductStrategies::getProductStrategy,
-                        std::bind(&EngineConfigXmlConverter::convertProductStrategyToAidl, this,
-                                  std::placeholders::_1))));
+                        [this](const auto& item) { return convertProductStrategyToAidl(item); })));
         if (mDefaultProductStrategyId) {
             mAidlEngineConfig.defaultProductStrategyId = mDefaultProductStrategyId.value();
         }
@@ -249,8 +244,7 @@ void EngineConfigXmlConverter::init() {
                                                 AudioHalVolumeGroup>(
                         getXsdcConfig()->getVolumeGroups(),
                         &eng_xsd::VolumeGroupsType::getVolumeGroup,
-                        std::bind(&EngineConfigXmlConverter::convertVolumeGroupToAidl, this,
-                                  std::placeholders::_1))));
+                        [this](const auto& item) { return convertVolumeGroupToAidl(item); })));
     }
     if (getXsdcConfig()->hasCriteria() && getXsdcConfig()->hasCriterion_types()) {
         AudioHalEngineConfig::CapSpecificConfig capSpecificConfig;
