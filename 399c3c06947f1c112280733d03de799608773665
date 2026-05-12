@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86e4101e_e5e83bab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-05-12T17:49:19Z",
+      "side": 1,
+      "message": "Please raise a Partner issue and specify its bug ID as `Bug: \u003cbug ID\u003e` here.",
+      "revId": "399c3c06947f1c112280733d03de799608773665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6182c48_573975ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-05-12T17:49:19Z",
+      "side": 1,
+      "message": "Please add `Test: atest VtsHalAudioCoreTargetTest`",
+      "revId": "399c3c06947f1c112280733d03de799608773665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94cc131b_85a6a3c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-05-12T17:49:19Z",
+      "side": 1,
+      "message": "@hieu.dotrung@lgepartner.com Thanks for bringing this up! The change looks OK but we need to follow the process for VTS fixes. Please file a partner bug about this issue.",
+      "revId": "399c3c06947f1c112280733d03de799608773665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
