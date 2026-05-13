@@ -816,6 +816,10 @@ enum VehicleProperty {
      * For backward compatibility, config array for this property must be a list of values
      * same as the supported values at boot-time.
      *
+     * Depending on the OEM implementation, this property may report
+     * {@code VehicleGear.GEAR_UNKNOWN} when {@link #IGNITION_STATE} is not
+     * {@code VehicleIgnitionState.ON} or {@code VehicleIgnitionState.START}.
+     *
      * @change_mode VehiclePropertyChangeMode.ON_CHANGE
      * @access VehiclePropertyAccess.READ
      * @data_enum VehicleGear
