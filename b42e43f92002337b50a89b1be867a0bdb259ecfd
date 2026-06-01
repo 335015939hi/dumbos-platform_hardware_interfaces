@@ -34,6 +34,24 @@
       "parentUuid": "e72140ff_6b772242",
       "revId": "b42e43f92002337b50a89b1be867a0bdb259ecfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e7d6f45_63af5095",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2026-06-01T16:03:45Z",
+      "side": 1,
+      "message": "Mikhail, our accounts do not allow \"Edit\" option as well for CLs in AOSP branches.",
+      "parentUuid": "c952e3a9_82c67ebc",
+      "revId": "b42e43f92002337b50a89b1be867a0bdb259ecfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
