@@ -70,6 +70,24 @@
       "parentUuid": "4e7d6f45_63af5095",
       "revId": "b42e43f92002337b50a89b1be867a0bdb259ecfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16652b27_c20292fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2026-06-01T16:43:05Z",
+      "side": 1,
+      "message": "OK, thanks for letting me know! I have resolved the conflict on aosp/4097093, I will abandon this one.",
+      "parentUuid": "0cf5785a_072e1dca",
+      "revId": "b42e43f92002337b50a89b1be867a0bdb259ecfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
