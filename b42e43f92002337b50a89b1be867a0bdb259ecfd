@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e72140ff_6b772242",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2026-06-01T12:11:30Z",
+      "side": 1,
+      "message": "Hi @mnaganov@google.com, \nI uploaded a cl (https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/4097093) using the cherrypicker tool but I am neither able to upload a new patchset from my cloudtop workspace nor publish edited changes using gerrit interface to resolve the merge conflicts. Hence, I have uploaded this new CL with the same Merged-In but different Change-Id.",
+      "revId": "b42e43f92002337b50a89b1be867a0bdb259ecfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
