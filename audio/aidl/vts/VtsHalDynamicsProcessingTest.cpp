@@ -849,7 +849,7 @@ std::vector<std::vector<std::pair<int, float>>> kBands{
         },  // too low cutoff freq
         {
                 {0, 1200},
-                {1, 80000},
+                {1, 22000},
         },  // too high cutoff freq
 };
 
@@ -1002,3 +1002,25 @@ int main(int argc, char** argv) {
     ABinderProcess_startThreadPool();
     return RUN_ALL_TESTS();
 }
+<<<<<<< HEAD
+=======
+    ASSERT_NO_FATAL_FAILURE(SetAndGetDynamicsProcessingParameters());
+}
+
+// Note: Band cutoff frequencies must be < kSamplingFrequency / 2 to be meaningful.
+std::vector<std::vector<std::pair<int, float>>> kBands{
+        {
+                {0, 600},
+                {1, 2000},
+                {2, 6000},
+                {3, 10000},
+                {4, 12000},
+                {5, 14000},
+                {6, 16000},
+                {7, 18000},
+                {8, 20000},
+                {9, 22000},
+        },  // 10 bands
+        {
+                {0, 800},
+>>>>>>> PATCH
