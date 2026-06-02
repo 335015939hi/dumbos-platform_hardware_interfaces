@@ -269,11 +269,19 @@ TEST_P(EffectFactoryTest, EffectInvalidAfterRestart) {
     destroyEffects(effects, EX_ILLEGAL_ARGUMENT);
 }
 
+bool isProcessingEqual(const Processing& a, const Processing& b) {
+    if (a.type != b.type) return false;
+    if (a.ids.size() != b.ids.size()) return false;
+    for (size_t i = 0; i < a.ids.size(); ++i) {
+        if (a.ids[i].common.id != b.ids[i].common.id) return false;
+    }
+    return true;
+}
+
 // expect no error with the queryProcessing interface, but don't check number of processing
 TEST_P(EffectFactoryTest, QueryProcess) {
     std::vector<Processing> processing;
     EXPECT_IS_OK(mEffectFactory->queryProcessing(std::nullopt, &processing));
-    std::set<Processing> processingSet(processing.begin(), processing.end());
 
     Processing::Type streamType =
             Processing::Type::make<Processing::Type::streamType>(AudioStreamType::SYSTEM);
@@ -288,12 +296,18 @@ TEST_P(EffectFactoryTest, QueryProcess) {
     EXPECT_TRUE(processing.size() >= processingFilteredByStream.size());
     EXPECT_TRUE(std::all_of(
             processingFilteredByStream.begin(), processingFilteredByStream.end(),
-            [&](const auto& proc) { return processingSet.find(proc) != processingSet.end(); }));
+            [&](const auto& proc) {
+                return std::any_of(processing.begin(), processing.end(),
+                                   [&](const auto& item) { return isProcessingEqual(proc, item); });
+            }));
 
     EXPECT_TRUE(processing.size() >= processingFilteredBySource.size());
     EXPECT_TRUE(std::all_of(
             processingFilteredBySource.begin(), processingFilteredBySource.end(),
-            [&](const auto& proc) { return processingSet.find(proc) != processingSet.end(); }));
+            [&](const auto& proc) {
+                return std::any_of(processing.begin(), processing.end(),
+                                   [&](const auto& item) { return isProcessingEqual(proc, item); });
+            }));
 }
 
 // Make sure all effect instances have same HAL version number as IFactory.
