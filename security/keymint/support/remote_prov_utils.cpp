@@ -774,7 +774,8 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& encodedCsr,
         const RpcHardwareInfo& rpcHardwareInfo, const std::string& instanceName,
         const std::vector<uint8_t>& challenge, bool isFactory, bool allowAnyMode = false,
-        bool allowDegenerate = true, bool requireUdsCerts = false) {
+        bool allowDegenerate = true, bool requireUdsCerts = false,
+        const std::vector<uint8_t>& udsTrustAnchor = {}) {
     if (rpcHardwareInfo.versionNumber != 3) {
         return "Remotely provisioned component version (" +
                std::to_string(rpcHardwareInfo.versionNumber) +
@@ -789,7 +790,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(
     allowAnyMode = maybeOverrideAllowAnyMode(allowAnyMode);
 
     auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, isFactory, allowAnyMode,
-                                      deviceSuffix(instanceName));
+                                      deviceSuffix(instanceName), udsTrustAnchor);
 
     if (!csr.ok()) {
         return csr.error().message();
@@ -848,9 +849,12 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
         const RpcHardwareInfo& rpcHardwareInfo, const std::string& instanceName,
-        const std::vector<uint8_t>& challenge, bool allowDegenerate, bool requireUdsCerts) {
-    return verifyCsr(keysToSign, csr, rpcHardwareInfo, instanceName, challenge, /*isFactory=*/true,
-                     /*allowAnyMode=*/false, allowDegenerate, requireUdsCerts);
+        const std::vector<uint8_t>& challenge, bool strict, bool allowDegenerate,
+        bool requireUdsCerts, const std::vector<uint8_t>& udsTrustAnchor) {
+    bool isFactory = !strict;
+    return verifyCsr(keysToSign, csr, rpcHardwareInfo, instanceName, challenge, isFactory,
+                     /*allowAnyMode=*/false, allowDegenerate, requireUdsCerts,
+                     udsTrustAnchor);
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(const cppbor::Array& keysToSign,
