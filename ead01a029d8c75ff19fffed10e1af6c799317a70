@@ -33,6 +33,23 @@
       "message": "?",
       "revId": "ead01a029d8c75ff19fffed10e1af6c799317a70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c0a4c0_eec45a5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4886258
+      },
+      "writtenOn": "2026-06-04T09:23:31Z",
+      "side": 1,
+      "message": "1917018: Add UsageSetting to IRadioNetwork | https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1917018",
+      "revId": "ead01a029d8c75ff19fffed10e1af6c799317a70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
