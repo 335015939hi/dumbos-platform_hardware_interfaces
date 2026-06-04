@@ -39,9 +39,15 @@ bool IsSelfSigned(const vector<Certificate>& chain) {
 class AttestKeyTest : public KeyMintAidlTestBase {
   public:
     void SetUp() override {
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         if (shouldSkipAttestKeyTest()) {
             GTEST_SKIP() << "Test using ATTEST_KEY is not applicable on waivered device";
         }
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+        skipAttestKeyTest();
+=======
+        skipAttestKeyTestIfNeeded();
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
         KeyMintAidlTestBase::SetUp();
     }
 };
@@ -253,11 +259,18 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
                                             .SetDefaultValidity(),
                                     {} /* attestation signing key */, &attest_key.keyBlob,
                                     &attest_key_characteristics, &attest_key_cert_chain);
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
     std::optional<bool> rkpOnly = isRkpOnly();
     if (!rkpOnly.has_value()) {
         GTEST_SKIP() << "Test not applicable because RKP-only status cannot be determined";
     }
     if (rkpOnly.value() && result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+    // Strongbox may not support factory provisioned attestation key.
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+=======
+    if (isRkpOnly() && result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
         GTEST_SKIP() << "RKP-only devices do not have a factory key";
     }
     ASSERT_EQ(ErrorCode::OK, result);
@@ -361,8 +374,16 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
                         .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
                         .SetDefaultValidity();
         // In RKP-only systems, the first key cannot be attested due to lack of batch key
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         bool confirmedNotRkpOnly = !isRkpOnly().value_or(true);
         if (confirmedNotRkpOnly || i > 0) {
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+                                        &attested_key_characteristics, &cert_chain_list[i]);
+        // Strongbox may not support factory provisioned attestation key.
+        if (SecLevel() == SecurityLevel::STRONGBOX) {
+=======
+        if (!isRkpOnly() || i > 0) {
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
             auth_set_builder.AttestationChallenge("foo");
         }
         auto result = GenerateAttestKey(auth_set_builder, attest_key_opt, &key_blob_list[i],
@@ -370,7 +391,12 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
         ASSERT_EQ(ErrorCode::OK, result);
         deleters.push_back(KeyBlobDeleter(keymint_, key_blob_list[i]));
 
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         if (confirmedNotRkpOnly || i > 0) {
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+=======
+        if (!isRkpOnly() || i > 0) {
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
             AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
             AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
             ASSERT_GT(cert_chain_list[i].size(), 0);
@@ -393,7 +419,13 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
         }
 
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_list[i]));
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         EXPECT_GT(cert_chain_list[i].size(), i + (confirmedNotRkpOnly ? 1 : 0));
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+        EXPECT_GT(cert_chain_list[i].size(), i + 1);
+=======
+        EXPECT_GT(cert_chain_list[i].size(), i + (isRkpOnly() ? 0 : 1));
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
         verify_subject_and_serial(cert_chain_list[i][0], serial_int, subject, false);
     }
 }
@@ -439,8 +471,16 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
                         .Authorization(TAG_NO_AUTH_REQUIRED)
                         .SetDefaultValidity();
         // In RKP-only systems, the first key cannot be attested due to lack of batch key
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         bool confirmedNotRkpOnly = !isRkpOnly().value_or(true);
         if (confirmedNotRkpOnly || i > 0) {
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+                                        &attested_key_characteristics, &cert_chain_list[i]);
+        // Strongbox may not support factory provisioned attestation key.
+        if (SecLevel() == SecurityLevel::STRONGBOX) {
+=======
+        if (!isRkpOnly() || i > 0) {
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
             auth_set_builder.AttestationChallenge("foo");
         }
         auto result = GenerateAttestKey(auth_set_builder, attest_key_opt, &key_blob_list[i],
@@ -448,7 +488,12 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
         ASSERT_EQ(ErrorCode::OK, result);
         deleters.push_back(KeyBlobDeleter(keymint_, key_blob_list[i]));
 
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         if (confirmedNotRkpOnly || i > 0) {
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+=======
+        if (!isRkpOnly() || i > 0) {
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
             AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
             AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
             ASSERT_GT(cert_chain_list[i].size(), 0);
@@ -467,7 +512,13 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
         }
 
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_list[i]));
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         EXPECT_GT(cert_chain_list[i].size(), i + (confirmedNotRkpOnly ? 1 : 0));
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+        EXPECT_GT(cert_chain_list[i].size(), i + 1);
+=======
+        EXPECT_GT(cert_chain_list[i].size(), i + (isRkpOnly() ? 0 : 1));
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
         verify_subject_and_serial(cert_chain_list[i][0], serial_int, subject, false);
     }
 }
@@ -538,8 +589,13 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
                         .Authorization(TAG_NO_AUTH_REQUIRED)
                         .SetDefaultValidity();
         // In RKP-only systems, the first key cannot be attested due to lack of batch key
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         bool confirmedNotRkpOnly = !isRkpOnly().value_or(true);
         if (confirmedNotRkpOnly || i > 0) {
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+=======
+        if (!isRkpOnly() || i > 0) {
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
             auth_set_builder.AttestationChallenge("foo");
         }
         if ((i & 0x1) == 1) {
@@ -552,7 +608,12 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
         ASSERT_EQ(ErrorCode::OK, result);
         deleters.push_back(KeyBlobDeleter(keymint_, key_blob_list[i]));
 
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         if (confirmedNotRkpOnly || i > 0) {
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+=======
+        if (!isRkpOnly() || i > 0) {
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
             AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
             AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
             ASSERT_GT(cert_chain_list[i].size(), 0);
@@ -575,7 +636,13 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
         }
 
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_list[i]));
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
         EXPECT_GT(cert_chain_list[i].size(), i + (confirmedNotRkpOnly ? 1 : 0));
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+        EXPECT_GT(cert_chain_list[i].size(), i + 1);
+=======
+        EXPECT_GT(cert_chain_list[i].size(), i + (isRkpOnly() ? 0 : 1));
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
         verify_subject_and_serial(cert_chain_list[i][0], serial_int, subject, false);
     }
 }

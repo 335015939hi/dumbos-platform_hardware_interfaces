@@ -271,6 +271,7 @@ bool KeyMintAidlTestBase::isSecondImeiIdAttestationRequired() {
     return AidlVersion() >= 3 && property_get_int32("ro.vendor.api_level", 0) > __ANDROID_API_T__;
 }
 
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
 std::optional<bool> KeyMintAidlTestBase::isRkpOnly() {
     // GSI replaces the values for remote_prov_prop properties (since they’re system_internal_prop
     // properties), so on GSI the properties are not reliable indicators of whether StrongBox/TEE is
@@ -282,6 +283,15 @@ std::optional<bool> KeyMintAidlTestBase::isRkpOnly() {
         return property_get_bool("remote_provisioning.strongbox.rkp_only", false);
     }
     return property_get_bool("remote_provisioning.tee.rkp_only", false);
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+=======
+bool KeyMintAidlTestBase::isRkpOnly() {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        return property_get_bool("remote_provisioning.strongbox.rkp_only", false);
+    }
+    return property_get_bool("remote_provisioning.tee.rkp_only", false) &&
+           check_feature(FEATURE_AUTOMOTIVE);
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
 }
 
 bool KeyMintAidlTestBase::Curve25519Supported() {
@@ -345,6 +355,7 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     vector<Certificate> attest_cert_chain;
     // If an attestation is requested, but the system is RKP-only, we need to supply an explicit
     // attestation key. Else the result is a key without an attestation.
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
     // - If the RKP-only value is undeterminable (i.e., when running on GSI), generate and use the
     //   `ATTEST_KEY` anyways.
     // - In the case that using an `ATTEST_KEY` is not supported
@@ -353,6 +364,11 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     //   attestation parameters are correctly ignored), don't try to use an `ATTEST_KEY`.
     if (isRkpOnly().value_or(true) && key_desc.Contains(TAG_ATTESTATION_CHALLENGE) &&
         !shouldSkipAttestKeyTest() && is_asymmetric(key_desc)) {
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+=======
+    if (isRkpOnly() && key_desc.Contains(TAG_ATTESTATION_CHALLENGE)) {
+        skipAttestKeyTestIfNeeded();
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
         AuthorizationSet attest_key_desc =
                 AuthorizationSetBuilder().EcdsaKey(EcCurve::P_256).AttestKey().SetDefaultValidity();
         attest_key.emplace();
@@ -1701,6 +1717,26 @@ bool KeyMintAidlTestBase::shouldSkipAttestKeyTest(void) const {
             is_attest_key_feature_disabled());
 }
 
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+// Skip a test that involves use of the ATTEST_KEY feature in specific configurations
+// where ATTEST_KEY is not supported (for either StrongBox or TEE).
+void KeyMintAidlTestBase::skipAttestKeyTest(void) const {
+    if (shouldSkipAttestKeyTest()) {
+        GTEST_SKIP() << "Test using ATTEST_KEY is not applicable on waivered device";
+    }
+}
+
+=======
+// Skip a test that involves use of the ATTEST_KEY feature in specific configurations
+// where ATTEST_KEY is not supported (for either StrongBox or TEE).
+void KeyMintAidlTestBase::skipAttestKeyTestIfNeeded() const {
+    if (shouldSkipAttestKeyTest()) {
+        GTEST_SKIP() << "Test using ATTEST_KEY is not applicable on waivered device";
+    }
+}
+
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
 void verify_serial(X509* cert, const uint64_t expected_serial) {
     BIGNUM_Ptr ser(BN_new());
     EXPECT_TRUE(ASN1_INTEGER_to_BN(X509_get_serialNumber(cert), ser.get()));

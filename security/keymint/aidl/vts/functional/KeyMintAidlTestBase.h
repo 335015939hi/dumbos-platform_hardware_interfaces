@@ -56,6 +56,7 @@ constexpr uint64_t kOpHandleSentinel = 0xFFFFFFFFFFFFFFFF;
 
 const string FEATURE_KEYSTORE_APP_ATTEST_KEY = "android.hardware.keystore.app_attest_key";
 const string FEATURE_STRONGBOX_KEYSTORE = "android.hardware.strongbox_keystore";
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
 const string FEATURE_HARDWARE_KEYSTORE = "android.hardware.hardware_keystore";
 
 // RAII class to ensure that a keyblob is deleted regardless of how a test exits.
@@ -69,6 +70,10 @@ class KeyBlobDeleter {
     shared_ptr<IKeyMintDevice> keymint_;
     vector<uint8_t> key_blob_;
 };
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+=======
+const string FEATURE_AUTOMOTIVE = "android.hardware.type.automotive";
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
 
 class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
   public:
@@ -104,9 +109,16 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t boot_patch_level();
     bool isDeviceIdAttestationRequired();
     bool isSecondImeiIdAttestationRequired();
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
     std::optional<bool> isRkpOnly();
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+=======
+    bool isRkpOnly();
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
 
     bool Curve25519Supported();
+
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc);
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc);
 
@@ -356,6 +368,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     bool is_strongbox_enabled(void) const;
     bool is_chipset_allowed_km4_strongbox(void) const;
     bool shouldSkipAttestKeyTest(void) const;
+<<<<<<< HEAD   (aa717b81d8ed67a847066355bb7a883fa44a2898 [VTS] VtsHalAudioPolicyV1_0TargetTest : Fix mismatched audio)
 
     void assert_mgf_digests_present_or_not_in_key_characteristics(
             const vector<KeyCharacteristics>& key_characteristics,
@@ -365,8 +378,13 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     void assert_mgf_digests_present_or_not_in_key_characteristics(
             std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests,
             bool is_mgf_digest_expected) const;
+||||||| BASE   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
+    void skipAttestKeyTest(void) const;
+=======
+    void skipAttestKeyTestIfNeeded() const;
+>>>>>>> BRANCH (e272212f032be9eac2fcb6fd7045dc438c4c5ad6 Allow RKP-only devices to pass keymint VTS)
 
-  protected:
+   protected:
     std::shared_ptr<IKeyMintDevice> keymint_;
     uint32_t os_version_;
     uint32_t os_patch_level_;
