@@ -849,7 +849,7 @@ std::vector<std::vector<std::pair<int, float>>> kBands{
         },  // too low cutoff freq
         {
                 {0, 1200},
-                {1, 80000},
+                {1, 22000},
         },  // too high cutoff freq
 };
 
