@@ -33,6 +33,23 @@
       "message": "Uwywywh",
       "revId": "e8f1a7fdc8f8f7db975d8cb27b718b60749a413b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16987c1c_438c91f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4904682
+      },
+      "writtenOn": "2026-06-16T18:08:01Z",
+      "side": 1,
+      "message": "1108822: Introduce IBootControl 1.1. | https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1108822",
+      "revId": "e8f1a7fdc8f8f7db975d8cb27b718b60749a413b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
