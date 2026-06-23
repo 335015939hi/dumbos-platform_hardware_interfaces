@@ -16,6 +16,24 @@
       "message": "Please also add `Merged-In: I734d701a2056ab84fe74179b083c3f6c5463447b` to avoid automerge issues.",
       "revId": "1ecf55398dd7aec77e4d69a95db64fd8e75407bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0228f017_35eddc89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1185377
+      },
+      "writtenOn": "2026-06-23T10:44:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac089194_5e733661",
+      "revId": "1ecf55398dd7aec77e4d69a95db64fd8e75407bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
