@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac089194_5e733661",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1583555
+      },
+      "writtenOn": "2026-06-23T10:22:34Z",
+      "side": 1,
+      "message": "Please also add `Merged-In: I734d701a2056ab84fe74179b083c3f6c5463447b` to avoid automerge issues.",
+      "revId": "1ecf55398dd7aec77e4d69a95db64fd8e75407bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
