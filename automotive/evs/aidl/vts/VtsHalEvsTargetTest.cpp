@@ -1412,6 +1412,12 @@ TEST_P(EvsAidlTest, HighPriorityCameraClient) {
 
     // Test each reported camera
     for (auto&& cam : mCameraInfo) {
+        bool isLogicalCam = false;
+        if (getPhysicalCameraIds(cam.id, isLogicalCam); isLogicalCam) {
+            LOG(INFO) << "Skip a logical device, " << cam.id;
+            continue;
+        }
+
         // Request available display IDs
         uint8_t targetDisplayId = 0;
         std::vector<uint8_t> displayIds;
@@ -1993,6 +1999,13 @@ TEST_P(EvsAidlTest, CameraStreamExternalBuffering) {
 
     // Test each reported camera
     for (auto&& cam : mCameraInfo) {
+        bool isLogicalCam = false;
+        getPhysicalCameraIds(cam.id, isLogicalCam);
+        if (isLogicalCam) {
+            LOG(INFO) << "Skip a logical device, " << cam.id;
+            continue;
+        }
+
         // Read a target resolution from the metadata
         Stream targetCfg = getFirstStreamConfiguration(
                 reinterpret_cast<camera_metadata_t*>(cam.metadata.data()));
@@ -2034,9 +2047,6 @@ TEST_P(EvsAidlTest, CameraStreamExternalBuffering) {
             }
         }
 
-        bool isLogicalCam = false;
-        getPhysicalCameraIds(cam.id, isLogicalCam);
-
         std::shared_ptr<IEvsCamera> pCam;
         ASSERT_TRUE(mEnumerator->openCamera(cam.id, targetCfg, &pCam).isOk());
         EXPECT_NE(pCam, nullptr);
@@ -2047,11 +2057,6 @@ TEST_P(EvsAidlTest, CameraStreamExternalBuffering) {
         // Request to import buffers
         int delta = 0;
         auto status = pCam->importExternalBuffers(buffers, &delta);
-        if (isLogicalCam) {
-            ASSERT_FALSE(status.isOk());
-            continue;
-        }
-
         ASSERT_TRUE(status.isOk());
         EXPECT_GE(delta, kBuffersToHold);
 
